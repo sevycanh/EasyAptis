@@ -1,0 +1,39 @@
+import 'package:EasyAptis/core/base/base_bloc_widget.dart';
+import 'package:EasyAptis/core/styles/app_colors.dart';
+import 'package:EasyAptis/features/home/presentation/bloc/home_bloc.dart';
+import 'package:EasyAptis/features/home/presentation/bloc/home_event.dart';
+import 'package:EasyAptis/features/home/presentation/bloc/home_state.dart';
+import 'package:EasyAptis/features/home/presentation/widgets/home_widgets.dart';
+import 'package:EasyAptis/injection_container.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+
+class HomePage extends BaseBlocWidget<HomeEvent, HomeState, HomeBloc> {
+  HomePage({super.key}) : super(sl<HomeBloc>());
+
+  @override
+  Widget buildWidget(BuildContext context, HomeBloc bloc, HomeState state) {
+    return Scaffold(
+      body: buildPage(state.currentTab),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.lightGray,
+              spreadRadius: 1, //kích thước của bóng trải rộng
+              blurRadius: 1, //độ mờ của bóng
+            ),
+          ],
+        ),
+        child: BottomNavigationBar(
+          backgroundColor: AppColors.white,
+          currentIndex: state.currentTab,
+          onTap: (index) => bloc.add(ChangeTabEvent(index)),
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          items: bottomTabs,
+        ),
+      ),
+    );
+  }
+}
