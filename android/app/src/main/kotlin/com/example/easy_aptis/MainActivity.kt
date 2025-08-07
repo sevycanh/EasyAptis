@@ -1,4 +1,4 @@
-package com.example.EasyAptis
+package com.example.easyaptis
 
 import io.flutter.embedding.android.FlutterActivity
 

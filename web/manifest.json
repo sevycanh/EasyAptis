@@ -1,6 +1,6 @@
 {
-    "name": "EasyAptis",
-    "short_name": "EasyAptis",
+    "name": "easyaptis",
+    "short_name": "easyaptis",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

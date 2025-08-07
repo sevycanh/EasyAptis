@@ -1,10 +1,10 @@
-import 'package:EasyAptis/core/base/base_bloc_widget.dart';
-import 'package:EasyAptis/core/styles/app_colors.dart';
-import 'package:EasyAptis/features/home/presentation/bloc/home_bloc.dart';
-import 'package:EasyAptis/features/home/presentation/bloc/home_event.dart';
-import 'package:EasyAptis/features/home/presentation/bloc/home_state.dart';
-import 'package:EasyAptis/features/home/presentation/widgets/home_widgets.dart';
-import 'package:EasyAptis/injection_container.dart';
+import 'package:easyaptis/core/base/base_bloc_widget.dart';
+import 'package:easyaptis/core/styles/app_colors.dart';
+import 'package:easyaptis/features/home/presentation/bloc/home_bloc.dart';
+import 'package:easyaptis/features/home/presentation/bloc/home_event.dart';
+import 'package:easyaptis/features/home/presentation/bloc/home_state.dart';
+import 'package:easyaptis/features/home/presentation/widgets/home_widgets.dart';
+import 'package:easyaptis/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 

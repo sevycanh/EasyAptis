@@ -1,8 +1,8 @@
-import 'package:EasyAptis/core/base/base_bloc.dart';
-import 'package:EasyAptis/core/utils/usecases/usecase.dart';
-import 'package:EasyAptis/features/welcome/domain/usecases/set_not_first_lauch.dart';
-import 'package:EasyAptis/features/welcome/presentation/bloc/welcome_event.dart';
-import 'package:EasyAptis/features/welcome/presentation/bloc/welcome_state.dart';
+import 'package:easyaptis/core/base/base_bloc.dart';
+import 'package:easyaptis/core/utils/usecases/usecase.dart';
+import 'package:easyaptis/features/welcome/domain/usecases/set_not_first_lauch.dart';
+import 'package:easyaptis/features/welcome/presentation/bloc/welcome_event.dart';
+import 'package:easyaptis/features/welcome/presentation/bloc/welcome_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WelcomeBloc extends BaseBloc<WelcomeEvent, WelcomeState> {

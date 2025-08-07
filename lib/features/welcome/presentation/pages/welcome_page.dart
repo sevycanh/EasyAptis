@@ -1,13 +1,13 @@
-import 'package:EasyAptis/core/base/base_bloc_widget.dart';
-import 'package:EasyAptis/core/configs/assets/app_image.dart';
-import 'package:EasyAptis/core/router/app_route_enum.dart';
-import 'package:EasyAptis/core/styles/app_colors.dart';
-import 'package:EasyAptis/core/styles/app_text_style.dart';
-import 'package:EasyAptis/core/widgets/app_button.dart';
-import 'package:EasyAptis/features/welcome/presentation/bloc/welcome_bloc.dart';
-import 'package:EasyAptis/features/welcome/presentation/bloc/welcome_event.dart';
-import 'package:EasyAptis/features/welcome/presentation/bloc/welcome_state.dart';
-import 'package:EasyAptis/injection_container.dart';
+import 'package:easyaptis/core/base/base_bloc_widget.dart';
+import 'package:easyaptis/core/configs/assets/app_image.dart';
+import 'package:easyaptis/core/router/app_route_enum.dart';
+import 'package:easyaptis/core/styles/app_colors.dart';
+import 'package:easyaptis/core/styles/app_text_style.dart';
+import 'package:easyaptis/core/widgets/app_button.dart';
+import 'package:easyaptis/features/welcome/presentation/bloc/welcome_bloc.dart';
+import 'package:easyaptis/features/welcome/presentation/bloc/welcome_event.dart';
+import 'package:easyaptis/features/welcome/presentation/bloc/welcome_state.dart';
+import 'package:easyaptis/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
@@ -70,20 +70,20 @@ class WelcomePage
               children: [
                 _page(
                   context,
-                  "Chào mừng bạn đến với EasyAptis",
+                  "Chào mừng bạn đến với easyaptis",
                   "Ứng dụng luyện thi Aptis General hoàn toàn miễn phí, hỗ trợ bạn chuẩn bị tốt nhất cho kỳ thi!",
                   AppImages.logoMain,
                 ),
                 _page(
                   context,
-                  "EasyAptis phù hợp với ai?",
+                  "easyaptis phù hợp với ai?",
                   "Ứng dụng phù hợp hơn cho các bạn muốn đạt mục tiêu B1, B2 trong thời gian ngắn. \n Đối với các bạn có mục tiêu C1 thì cần phải tự luyện tập nhiều hơn nhé.",
                   AppImages.welcome2,
                 ),
                 _page(
                   context,
                   "Điều cuối cùng!",
-                  "Để duy trì ứng dụng, một số quảng cáo sẽ được hiển thị nhưng sẽ không ảnh hưởng nhiều đến trải nghiệm của các bạn, rất mong các bạn thông cảm. \n Cuối cùng, nếu các bạn thấy EasyAptis hữu ích thì hãy dành ít thời gian đánh giá tốt cho mình nhé <3",
+                  "Để duy trì ứng dụng, một số quảng cáo sẽ được hiển thị nhưng sẽ không ảnh hưởng nhiều đến trải nghiệm của các bạn, rất mong các bạn thông cảm. \n Cuối cùng, nếu các bạn thấy easyaptis hữu ích thì hãy dành ít thời gian đánh giá tốt cho mình nhé <3",
                   AppImages.welcome3,
                 ),
               ],

@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:EasyAptis/core/error/failures.dart';
-import 'package:EasyAptis/core/utils/usecases/usecase.dart';
-import 'package:EasyAptis/features/welcome/domain/repositories/welcome_repository.dart';
+import 'package:easyaptis/core/error/failures.dart';
+import 'package:easyaptis/core/utils/usecases/usecase.dart';
+import 'package:easyaptis/features/welcome/domain/repositories/welcome_repository.dart';
 
 class SetNotFirstLaunch implements UseCase<void, NoParams> {
   final WelcomeRepository repository;

@@ -1,4 +1,4 @@
-import 'package:EasyAptis/core/base/base_bloc_state.dart';
+import 'package:easyaptis/core/base/base_bloc_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

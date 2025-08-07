@@ -1,4 +1,4 @@
-name: EasyAptis
+name: easyaptis
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -44,6 +44,8 @@ dependencies:
   smooth_page_indicator: ^1.2.1
   flutter_svg: ^2.2.0
   animated_text_kit: ^4.2.3
+  flutter_dotenv: ^5.2.1
+  firebase_core: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +73,8 @@ flutter:
   assets:
     - assets/images/
     - assets/vectors/
+    - .env.dev
+    - .env.prod
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

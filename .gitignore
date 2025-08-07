@@ -1,3 +1,7 @@
+.env.dev
+.env.prod
+.vscode
+
 # Miscellaneous
 *.class
 *.log

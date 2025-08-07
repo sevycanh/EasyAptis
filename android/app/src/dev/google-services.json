@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "428984885177",
+    "project_id": "easyaptis-dev",
+    "storage_bucket": "easyaptis-dev.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428984885177:android:6de1379146c7c69557a068",
+        "android_client_info": {
+          "package_name": "com.example.easyaptis.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIo1QOSfQ_XmMvBfC0O8jgO1F6xLHgtd8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

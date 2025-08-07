@@ -1,4 +1,4 @@
-# EasyAptis
+# easyaptis
 
 A new Flutter project.
 

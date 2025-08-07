@@ -1,6 +1,6 @@
-import 'package:EasyAptis/features/general_pages/presentation/pages/general_page.dart';
-import 'package:EasyAptis/features/home/presentation/pages/home_page.dart';
-import 'package:EasyAptis/features/welcome/presentation/pages/welcome_page.dart';
+import 'package:easyaptis/features/general_pages/presentation/pages/general_page.dart';
+import 'package:easyaptis/features/home/presentation/pages/home_page.dart';
+import 'package:easyaptis/features/welcome/presentation/pages/welcome_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

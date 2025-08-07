@@ -1,6 +1,6 @@
-import 'package:EasyAptis/core/base/base_bloc.dart';
-import 'package:EasyAptis/core/base/base_bloc_state.dart';
-import 'package:EasyAptis/core/utils/log/app_logger.dart';
+import 'package:easyaptis/core/base/base_bloc.dart';
+import 'package:easyaptis/core/base/base_bloc_state.dart';
+import 'package:easyaptis/core/utils/log/app_logger.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

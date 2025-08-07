@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:EasyAptis/core/error/failures.dart';
-import 'package:EasyAptis/core/utils/usecases/usecase.dart';
-import 'package:EasyAptis/features/splash/domain/repositories/splash_repository.dart';
+import 'package:easyaptis/core/error/failures.dart';
+import 'package:easyaptis/core/utils/usecases/usecase.dart';
+import 'package:easyaptis/features/splash/domain/repositories/splash_repository.dart';
 
 class CheckFirstLaunch implements UseCase<bool, NoParams> {
   final SplashRepository repository;

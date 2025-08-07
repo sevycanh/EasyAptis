@@ -1,5 +1,5 @@
-import 'package:EasyAptis/core/styles/app_colors.dart';
-import 'package:EasyAptis/core/styles/app_text_style.dart';
+import 'package:easyaptis/core/styles/app_colors.dart';
+import 'package:easyaptis/core/styles/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class AppButton extends StatelessWidget {

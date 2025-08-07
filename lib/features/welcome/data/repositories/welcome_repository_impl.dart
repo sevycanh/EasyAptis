@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:EasyAptis/core/error/exceptions.dart';
-import 'package:EasyAptis/core/error/failures.dart';
-import 'package:EasyAptis/features/welcome/data/sources/local/welcome_shared_prefs.dart';
-import 'package:EasyAptis/features/welcome/domain/repositories/welcome_repository.dart';
+import 'package:easyaptis/core/error/exceptions.dart';
+import 'package:easyaptis/core/error/failures.dart';
+import 'package:easyaptis/features/welcome/data/sources/local/welcome_shared_prefs.dart';
+import 'package:easyaptis/features/welcome/domain/repositories/welcome_repository.dart';
 
 class WelcomeRepositoryImpl implements WelcomeRepository {
   final WelcomeSharedPrefs preferences;

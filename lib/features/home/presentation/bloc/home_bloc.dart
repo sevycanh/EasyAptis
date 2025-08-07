@@ -1,6 +1,6 @@
-import 'package:EasyAptis/core/base/base_bloc.dart';
-import 'package:EasyAptis/features/home/presentation/bloc/home_event.dart';
-import 'package:EasyAptis/features/home/presentation/bloc/home_state.dart';
+import 'package:easyaptis/core/base/base_bloc.dart';
+import 'package:easyaptis/features/home/presentation/bloc/home_event.dart';
+import 'package:easyaptis/features/home/presentation/bloc/home_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeBloc extends BaseBloc<HomeEvent, HomeState> {

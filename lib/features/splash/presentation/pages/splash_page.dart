@@ -1,15 +1,15 @@
 import 'dart:io';
 
-import 'package:EasyAptis/core/base/base_bloc_widget.dart';
-import 'package:EasyAptis/core/configs/assets/app_image.dart';
-import 'package:EasyAptis/core/router/app_route_enum.dart';
-import 'package:EasyAptis/core/styles/app_colors.dart';
-import 'package:EasyAptis/core/styles/app_text_style.dart';
-import 'package:EasyAptis/core/widgets/app_button.dart';
-import 'package:EasyAptis/features/splash/presentation/bloc/splash_bloc.dart';
-import 'package:EasyAptis/features/splash/presentation/bloc/splash_event.dart';
-import 'package:EasyAptis/features/splash/presentation/bloc/splash_state.dart';
-import 'package:EasyAptis/injection_container.dart';
+import 'package:easyaptis/core/base/base_bloc_widget.dart';
+import 'package:easyaptis/core/configs/assets/app_image.dart';
+import 'package:easyaptis/core/router/app_route_enum.dart';
+import 'package:easyaptis/core/styles/app_colors.dart';
+import 'package:easyaptis/core/styles/app_text_style.dart';
+import 'package:easyaptis/core/widgets/app_button.dart';
+import 'package:easyaptis/features/splash/presentation/bloc/splash_bloc.dart';
+import 'package:easyaptis/features/splash/presentation/bloc/splash_event.dart';
+import 'package:easyaptis/features/splash/presentation/bloc/splash_state.dart';
+import 'package:easyaptis/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

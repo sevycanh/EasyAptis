@@ -1,7 +1,7 @@
-import 'package:EasyAptis/core/base/base_bloc.dart';
-import 'package:EasyAptis/core/network/network_info.dart';
-import 'package:EasyAptis/core/utils/usecases/usecase.dart';
-import 'package:EasyAptis/features/splash/domain/usecase/check_first_lauch.dart';
+import 'package:easyaptis/core/base/base_bloc.dart';
+import 'package:easyaptis/core/network/network_info.dart';
+import 'package:easyaptis/core/utils/usecases/usecase.dart';
+import 'package:easyaptis/features/splash/domain/usecase/check_first_lauch.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'splash_event.dart';
 import 'splash_state.dart'; // nơi bạn đặt BaseBloc

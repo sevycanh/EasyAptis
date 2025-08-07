@@ -1,5 +1,5 @@
-import 'package:EasyAptis/core/configs/assets/app_image.dart';
-import 'package:EasyAptis/features/general_pages/presentation/pages/general_page.dart';
+import 'package:easyaptis/core/configs/assets/app_image.dart';
+import 'package:easyaptis/features/general_pages/presentation/pages/general_page.dart';
 import 'package:flutter/material.dart';
 
 Widget buildPage(int index) {

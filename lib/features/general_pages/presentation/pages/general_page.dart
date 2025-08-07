@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:EasyAptis/core/configs/assets/app_image.dart';
-import 'package:EasyAptis/core/styles/app_colors.dart';
-import 'package:EasyAptis/core/styles/app_text_style.dart';
+import 'package:easyaptis/core/configs/assets/app_image.dart';
+import 'package:easyaptis/core/styles/app_colors.dart';
+import 'package:easyaptis/core/styles/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class GeneralPage extends StatelessWidget {
@@ -46,7 +46,7 @@ class GeneralPage extends StatelessWidget {
           repeatForever: true,
           animatedTexts: [
             TypewriterAnimatedText(
-              'EasyAptis xin chào!',
+              'easyaptis xin chào!',
               textStyle: AppTextStyle.xxxLargeBlackBold,
               speed: const Duration(milliseconds: 100),
             ),
