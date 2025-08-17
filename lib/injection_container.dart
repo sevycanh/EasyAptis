@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:easyaptis/core/network/network_info.dart';
+import 'package:easyaptis/features/general_pages/reading_pages/reading_injections.dart';
 import 'package:easyaptis/features/home/presentation/bloc/home_bloc.dart';
 import 'package:easyaptis/features/splash/data/repositories/splash_repository_impl.dart';
 import 'package:easyaptis/features/splash/data/sources/local/splash_shared_prefs.dart';
@@ -17,6 +19,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
+  // External
+  sl.registerLazySingleton(() => Connectivity());
+  final sharedPreferences = await SharedPreferences.getInstance();
+  sl.registerLazySingleton(() => sharedPreferences);
+  sl.registerLazySingleton(() => FirebaseFirestore.instance);
+
+  // Core
+  sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
+
+  // Modules
+  await initReadingInjections();
+
   //! Features - Splash
   // Bloc
   sl.registerFactory(
@@ -30,12 +44,6 @@ Future<void> init() async {
   sl.registerLazySingleton<SplashSharedPrefs>(
     () => SplashSharedPrefsImpl(sharedPreferences: sl()),
   );
-  // Core
-  sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
-  // External
-  sl.registerLazySingleton(() => Connectivity());
-  final sharedPreferences = await SharedPreferences.getInstance();
-  sl.registerLazySingleton(() => sharedPreferences);
 
   //! Features - Welcome
   // Bloc

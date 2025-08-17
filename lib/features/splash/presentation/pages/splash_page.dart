@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:easyaptis/core/base/base_bloc_widget.dart';
+import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
 import 'package:easyaptis/core/configs/assets/app_image.dart';
-import 'package:easyaptis/core/router/app_route_enum.dart';
-import 'package:easyaptis/core/styles/app_colors.dart';
-import 'package:easyaptis/core/styles/app_text_style.dart';
+import 'package:easyaptis/core/configs/router/app_route_enum.dart';
+import 'package:easyaptis/core/configs/styles/app_colors.dart';
+import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/widgets/app_button.dart';
 import 'package:easyaptis/features/splash/presentation/bloc/splash_bloc.dart';
 import 'package:easyaptis/features/splash/presentation/bloc/splash_event.dart';
@@ -63,7 +63,6 @@ class SplashPage extends BaseBlocWidget<SplashEvent, SplashState, SplashBloc> {
                           child: AppButton(
                             text: "Thoát",
                             color: AppColors.lightGray,
-                            shadowColor: AppColors.gray,
                             onPressed: () {
                               if (Platform.isAndroid) {
                                 SystemNavigator.pop();

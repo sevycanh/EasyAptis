@@ -1,8 +1,8 @@
-import 'package:easyaptis/core/base/base_bloc_widget.dart';
+import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
 import 'package:easyaptis/core/configs/assets/app_image.dart';
-import 'package:easyaptis/core/router/app_route_enum.dart';
-import 'package:easyaptis/core/styles/app_colors.dart';
-import 'package:easyaptis/core/styles/app_text_style.dart';
+import 'package:easyaptis/core/configs/router/app_route_enum.dart';
+import 'package:easyaptis/core/configs/styles/app_colors.dart';
+import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/widgets/app_button.dart';
 import 'package:easyaptis/features/welcome/presentation/bloc/welcome_bloc.dart';
 import 'package:easyaptis/features/welcome/presentation/bloc/welcome_event.dart';
@@ -70,13 +70,13 @@ class WelcomePage
               children: [
                 _page(
                   context,
-                  "Chào mừng bạn đến với easyaptis",
-                  "Ứng dụng luyện thi Aptis General hoàn toàn miễn phí, hỗ trợ bạn chuẩn bị tốt nhất cho kỳ thi!",
+                  "Chào mừng bạn đến với Easyaptis",
+                  "Ứng dụng luyện thi Aptis General hoàn toàn miễn phí, mọi lúc, mọi nơi, hỗ trợ bạn chuẩn bị tốt nhất cho kỳ thi!",
                   AppImages.logoMain,
                 ),
                 _page(
                   context,
-                  "easyaptis phù hợp với ai?",
+                  "Easyaptis phù hợp với ai?",
                   "Ứng dụng phù hợp hơn cho các bạn muốn đạt mục tiêu B1, B2 trong thời gian ngắn. \n Đối với các bạn có mục tiêu C1 thì cần phải tự luyện tập nhiều hơn nhé.",
                   AppImages.welcome2,
                 ),

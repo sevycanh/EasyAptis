@@ -1,5 +1,5 @@
-import 'package:easyaptis/core/router/router.dart';
-import 'package:easyaptis/core/styles/app_colors.dart';
+import 'package:easyaptis/core/configs/router/router.dart';
+import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/features/splash/presentation/pages/splash_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: AppColors.white,
           actionsIconTheme: IconThemeData(color: Colors.black),
           surfaceTintColor: AppColors.white,
+          centerTitle: true
         ),
       ),
       onGenerateRoute: AppRouter.generateRoute,

@@ -1,4 +1,4 @@
-import 'package:easyaptis/core/base/base_bloc.dart';
+import 'package:easyaptis/core/utils/base/base_bloc.dart';
 import 'package:easyaptis/core/utils/usecases/usecase.dart';
 import 'package:easyaptis/features/welcome/domain/usecases/set_not_first_lauch.dart';
 import 'package:easyaptis/features/welcome/presentation/bloc/welcome_event.dart';

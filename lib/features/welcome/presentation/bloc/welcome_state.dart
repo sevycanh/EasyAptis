@@ -1,4 +1,4 @@
-import 'package:easyaptis/core/base/base_bloc_state.dart';
+import 'package:easyaptis/core/utils/base/base_bloc_state.dart';
 
 class WelcomeState extends BaseBlocState<WelcomeState> {
   final int page;

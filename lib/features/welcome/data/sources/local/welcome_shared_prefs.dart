@@ -1,5 +1,5 @@
 import 'package:easyaptis/core/configs/constants/app_constant.dart';
-import 'package:easyaptis/core/error/exceptions.dart';
+import 'package:easyaptis/core/configs/error/exceptions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class WelcomeSharedPrefs {
@@ -18,7 +18,7 @@ class WelcomeSharedPrefsImpl implements WelcomeSharedPrefs {
         false,
       );
     } catch (e) {
-      throw CacheException();
+      throw CacheException(e.toString());
     }
   }
 }

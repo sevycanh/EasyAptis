@@ -1,5 +1,5 @@
-import 'package:easyaptis/core/base/base_bloc_widget.dart';
-import 'package:easyaptis/core/styles/app_colors.dart';
+import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
+import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/features/home/presentation/bloc/home_bloc.dart';
 import 'package:easyaptis/features/home/presentation/bloc/home_event.dart';
 import 'package:easyaptis/features/home/presentation/bloc/home_state.dart';

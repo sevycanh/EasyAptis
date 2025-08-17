@@ -5,5 +5,4 @@ class AppVectors {
 
   static const String home = '${basePath}home$format';
   static const String answer= '${basePath}answer$format';
-  static const String back= '${basePath}back$format';
 }

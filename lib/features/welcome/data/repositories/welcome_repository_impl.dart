@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:easyaptis/core/error/exceptions.dart';
-import 'package:easyaptis/core/error/failures.dart';
+import 'package:easyaptis/core/configs/error/exceptions.dart';
+import 'package:easyaptis/core/configs/error/failures.dart';
 import 'package:easyaptis/features/welcome/data/sources/local/welcome_shared_prefs.dart';
 import 'package:easyaptis/features/welcome/domain/repositories/welcome_repository.dart';
 
@@ -12,8 +12,8 @@ class WelcomeRepositoryImpl implements WelcomeRepository {
     try {
       await preferences.setNotFirstLaunch();
       return const Right(null);
-    } on CacheException {
-      return Left(CacheFailure());
+    } on CacheException catch (e) {
+      return Left(CacheFailure(e.toString()));
     }
   }
 }
