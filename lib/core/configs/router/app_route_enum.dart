@@ -11,7 +11,8 @@ enum AppRouteEnum {
   infoPage,
   readingP1Page,
   readingP2vs3Page,
-  readingP4Page
+  readingP4Page,
+  readingP5Page
 }
 
 extension AppRouteExtension on AppRouteEnum {
@@ -55,6 +56,9 @@ extension AppRouteExtension on AppRouteEnum {
 
       case AppRouteEnum.readingP4Page:
         return "/reading_p4_page";
+
+      case AppRouteEnum.readingP5Page:
+        return "/reading_p5_page";
     }
   }
 }

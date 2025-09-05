@@ -167,7 +167,7 @@ class ReadingP4Page
                                             : (isCorrect
                                                 ? Colors.green
                                                 : Colors.red),
-                                    width: 2,
+                                    width: 3,
                                   ),
                                   expandedBorder: Border.all(
                                     color: AppColors.gray,

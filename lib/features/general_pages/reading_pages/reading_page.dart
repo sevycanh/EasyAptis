@@ -32,32 +32,33 @@ class ReadingPage extends StatelessWidget {
                   letterSpacing: 1,
                 ),
                 onPressed: () {
-                  showR1QuestionOptionSheet(context, (selected) {
-                    if (selected == "all") {
-                      Navigator.pushNamed(
-                        context,
-                        AppRouteEnum.readingP1Page.name,
-                      );
-                    } else if (selected == "1") {
-                      Navigator.pushNamed(
-                        context,
-                        AppRouteEnum.readingP1Page.name,
-                        arguments: {"page": 1, "limit": 50},
-                      );
-                    } else if (selected == "2") {
-                      Navigator.pushNamed(
-                        context,
-                        AppRouteEnum.readingP1Page.name,
-                        arguments: {"page": 2, "limit": 50},
-                      );
-                    } else if (selected == "3") {
-                      Navigator.pushNamed(
-                        context,
-                        AppRouteEnum.readingP1Page.name,
-                        arguments: {"page": 3},
-                      );
-                    }
-                  });
+                  Navigator.pushNamed(context, AppRouteEnum.readingP1Page.name);
+                  // showR1QuestionOptionSheet(context, (selected) {
+                  //   if (selected == "all") {
+                  //     Navigator.pushNamed(
+                  //       context,
+                  //       AppRouteEnum.readingP1Page.name,
+                  //     );
+                  //   } else if (selected == "1") {
+                  //     Navigator.pushNamed(
+                  //       context,
+                  //       AppRouteEnum.readingP1Page.name,
+                  //       arguments: {"page": 1, "limit": 50},
+                  //     );
+                  //   } else if (selected == "2") {
+                  //     Navigator.pushNamed(
+                  //       context,
+                  //       AppRouteEnum.readingP1Page.name,
+                  //       arguments: {"page": 2, "limit": 50},
+                  //     );
+                  //   } else if (selected == "3") {
+                  //     Navigator.pushNamed(
+                  //       context,
+                  //       AppRouteEnum.readingP1Page.name,
+                  //       arguments: {"page": 3},
+                  //     );
+                  //   }
+                  // });
                 },
               ),
               const SizedBox(height: 16),
@@ -84,10 +85,7 @@ class ReadingPage extends StatelessWidget {
                   letterSpacing: 1,
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    AppRouteEnum.readingP4Page.name,
-                  );
+                  Navigator.pushNamed(context, AppRouteEnum.readingP4Page.name);
                 },
               ),
               const SizedBox(height: 16),
@@ -98,7 +96,9 @@ class ReadingPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRouteEnum.readingP5Page.name);
+                },
               ),
               const SizedBox(height: 16),
               AppButton(
@@ -119,74 +119,74 @@ class ReadingPage extends StatelessWidget {
   }
 }
 
-Future<void> showR1QuestionOptionSheet(
-  BuildContext context,
-  Function(String) onSelected,
-) async {
-  await showModalBottomSheet(
-    context: context,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-    ),
-    backgroundColor: AppColors.white,
-    builder: (ctx) {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              "Chọn số lượng câu hỏi",
-              style: AppTextStyle.xLargeBlackBold,
-            ),
-          ),
-          ListTile(
-            leading: const Icon(
-              Icons.all_inclusive,
-              color: AppColors.secondaryColor,
-            ),
-            title: const Text("Tất cả câu hỏi"),
-            onTap: () {
-              Navigator.pop(ctx);
-              onSelected("all");
-            },
-          ),
-          ListTile(
-            leading: const Icon(
-              Icons.filter_1,
-              color: AppColors.secondaryColor,
-            ),
-            title: const Text("Chia nhỏ 1 (50 câu)"),
-            onTap: () {
-              Navigator.pop(ctx);
-              onSelected("1");
-            },
-          ),
-          ListTile(
-            leading: const Icon(
-              Icons.filter_2,
-              color: AppColors.secondaryColor,
-            ),
-            title: const Text("Chia nhỏ 2 (50 câu)"),
-            onTap: () {
-              Navigator.pop(ctx);
-              onSelected("2");
-            },
-          ),
-          ListTile(
-            leading: const Icon(
-              Icons.filter_3,
-              color: AppColors.secondaryColor,
-            ),
-            title: const Text("Chia nhỏ 3 (còn lại)"),
-            onTap: () {
-              Navigator.pop(ctx);
-              onSelected("3");
-            },
-          ),
-          const SizedBox(height: 12),
-        ],
-      );
-    },
-  );
-}
+// Future<void> showR1QuestionOptionSheet(
+//   BuildContext context,
+//   Function(String) onSelected,
+// ) async {
+//   await showModalBottomSheet(
+//     context: context,
+//     shape: const RoundedRectangleBorder(
+//       borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+//     ),
+//     backgroundColor: AppColors.white,
+//     builder: (ctx) {
+//       return Column(
+//         mainAxisSize: MainAxisSize.min,
+//         children: [
+//           const Padding(
+//             padding: EdgeInsets.all(16.0),
+//             child: Text(
+//               "Chọn số lượng câu hỏi",
+//               style: AppTextStyle.xLargeBlackBold,
+//             ),
+//           ),
+//           ListTile(
+//             leading: const Icon(
+//               Icons.all_inclusive,
+//               color: AppColors.secondaryColor,
+//             ),
+//             title: const Text("Tất cả câu hỏi"),
+//             onTap: () {
+//               Navigator.pop(ctx);
+//               onSelected("all");
+//             },
+//           ),
+//           ListTile(
+//             leading: const Icon(
+//               Icons.filter_1,
+//               color: AppColors.secondaryColor,
+//             ),
+//             title: const Text("Chia nhỏ 1 (50 câu)"),
+//             onTap: () {
+//               Navigator.pop(ctx);
+//               onSelected("1");
+//             },
+//           ),
+//           ListTile(
+//             leading: const Icon(
+//               Icons.filter_2,
+//               color: AppColors.secondaryColor,
+//             ),
+//             title: const Text("Chia nhỏ 2 (50 câu)"),
+//             onTap: () {
+//               Navigator.pop(ctx);
+//               onSelected("2");
+//             },
+//           ),
+//           ListTile(
+//             leading: const Icon(
+//               Icons.filter_3,
+//               color: AppColors.secondaryColor,
+//             ),
+//             title: const Text("Chia nhỏ 3 (còn lại)"),
+//             onTap: () {
+//               Navigator.pop(ctx);
+//               onSelected("3");
+//             },
+//           ),
+//           const SizedBox(height: 12),
+//         ],
+//       );
+//     },
+//   );
+// }
