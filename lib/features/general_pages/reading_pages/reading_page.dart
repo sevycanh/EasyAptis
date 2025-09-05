@@ -83,7 +83,12 @@ class ReadingPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    AppRouteEnum.readingP4Page.name,
+                  );
+                },
               ),
               const SizedBox(height: 16),
               AppButton(

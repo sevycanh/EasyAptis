@@ -7,6 +7,11 @@ import 'package:easyaptis/features/general_pages/reading_pages/reading_p2vs3/dat
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p2vs3/domain/repositories/reading_p2vs3_repository.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p2vs3/domain/usecases/get_r23_questions.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p2vs3/presentation/bloc/reading_p2vs3_bloc.dart';
+import 'package:easyaptis/features/general_pages/reading_pages/reading_p4/data/datasources/reading_p4_remote_datasource.dart';
+import 'package:easyaptis/features/general_pages/reading_pages/reading_p4/data/repositories/reading_p2vs3_repository_impl.dart';
+import 'package:easyaptis/features/general_pages/reading_pages/reading_p4/domain/repositories/reading_p4_repository.dart';
+import 'package:easyaptis/features/general_pages/reading_pages/reading_p4/domain/usecases/get_r4_questions.dart';
+import 'package:easyaptis/features/general_pages/reading_pages/reading_p4/presentation/bloc/reading_p4_bloc.dart';
 import 'package:easyaptis/injection_container.dart';
 
 import 'reading_p1/presentation/bloc/reading_p1_bloc.dart';
@@ -38,5 +43,19 @@ initReadingInjections() {
   // DataSource
   sl.registerLazySingleton<ReadingP2vs3RemoteDataSource>(
     () => ReadingP2vs3RemoteDataSourceImpl(firestore: sl()),
+  );
+
+  //! Features - Reading Part 4
+  // Bloc
+  sl.registerFactory(() => ReadingP4Bloc(getQuestionReadingP4: sl()));
+  // UseCase
+  sl.registerLazySingleton(() => GetR4Questions(sl()));
+  // Repository
+  sl.registerLazySingleton<ReadingP4Repository>(
+    () => ReadingP4RepositoryImpl(remoteDataSource: sl()),
+  );
+  // DataSource
+  sl.registerLazySingleton<ReadingP4RemoteDataSource>(
+    () => ReadingP4RemoteDataSourceImpl(firestore: sl()),
   );
 }

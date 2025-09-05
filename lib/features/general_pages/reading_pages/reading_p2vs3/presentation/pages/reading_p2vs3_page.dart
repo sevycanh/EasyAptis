@@ -57,7 +57,7 @@ class ReadingP2vs3Page
                 children: [
                   SizedBox(height: 16),
                   Text(
-                    state.listQuestion[state.currentIndex].questionText,
+                    "Topic ${state.currentIndex + 1}: ${state.listQuestion[state.currentIndex].questionText}",
                     style: AppTextStyle.xLargeBlackBold,
                   ),
                   Expanded(
