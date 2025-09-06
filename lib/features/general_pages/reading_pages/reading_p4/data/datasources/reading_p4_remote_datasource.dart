@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easyaptis/core/configs/error/exceptions.dart';
+import 'package:easyaptis/core/error/exceptions.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p4/data/models/reading_p4_model.dart';
 
 abstract class ReadingP4RemoteDataSource {

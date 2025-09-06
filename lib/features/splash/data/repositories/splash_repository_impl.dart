@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:easyaptis/core/configs/error/exceptions.dart';
-import 'package:easyaptis/core/configs/error/failures.dart';
+import 'package:easyaptis/core/error/exceptions.dart';
+import 'package:easyaptis/core/error/failures.dart';
 import 'package:easyaptis/features/splash/data/sources/local/splash_shared_prefs.dart';
 import 'package:easyaptis/features/splash/domain/repositories/splash_repository.dart';
 

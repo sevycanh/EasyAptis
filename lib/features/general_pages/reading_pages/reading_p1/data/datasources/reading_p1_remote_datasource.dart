@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easyaptis/core/configs/error/exceptions.dart';
+import 'package:easyaptis/core/error/exceptions.dart';
 
 import '../models/reading_p1_model.dart';
 

@@ -6,13 +6,11 @@ class GetReadingP1Event extends ReadingP1Event {
   GetReadingP1Event({this.page, this.limit});
 }
 
-class SelectAnswerEvent extends ReadingP1Event {
+class AnswerSelected extends ReadingP1Event {
   final int questionIndex;
   final int optionIndex;
 
-  SelectAnswerEvent(this.questionIndex, this.optionIndex);
+  AnswerSelected(this.questionIndex, this.optionIndex);
 }
 
-class SubmitAnswersEvent extends ReadingP1Event {}
-
-class ResetAnswersEvent extends ReadingP1Event {}
+class CheckAnswersEvent extends ReadingP1Event {}

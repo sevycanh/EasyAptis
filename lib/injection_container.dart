@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:easyaptis/core/network/network_info.dart';
+import 'package:easyaptis/core/configs/network/network_info.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_injections.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_injections.dart';
 import 'package:easyaptis/features/home/presentation/bloc/home_bloc.dart';
 import 'package:easyaptis/features/splash/data/repositories/splash_repository_impl.dart';
@@ -30,6 +31,7 @@ Future<void> init() async {
 
   // Modules
   await initReadingInjections();
+  await initListeningInjections();
 
   //! Features - Splash
   // Bloc

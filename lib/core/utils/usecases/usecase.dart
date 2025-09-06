@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:easyaptis/core/configs/error/failures.dart';
+import 'package:easyaptis/core/error/failures.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class UseCase<Type, Params> {

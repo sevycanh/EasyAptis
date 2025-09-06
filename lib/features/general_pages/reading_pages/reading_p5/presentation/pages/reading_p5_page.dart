@@ -2,7 +2,7 @@ import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
-import 'package:easyaptis/core/widgets/app_button.dart';
+import 'package:easyaptis/core/utils/widgets/app_button.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p5/domain/entities/reading_p5_entity.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p5/presentation/bloc/reading_p5_bloc.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p5/presentation/bloc/reading_p5_event.dart';

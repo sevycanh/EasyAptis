@@ -5,7 +5,8 @@ class ReadingP1State extends BaseBlocState {
   final bool isLoading;
   final List<ReadingP1Entity> listQuestion;
   final String error;
-  final Map<int, int> selectedAnswers;
+  final Map<int, int> selectedAnswers; 
+  final Map<int, int?> correctAnswers; 
   final bool submitted;
   final int correctCount;
 
@@ -14,6 +15,7 @@ class ReadingP1State extends BaseBlocState {
     this.listQuestion = const [],
     this.error = '',
     this.selectedAnswers = const {},
+    this.correctAnswers = const {},
     this.submitted = false,
     this.correctCount = 0,
   });
@@ -24,6 +26,7 @@ class ReadingP1State extends BaseBlocState {
     List<ReadingP1Entity>? listQuestion,
     String? error,
     Map<int, int>? selectedAnswers,
+    Map<int, int?>? correctAnswers,
     bool? submitted,
     int? correctCount,
   }) {
@@ -32,6 +35,7 @@ class ReadingP1State extends BaseBlocState {
       listQuestion: listQuestion ?? this.listQuestion,
       error: error ?? this.error,
       selectedAnswers: selectedAnswers ?? this.selectedAnswers,
+      correctAnswers: correctAnswers ?? this.correctAnswers,
       submitted: submitted ?? this.submitted,
       correctCount: correctCount ?? this.correctCount,
     );
@@ -39,11 +43,12 @@ class ReadingP1State extends BaseBlocState {
 
   @override
   List<Object?> get props => [
-    isLoading,
-    listQuestion,
-    error,
-    selectedAnswers,
-    submitted,
-    correctCount
-  ];
+        isLoading,
+        listQuestion,
+        error,
+        selectedAnswers,
+        correctAnswers,
+        submitted,
+        correctCount,
+      ];
 }

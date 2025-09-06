@@ -1,7 +1,7 @@
-import 'package:easyaptis/core/configs/router/app_route_enum.dart';
+import 'package:easyaptis/core/router/app_route_enum.dart';
 import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
-import 'package:easyaptis/core/widgets/app_button.dart';
+import 'package:easyaptis/core/utils/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
 class ReadingPage extends StatelessWidget {

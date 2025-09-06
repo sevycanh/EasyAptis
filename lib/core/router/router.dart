@@ -1,4 +1,6 @@
 import 'package:easyaptis/features/general_pages/general_page.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p1/presentation/pages/listening_p1_page.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_page.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p1/presentation/pages/reading_p1_page.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p2vs3/presentation/pages/reading_p2vs3_page.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p4/presentation/pages/reading_p4_page.dart';
@@ -59,13 +61,25 @@ class AppRouter {
           builder:
               (_) => ReadingP4Page(page: args?['page'], limit: args?['limit']),
         );
-      
+
       case '/reading_p5_page':
         final args = settings.arguments as Map<String, dynamic>?;
         return CupertinoPageRoute(
           settings: RouteSettings(name: settings.name),
           builder:
               (_) => ReadingP5Page(page: args?['page'], limit: args?['limit']),
+        );
+
+      case '/listening_page':
+        return CupertinoPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) => ListeningPage(),
+        );
+
+      case '/listening_p1_page':
+        return CupertinoPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) => ListeningP1Page(),
         );
 
       // Ny Times Article Details page

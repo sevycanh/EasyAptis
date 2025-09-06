@@ -1,5 +1,5 @@
 import 'package:easyaptis/core/utils/base/base_bloc.dart';
-import 'package:easyaptis/core/network/network_info.dart';
+import 'package:easyaptis/core/configs/network/network_info.dart';
 import 'package:easyaptis/core/utils/usecases/usecase.dart';
 import 'package:easyaptis/features/splash/domain/usecase/check_first_lauch.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

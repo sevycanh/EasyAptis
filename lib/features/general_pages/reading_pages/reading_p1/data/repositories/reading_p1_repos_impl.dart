@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:easyaptis/core/configs/error/exceptions.dart';
-import 'package:easyaptis/core/configs/error/failures.dart';
+import 'package:easyaptis/core/error/exceptions.dart';
+import 'package:easyaptis/core/error/failures.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p1/data/datasources/reading_p1_remote_datasource.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p1/domain/entities/reading_p1.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p1/domain/repositories/reading_p1_repos.dart';

@@ -21,6 +21,12 @@ class AppTextStyle {
       color: AppColors.black,
       fontWeight: FontWeight.normal);
 
+  static const mediumBlackBold = TextStyle(
+    fontSize: AppFontSize.medium,
+    color: AppColors.black,
+    fontWeight: FontWeight.bold,
+  );
+
   static const largeBlack = TextStyle(
     fontSize: AppFontSize.large,
     color: AppColors.black,
