@@ -153,6 +153,7 @@ class ReadingP4Page
                                 items: items,
                                 initialItem: selectedLabel,
                                 excludeSelected: false,
+                                maxlines: 3,
                                 onChanged: (value) {
                                   final id = labelToId(value);
                                   bloc.add(AnswerSelected(q.id, id));

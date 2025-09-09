@@ -3,6 +3,11 @@ import 'package:easyaptis/features/general_pages/listening_page/listening_p1/dat
 import 'package:easyaptis/features/general_pages/listening_page/listening_p1/domain/repositories/listening_p1_repository.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p1/domain/usecases/get_l1_questions.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p1/presentation/bloc/listening_p1_bloc.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p2/data/datasources/listening_p2_remote_datasource.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p2/data/repositories/listening_p2_repository_impl.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p2/domain/repositories/listening_p2_repository.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p2/domain/usecases/get_l2_questions.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p2/presentation/bloc/listening_p2_bloc.dart';
 import 'package:easyaptis/injection_container.dart';
 
 initListeningInjections() {
@@ -18,5 +23,19 @@ initListeningInjections() {
   // DataSource
   sl.registerLazySingleton<ListeningP1RemoteDataSource>(
     () => ListeningP1RemoteDataSourceImpl(firestore: sl()),
+  );
+
+  //! Features - Listening Part 2
+  // Bloc
+  sl.registerFactory(() => ListeningP2Bloc(getQuestionListeningP2: sl()));
+  // UseCase
+  sl.registerLazySingleton(() => GetL2Questions(sl()));
+  // Repository
+  sl.registerLazySingleton<ListeningP2Repository>(
+    () => ListeningP2RepositoryImpl(remoteDataSource: sl()),
+  );
+  // DataSource
+  sl.registerLazySingleton<ListeningP2RemoteDataSource>(
+    () => ListeningP2RemoteDataSourceImpl(firestore: sl()),
   );
 }

@@ -37,17 +37,17 @@ class ListeningPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               AppButton(
-                text: "Part 2 & 3",
+                text: "Part 2",
                 color: AppColors.orange,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1,
                 ),
                 onPressed: () {
-                  // Navigator.pushNamed(
-                  //   context,
-                  //   AppRouteEnum.ListeningP2vs3Page.name,
-                  // );
+                  Navigator.pushNamed(
+                    context,
+                    AppRouteEnum.listeningP2Page.name,
+                  );
                 },
               ),
               const SizedBox(height: 16),

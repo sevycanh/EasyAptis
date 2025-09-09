@@ -156,6 +156,7 @@ class ReadingP5Page
                                 items: items,
                                 initialItem: selectedLabel,
                                 excludeSelected: false,
+                                maxlines: 3,
                                 onChanged: (value) {
                                   final id = labelToId(value);
                                   if (id != null && id != -1) {

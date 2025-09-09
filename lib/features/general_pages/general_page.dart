@@ -32,9 +32,15 @@ class GeneralPage extends StatelessWidget {
       "route": AppRouteEnum.writingPage.name,
     },
     {
-      "name": "Grammar & Vocabulary",
+      "name": "Grammar",
       "image": AppImages.grammarLogo,
       "color": AppColors.purple,
+      "route": AppRouteEnum.grammarAndVocabularyPage.name,
+    },
+    {
+      "name": "Vocabulary",
+      "image": AppImages.vocabularyLogo,
+      "color": AppColors.pink,
       "route": AppRouteEnum.grammarAndVocabularyPage.name,
     },
     {

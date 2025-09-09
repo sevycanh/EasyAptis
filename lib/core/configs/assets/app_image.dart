@@ -15,6 +15,7 @@ class AppImages {
   static const String speakingLogo = '${basePath}speaking_logo.png';
   static const String writingLogo = '${basePath}writing_logo.png';
   static const String grammarLogo = '${basePath}grammar_logo.png';
+  static const String vocabularyLogo = '${basePath}vocabulary_logo.png';
   static const String tipLogo = '${basePath}tip_logo.png';
   static const String infoLogo = '${basePath}info_logo.png';
 }
