@@ -3,18 +3,18 @@ import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
 import 'package:easyaptis/core/utils/widgets/app_button.dart';
-import 'package:easyaptis/features/general_pages/listening_page/listening_p2/domain/entities/listening_p2_entity.dart';
-import 'package:easyaptis/features/general_pages/listening_page/listening_p2/presentation/bloc/listening_p2_bloc.dart';
-import 'package:easyaptis/features/general_pages/listening_page/listening_p2/presentation/bloc/listening_p2_event.dart';
-import 'package:easyaptis/features/general_pages/listening_page/listening_p2/presentation/bloc/listening_p2_state.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p3/domain/entities/listening_p3_entity.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p3/presentation/bloc/listening_p3_bloc.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p3/presentation/bloc/listening_p3_event.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p3/presentation/bloc/listening_p3_state.dart';
 import 'package:easyaptis/injection_container.dart';
 import 'package:flutter/material.dart';
 
-class ListeningP2Page
+class ListeningP3Page
     extends
-        BaseBlocWidget<ListeningP2Event, ListeningP2State, ListeningP2Bloc> {
-  ListeningP2Page({super.key, this.page, this.limit})
-    : super(sl<ListeningP2Bloc>());
+        BaseBlocWidget<ListeningP3Event, ListeningP3State, ListeningP3Bloc> {
+  ListeningP3Page({super.key, this.page, this.limit})
+    : super(sl<ListeningP3Bloc>());
 
   final int? page;
   final int? limit;
@@ -26,13 +26,13 @@ class ListeningP2Page
   }
 
   @override
-  void onStateChanged(BuildContext context, ListeningP2State state) {}
+  void onStateChanged(BuildContext context, ListeningP3State state) {}
 
   @override
   Widget buildWidget(
     BuildContext context,
-    ListeningP2Bloc bloc,
-    ListeningP2State state,
+    ListeningP3Bloc bloc,
+    ListeningP3State state,
   ) {
     if (state.isLoading) {
       return const Center(child: CircularProgressIndicator());
@@ -45,7 +45,7 @@ class ListeningP2Page
     if (state.listQuestion.isEmpty) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text("Listening Part 2"),
+          title: const Text("Listening Part 3"),
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back_ios_new),
@@ -60,7 +60,7 @@ class ListeningP2Page
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Listening Part 2"),
+        title: const Text("Listening Part 3"),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),
@@ -107,16 +107,14 @@ class ListeningP2Page
                         ),
                       ],
                     ),
-                    for (final speaker in question.speakers) ...[
+                    for (final speaker in question.statements) ...[
                       const SizedBox(height: 16),
-                      _buildSpeakerDropdown(
+                      _buildStatementDropdown(
                         context,
                         bloc,
                         state,
                         questionIndex: state.currentIndex,
-                        speaker: speaker.speaker,
-                        options: question.options,
-                        correctOption: speaker.correctOption,
+                        statement: speaker,
                       ),
                     ],
                   ],
@@ -204,25 +202,19 @@ class ListeningP2Page
   }
 }
 
-Widget _buildSpeakerDropdown(
+Widget _buildStatementDropdown(
   BuildContext context,
-  ListeningP2Bloc bloc,
-  ListeningP2State state, {
+  ListeningP3Bloc bloc,
+  ListeningP3State state, {
   required int questionIndex,
-  required int speaker,
-  required List<ListeningP2OptionEntity> options,
-  required int correctOption,
+  required ListeningP3StatementEntity statement,
 }) {
-  final selected = state.selectedAnswers[questionIndex]?[speaker];
+  final selected = state.selectedAnswers[questionIndex]?[statement.id];
   final isChecked = state.checkedQuestions.contains(questionIndex);
-  final checkResult = state.checkedAnswers[questionIndex]?[speaker];
+  final checkResult = state.checkedAnswers[questionIndex]?[statement.id];
 
-  final items = options.map((opt) => opt.text).toList();
-
-  final String? selectedLabel =
-      selected == null
-          ? null
-          : options.firstWhere((o) => o.index == selected).text;
+  final items = ["B", "M", "W"];
+  final labels = {"B": "Both", "M": "Man", "W": "Woman"};
 
   Color borderColor = AppColors.gray;
   if (isChecked) {
@@ -235,39 +227,41 @@ Widget _buildSpeakerDropdown(
     }
   }
 
-  int? labelToId(String? label) {
-    if (label == null) return null;
-    return options
-        .firstWhere(
-          (o) => o.text == label,
-          orElse: () => ListeningP2OptionEntity(index: -1, text: ""),
-        )
-        .index;
-  }
-
-  return CustomDropdown<String>(
-    hintText: "Person $speaker - Chọn đáp án",
-    items: items,
-    initialItem: selectedLabel,
-    excludeSelected: false,
-    maxlines: 3,
-    onChanged: (value) {
-      final id = labelToId(value);
-      if (id != null && id != -1) {
-        bloc.add(AnswerSelected(questionIndex, speaker, id));
-      }
-    },
-    decoration: CustomDropdownDecoration(
-      closedFillColor: AppColors.white,
-      expandedFillColor: AppColors.white,
-      closedBorder: Border.all(color: borderColor, width: 3),
-      expandedBorder: Border.all(color: AppColors.gray, width: 2),
-      listItemDecoration: ListItemDecoration(
-        selectedColor: AppColors.lightGray,
+  return Row(
+    children: [
+      Expanded(
+        child: Text(
+          "15.${statement.id}. ${statement.text}",
+          style: AppTextStyle.largeBlack,
+        ),
       ),
-    ),
-    headerBuilder: (context, selectedItem, enabled) {
-      return Text("$speaker: $selectedItem", style: AppTextStyle.largeBlack);
-    },
+      const SizedBox(width: 4),
+      SizedBox(
+        width: MediaQuery.of(context).size.width * 0.31,
+        child: CustomDropdown<String>(
+          key: ValueKey("${questionIndex}_${statement.id}_${selected ?? ''}"),
+          hintText: "",
+          items: items.map((e) => labels[e]!).toList(),
+          initialItem: selected == null ? null : labels[selected],
+          excludeSelected: false,
+          onChanged: (value) {
+            final code =
+                labels.entries
+                    .firstWhere((entry) => entry.value == value)
+                    .key; // convert label -> code
+            bloc.add(AnswerSelected(questionIndex, statement.id, code));
+          },
+          decoration: CustomDropdownDecoration(
+            closedFillColor: AppColors.white,
+            expandedFillColor: AppColors.white,
+            closedBorder: Border.all(color: borderColor, width: 3),
+            expandedBorder: Border.all(color: AppColors.gray, width: 2),
+          ),
+          headerBuilder: (context, selectedItem, enabled) {
+            return Text(selectedItem, style: AppTextStyle.largeBlack);
+          },
+        ),
+      ),
+    ],
   );
 }

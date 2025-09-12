@@ -1,18 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easyaptis/core/error/exceptions.dart';
-import 'package:easyaptis/features/general_pages/listening_page/listening_p2/data/models/listening_p2_model.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p3/data/models/listening_p3_model.dart';
 
-abstract class ListeningP2RemoteDataSource {
-  Future<List<ListeningP2Model>> getL2Questions({int? page, int? limit});
+abstract class ListeningP3RemoteDataSource {
+  Future<List<ListeningP3Model>> getL3Questions({int? page, int? limit});
 }
 
-class ListeningP2RemoteDataSourceImpl implements ListeningP2RemoteDataSource {
+class ListeningP3RemoteDataSourceImpl implements ListeningP3RemoteDataSource {
   final FirebaseFirestore firestore;
 
-  ListeningP2RemoteDataSourceImpl({required this.firestore});
+  ListeningP3RemoteDataSourceImpl({required this.firestore});
 
   @override
-  Future<List<ListeningP2Model>> getL2Questions({
+  Future<List<ListeningP3Model>> getL3Questions({
     int? page,
     int? limit,
   }) async {
@@ -21,7 +21,7 @@ class ListeningP2RemoteDataSourceImpl implements ListeningP2RemoteDataSource {
           .collection('skills')
           .doc('listening')
           .collection('parts')
-          .doc('part_2')
+          .doc('part_3')
           .collection('questions');
 
       Query query = collection.orderBy('index');
@@ -38,7 +38,7 @@ class ListeningP2RemoteDataSourceImpl implements ListeningP2RemoteDataSource {
       return snapshot.docs
           .map(
             (doc) =>
-                ListeningP2Model.fromJson(doc.data() as Map<String, dynamic>),
+                ListeningP3Model.fromJson(doc.data() as Map<String, dynamic>),
           )
           .toList();
     } catch (e) {
