@@ -2,6 +2,7 @@ import 'package:easyaptis/features/general_pages/general_page.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p1/presentation/pages/listening_p1_page.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p2/presentation/pages/listening_p2_page.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p3/presentation/pages/listening_p3_page.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p4/presentation/pages/listening_p4_page.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_page.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p1/presentation/pages/reading_p1_page.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p2vs3/presentation/pages/reading_p2vs3_page.dart';
@@ -96,11 +97,11 @@ class AppRouter {
           builder: (_) => ListeningP3Page(),
         );
       
-      // case '/listening_p4_page':
-      //   return CupertinoPageRoute(
-      //     settings: RouteSettings(name: settings.name),
-      //     builder: (_) => ListeningP4Page(),
-      //   );
+      case '/listening_p4_page':
+        return CupertinoPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) => ListeningP4Page(),
+        );
 
       // Ny Times Article Details page
       // case '/article_details_page':

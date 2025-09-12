@@ -1,20 +1,18 @@
-import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
 import 'package:easyaptis/core/utils/widgets/app_button.dart';
-import 'package:easyaptis/features/general_pages/listening_page/listening_p3/domain/entities/listening_p3_entity.dart';
-import 'package:easyaptis/features/general_pages/listening_page/listening_p3/presentation/bloc/listening_p3_bloc.dart';
-import 'package:easyaptis/features/general_pages/listening_page/listening_p3/presentation/bloc/listening_p3_event.dart';
-import 'package:easyaptis/features/general_pages/listening_page/listening_p3/presentation/bloc/listening_p3_state.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p4/presentation/bloc/listening_p4_bloc.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p4/presentation/bloc/listening_p4_event.dart';
+import 'package:easyaptis/features/general_pages/listening_page/listening_p4/presentation/bloc/listening_p4_state.dart';
 import 'package:easyaptis/injection_container.dart';
 import 'package:flutter/material.dart';
 
-class ListeningP3Page
+class ListeningP4Page
     extends
-        BaseBlocWidget<ListeningP3Event, ListeningP3State, ListeningP3Bloc> {
-  ListeningP3Page({super.key, this.page, this.limit})
-    : super(sl<ListeningP3Bloc>());
+        BaseBlocWidget<ListeningP4Event, ListeningP4State, ListeningP4Bloc> {
+  ListeningP4Page({super.key, this.page, this.limit})
+    : super(sl<ListeningP4Bloc>());
 
   final int? page;
   final int? limit;
@@ -26,13 +24,13 @@ class ListeningP3Page
   }
 
   @override
-  void onStateChanged(BuildContext context, ListeningP3State state) {}
+  void onStateChanged(BuildContext context, ListeningP4State state) {}
 
   @override
   Widget buildWidget(
     BuildContext context,
-    ListeningP3Bloc bloc,
-    ListeningP3State state,
+    ListeningP4Bloc bloc,
+    ListeningP4State state,
   ) {
     if (state.isLoading) {
       return const Center(child: CircularProgressIndicator());
@@ -45,7 +43,7 @@ class ListeningP3Page
     if (state.listQuestion.isEmpty) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text("Listening Part 3"),
+          title: const Text("Listening Part 4"),
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back_ios_new),
@@ -55,12 +53,12 @@ class ListeningP3Page
       );
     }
 
-    final question = state.listQuestion[state.currentIndex];
+    final entity = state.listQuestion[state.currentIndex];
     final showTranscript = state.transcriptVisible.contains(state.currentIndex);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Listening Part 3"),
+        title: const Text("Listening Part 1"),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),
@@ -80,6 +78,7 @@ class ListeningP3Page
                   border: Border.all(color: AppColors.lightGray, width: 2),
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
@@ -94,29 +93,114 @@ class ListeningP3Page
                               size: 32,
                             ),
                             onPressed: () {
-                              bloc.add(ToggleAudio(question.audioUrl));
+                              bloc.add(ToggleAudio(entity.audioUrl));
                             },
                           ),
                         ),
                         const SizedBox(width: 16),
                         Expanded(
                           child: Text(
-                            "Topic ${state.currentIndex + 1}: ${question.topic}",
+                            "Topic ${state.currentIndex + 1}: ${entity.topic}",
                             style: AppTextStyle.xLargeBlackBold,
                           ),
                         ),
                       ],
                     ),
-                    for (final speaker in question.statements) ...[
-                      const SizedBox(height: 16),
-                      _buildStatementDropdown(
-                        context,
-                        bloc,
-                        state,
-                        questionIndex: state.currentIndex,
-                        statement: speaker,
+
+                    if (showTranscript) ...[
+                      const SizedBox(height: 12),
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(
+                            color: AppColors.lightGray,
+                            width: 2,
+                          ),
+                        ),
+                        child: Text(
+                          entity.transcript,
+                          style: AppTextStyle.largeBlack,
+                        ),
                       ),
                     ],
+
+                    const SizedBox(height: 16),
+
+                    // ✅ Hiển thị từng câu hỏi
+                    ...entity.questions.map((q) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "${q.id}. ${q.text}",
+                            style: AppTextStyle.largeBlackBold,
+                          ),
+                          ...List.generate(q.options.length, (i) {
+                            final option = q.options[i];
+
+                            final selectedIdx =
+                                state
+                                    .selectedAnswers["${state.currentIndex}-${q.id}"];
+                            final correctIdx =
+                                state
+                                    .correctAnswers["${state.currentIndex}-${q.id}"];
+
+                            Widget iconWidget = const SizedBox(
+                              width: 24,
+                              height: 24,
+                            );
+
+                            if (correctIdx != null) {
+                              if (i == correctIdx) {
+                                if (selectedIdx == null) {
+                                  iconWidget = const Icon(
+                                    Icons.check_circle,
+                                    color: AppColors.gray,
+                                  );
+                                } else if (selectedIdx == correctIdx) {
+                                  iconWidget = const Icon(
+                                    Icons.check_circle,
+                                    color: AppColors.green,
+                                  );
+                                } else {
+                                  iconWidget = const Icon(
+                                    Icons.check_circle,
+                                    color: AppColors.gray,
+                                  );
+                                }
+                              } else if (i == selectedIdx &&
+                                  selectedIdx != correctIdx) {
+                                iconWidget = const Icon(
+                                  Icons.cancel,
+                                  color: AppColors.red,
+                                );
+                              }
+                            }
+
+                            return RadioListTile<int>(
+                              value: i,
+                              groupValue: selectedIdx,
+                              onChanged: (val) {
+                                if (val != null) {
+                                  bloc.add(
+                                    AnswerSelected(
+                                      state.currentIndex,
+                                      q.id,
+                                      val,
+                                    ),
+                                  );
+                                }
+                              },
+                              title: Text(option.text),
+                              activeColor: AppColors.secondaryColor,
+                              secondary: iconWidget,
+                            );
+                          }),
+                          const SizedBox(height: 12),
+                        ],
+                      );
+                    }),
                   ],
                 ),
               ),
@@ -130,7 +214,7 @@ class ListeningP3Page
                 color: AppColors.linkColor,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,
-                  letterSpacing: 2,
+                  letterSpacing: 1,
                 ),
               ),
               if (showTranscript) ...[
@@ -142,7 +226,7 @@ class ListeningP3Page
                     border: Border.all(color: AppColors.lightGray, width: 2),
                   ),
                   child: Text(
-                    question.transcript,
+                    entity.transcript,
                     style: AppTextStyle.largeBlack,
                   ),
                 ),
@@ -200,68 +284,4 @@ class ListeningP3Page
       ),
     );
   }
-}
-
-Widget _buildStatementDropdown(
-  BuildContext context,
-  ListeningP3Bloc bloc,
-  ListeningP3State state, {
-  required int questionIndex,
-  required ListeningP3StatementEntity statement,
-}) {
-  final selected = state.selectedAnswers[questionIndex]?[statement.id];
-  final isChecked = state.checkedQuestions.contains(questionIndex);
-  final checkResult = state.checkedAnswers[questionIndex]?[statement.id];
-
-  final items = ["B", "M", "W"];
-  final labels = {"B": "Both", "M": "Man", "W": "Woman"};
-
-  Color borderColor = AppColors.gray;
-  if (isChecked) {
-    if (checkResult == null) {
-      borderColor = Colors.red;
-    } else if (checkResult == true) {
-      borderColor = Colors.green;
-    } else {
-      borderColor = Colors.red;
-    }
-  }
-
-  return Row(
-    children: [
-      Expanded(
-        child: Text(
-          "${statement.id}. ${statement.text}",
-          style: AppTextStyle.largeBlack,
-        ),
-      ),
-      const SizedBox(width: 4),
-      SizedBox(
-        width: MediaQuery.of(context).size.width * 0.31,
-        child: CustomDropdown<String>(
-          key: ValueKey("${questionIndex}_${statement.id}_${selected ?? ''}"),
-          hintText: "",
-          items: items.map((e) => labels[e]!).toList(),
-          initialItem: selected == null ? null : labels[selected],
-          excludeSelected: false,
-          onChanged: (value) {
-            final code =
-                labels.entries
-                    .firstWhere((entry) => entry.value == value)
-                    .key; // convert label -> code
-            bloc.add(AnswerSelected(questionIndex, statement.id, code));
-          },
-          decoration: CustomDropdownDecoration(
-            closedFillColor: AppColors.white,
-            expandedFillColor: AppColors.white,
-            closedBorder: Border.all(color: borderColor, width: 3),
-            expandedBorder: Border.all(color: AppColors.gray, width: 2),
-          ),
-          headerBuilder: (context, selectedItem, enabled) {
-            return Text(selectedItem, style: AppTextStyle.largeBlack);
-          },
-        ),
-      ),
-    ],
-  );
 }
