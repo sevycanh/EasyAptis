@@ -9,6 +9,9 @@ import 'package:easyaptis/features/general_pages/reading_pages/reading_p2vs3/pre
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p4/presentation/pages/reading_p4_page.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p5/presentation/pages/reading_p5_page.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_page.dart';
+import 'package:easyaptis/features/general_pages/writing_page/club_details/presentation/pages/wclubs_detail_page.dart';
+import 'package:easyaptis/features/general_pages/writing_page/clubs/presentation/pages/wclubs_page.dart';
+import 'package:easyaptis/features/general_pages/writing_page/writting_page.dart';
 import 'package:easyaptis/features/home/presentation/pages/home_page.dart';
 import 'package:easyaptis/features/welcome/presentation/pages/welcome_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -96,11 +99,34 @@ class AppRouter {
           settings: RouteSettings(name: settings.name),
           builder: (_) => ListeningP3Page(),
         );
-      
+
       case '/listening_p4_page':
         return CupertinoPageRoute(
           settings: RouteSettings(name: settings.name),
           builder: (_) => ListeningP4Page(),
+        );
+
+      case '/writing_page':
+        return CupertinoPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) => WritingPage(),
+        );
+
+      case '/writing_clubs_page':
+        return CupertinoPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) => WClubsPage(),
+        );
+
+      case '/writing_club_details_page':
+        return CupertinoPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) {
+            final args = settings.getArgs(requiredKeys: ['clubId']);
+            return WClubsDetailPage(
+              clubId: args['clubId'],
+            );
+          },
         );
 
       // Ny Times Article Details page
@@ -151,5 +177,24 @@ class AppRouter {
               ),
         );
     }
+  }
+}
+
+extension RouteSettingsX on RouteSettings {
+  Map<String, dynamic> getArgs({List<String>? requiredKeys}) {
+    final args = arguments as Map<String, dynamic>?;
+
+    assert(args != null, 'Arguments must not be null');
+
+    if (requiredKeys != null) {
+      for (final key in requiredKeys) {
+        assert(
+          args!.containsKey(key) && args[key] != null,
+          'Arguments must contain key: $key',
+        );
+      }
+    }
+
+    return args!;
   }
 }

@@ -1,0 +1,206 @@
+[
+    {
+        "id": 1,
+        "name": "Technology in Education",
+        "description": "Discuss impacts of technology on modern learning",
+        "parts": {
+            "1": {
+                "questions": [
+                    {
+                        "id": 1,
+                        "text": "What is your favorite technology tool for study?"
+                    },
+                    {
+                        "id": 2,
+                        "text": "How often do you use online learning platforms?"
+                    },
+                    {
+                        "id": 3,
+                        "text": "What are some challenges of online learning?"
+                    },
+                    {
+                        "id": 4,
+                        "text": "What are some benefits of online learning?"
+                    },
+                    {
+                        "id": 5,
+                        "text": "What are some drawbacks of online learning?"
+                    }
+                ]
+            },
+            "2": {
+                "questions": [
+                    {
+                        "id": 1,
+                        "text": "Discuss the advantages and disadvantages of online learning."
+                    }
+                ]
+            },
+            "3": {
+                "questions": [
+                    {
+                        "id": 1,
+                        "text": "Do you agree technology improves education quality? Why?"
+                    },
+                    {
+                        "id": 2,
+                        "text": "Do you agree technology improves learning outcomes? Why?"
+                    },
+                    {
+                        "id": 3,
+                        "text": "Do you agree technology improves learning experience? Why?"
+                    }
+                ]
+            },
+            "4": {
+                "announcement": "Your school will organize a seminar about AI in education.",
+                "questions": [
+                    {
+                        "id": 1,
+                        "text": "What would you say to invite students?"
+                    },
+                    {
+                        "id": 2,
+                        "text": "What benefits will students get from joining?"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "id": 2,
+        "name": "Technology in Education 2",
+        "description": "Discuss impacts of technology on modern learning",
+        "parts": {
+            "1": {
+                "questions": [
+                    {
+                        "id": 1,
+                        "text": "What is your favorite technology tool for study? 2"
+                    },
+                    {
+                        "id": 2,
+                        "text": "How often do you use online learning platforms?"
+                    },
+                    {
+                        "id": 3,
+                        "text": "What are some challenges of online learning?"
+                    },
+                    {
+                        "id": 4,
+                        "text": "What are some benefits of online learning?"
+                    },
+                    {
+                        "id": 5,
+                        "text": "What are some drawbacks of online learning?"
+                    }
+                ]
+            },
+            "2": {
+                "questions": [
+                    {
+                        "id": 1,
+                        "text": "Discuss the advantages and disadvantages of online learning."
+                    }
+                ]
+            },
+            "3": {
+                "questions": [
+                    {
+                        "id": 1,
+                        "text": "Do you agree technology improves education quality? Why?"
+                    },
+                    {
+                        "id": 2,
+                        "text": "Do you agree technology improves learning outcomes? Why?"
+                    },
+                    {
+                        "id": 3,
+                        "text": "Do you agree technology improves learning experience? Why?"
+                    }
+                ]
+            },
+            "4": {
+                "announcement": "Your school will organize a seminar about AI in education.",
+                "questions": [
+                    {
+                        "id": 1,
+                        "text": "What would you say to invite students?"
+                    },
+                    {
+                        "id": 2,
+                        "text": "What benefits will students get from joining?"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "id": 3,
+        "name": "Technology in Education 3",
+        "description": "Discuss impacts of technology on modern learning",
+        "parts": {
+            "1": {
+                "questions": [
+                    {
+                        "id": 1,
+                        "text": "What is your favorite technology tool for study? 3"
+                    },
+                    {
+                        "id": 2,
+                        "text": "How often do you use online learning platforms?"
+                    },
+                    {
+                        "id": 3,
+                        "text": "What are some challenges of online learning?"
+                    },
+                    {
+                        "id": 4,
+                        "text": "What are some benefits of online learning?"
+                    },
+                    {
+                        "id": 5,
+                        "text": "What are some drawbacks of online learning?"
+                    }
+                ]
+            },
+            "2": {
+                "questions": [
+                    {
+                        "id": 1,
+                        "text": "Discuss the advantages and disadvantages of online learning."
+                    }
+                ]
+            },
+            "3": {
+                "questions": [
+                    {
+                        "id": 1,
+                        "text": "Do you agree technology improves education quality? Why?"
+                    },
+                    {
+                        "id": 2,
+                        "text": "Do you agree technology improves learning outcomes? Why?"
+                    },
+                    {
+                        "id": 3,
+                        "text": "Do you agree technology improves learning experience? Why?"
+                    }
+                ]
+            },
+            "4": {
+                "announcement": "Your school will organize a seminar about AI in education.",
+                "questions": [
+                    {
+                        "id": 1,
+                        "text": "What would you say to invite students?"
+                    },
+                    {
+                        "id": 2,
+                        "text": "What benefits will students get from joining?"
+                    }
+                ]
+            }
+        }
+    }
+]

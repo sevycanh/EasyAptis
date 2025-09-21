@@ -38,25 +38,14 @@ class ListeningP2Page
       return const Center(child: CircularProgressIndicator());
     }
 
+    Widget body;
     if (state.error.isNotEmpty) {
-      return Center(child: Text(state.error));
+      body = Center(child: Text("Có lỗi xảy ra!"));
+    } else if (state.listQuestion.isEmpty) {
+      body = const Center(child: Text("Chưa có dữ liệu"));
+    } else {
+      body = _buildBody(context, bloc, state);
     }
-
-    if (state.listQuestion.isEmpty) {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text("Listening Part 2"),
-          leading: IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.arrow_back_ios_new),
-          ),
-        ),
-        body: const Center(child: Text("Chưa có dữ liệu")),
-      );
-    }
-
-    final question = state.listQuestion[state.currentIndex];
-    final showTranscript = state.transcriptVisible.contains(state.currentIndex);
 
     return Scaffold(
       appBar: AppBar(
@@ -66,93 +55,7 @@ class ListeningP2Page
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
       ),
-      body: Scrollbar(
-        thumbVisibility: true,
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: AppColors.lightGray, width: 2),
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: AppColors.lightGray,
-                            shape: BoxShape.circle,
-                          ),
-                          child: IconButton(
-                            icon: Icon(
-                              state.isPlaying ? Icons.stop : Icons.play_arrow,
-                              size: 32,
-                            ),
-                            onPressed: () {
-                              bloc.add(ToggleAudio(question.audioUrl));
-                            },
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Text(
-                            "Topic ${state.currentIndex + 1}: ${question.topic}",
-                            style: AppTextStyle.xLargeBlackBold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    for (final speaker in question.speakers) ...[
-                      const SizedBox(height: 16),
-                      _buildSpeakerDropdown(
-                        context,
-                        bloc,
-                        state,
-                        questionIndex: state.currentIndex,
-                        speaker: speaker.speaker,
-                        options: question.options,
-                        correctOption: speaker.correctOption,
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-              const SizedBox(height: 16),
-              AppButton(
-                fixWidth: true,
-                onPressed: () {
-                  bloc.add(ToggleTranscript(state.currentIndex));
-                },
-                text: showTranscript ? "Close Transcript" : "Show Transcript",
-                color: AppColors.linkColor,
-                textStyle: AppTextStyle.largeWhite.copyWith(
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2,
-                ),
-              ),
-              if (showTranscript) ...[
-                const SizedBox(height: 12),
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: AppColors.lightGray, width: 2),
-                  ),
-                  child: Text(
-                    question.transcript,
-                    style: AppTextStyle.largeBlack,
-                  ),
-                ),
-              ],
-            ],
-          ),
-        ),
-      ),
+      body: body,
       bottomNavigationBar: SafeArea(
         child: Container(
           padding: const EdgeInsets.all(16),
@@ -202,6 +105,100 @@ class ListeningP2Page
       ),
     );
   }
+}
+
+Widget _buildBody(
+  BuildContext context,
+  ListeningP2Bloc bloc,
+  ListeningP2State state,
+) {
+  final question = state.listQuestion[state.currentIndex];
+  final showTranscript = state.transcriptVisible.contains(state.currentIndex);
+
+  return Scrollbar(
+    thumbVisibility: true,
+    child: SingleChildScrollView(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: AppColors.lightGray, width: 2),
+            ),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.lightGray,
+                        shape: BoxShape.circle,
+                      ),
+                      child: IconButton(
+                        icon: Icon(
+                          state.isPlaying ? Icons.stop : Icons.play_arrow,
+                          size: 32,
+                        ),
+                        onPressed: () {
+                          bloc.add(ToggleAudio(question.audioUrl));
+                        },
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Text(
+                        "Topic ${state.currentIndex + 1}: ${question.topic}",
+                        style: AppTextStyle.xLargeBlackBold,
+                      ),
+                    ),
+                  ],
+                ),
+                for (final speaker in question.speakers) ...[
+                  const SizedBox(height: 16),
+                  _buildSpeakerDropdown(
+                    context,
+                    bloc,
+                    state,
+                    questionIndex: state.currentIndex,
+                    speaker: speaker.speaker,
+                    options: question.options,
+                    correctOption: speaker.correctOption,
+                  ),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          AppButton(
+            fixWidth: true,
+            onPressed: () {
+              bloc.add(ToggleTranscript(state.currentIndex));
+            },
+            text: showTranscript ? "Close Transcript" : "Show Transcript",
+            color: AppColors.linkColor,
+            textStyle: AppTextStyle.largeWhite.copyWith(
+              fontWeight: FontWeight.bold,
+              letterSpacing: 2,
+            ),
+          ),
+          if (showTranscript) ...[
+            const SizedBox(height: 12),
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: AppColors.lightGray, width: 2),
+              ),
+              child: Text(question.transcript, style: AppTextStyle.largeBlack),
+            ),
+          ],
+        ],
+      ),
+    ),
+  );
 }
 
 Widget _buildSpeakerDropdown(

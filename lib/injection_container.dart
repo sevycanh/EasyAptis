@@ -3,6 +3,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:easyaptis/core/configs/network/network_info.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_injections.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_injections.dart';
+import 'package:easyaptis/features/general_pages/writing_page/writting_injections.dart';
 import 'package:easyaptis/features/home/presentation/bloc/home_bloc.dart';
 import 'package:easyaptis/features/splash/data/repositories/splash_repository_impl.dart';
 import 'package:easyaptis/features/splash/data/sources/local/splash_shared_prefs.dart';
@@ -32,6 +33,7 @@ Future<void> init() async {
   // Modules
   await initReadingInjections();
   await initListeningInjections();
+  await initWritingInjections();
 
   //! Features - Splash
   // Bloc

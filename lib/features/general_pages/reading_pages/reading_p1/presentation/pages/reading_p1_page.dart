@@ -36,7 +36,25 @@ class ReadingP1Page
     }
 
     if (state.error.isNotEmpty) {
-      return Center(child: Text(state.error));
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text("Reading Part 1"),
+          leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(Icons.arrow_back_ios_new),
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 16.0),
+              child: Text(
+                "${state.correctCount}/${state.listQuestion.length}",
+                style: AppTextStyle.largeBlack,
+              ),
+            ),
+          ],
+        ),
+        body: Center(child: Text("Có lỗi xảy ra!")),
+      );
     }
 
     return Scaffold(

@@ -38,7 +38,15 @@ class ReadingP5Page
     }
 
     if (state.error.isNotEmpty) {
-      return Center(child: Text(state.error));
+      return Scaffold(
+      appBar: AppBar(
+        title: const Text("Reading Part 5"),
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(Icons.arrow_back_ios_new),
+        ),
+      ),
+      body: Center(child: Text("Có lỗi xảy ra!")));
     }
 
     return Scaffold(

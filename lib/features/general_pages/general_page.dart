@@ -67,9 +67,9 @@ class GeneralPage extends StatelessWidget {
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
             SliverAppBar(
-              backgroundColor: AppColors.primaryColor, 
-              expandedHeight: MediaQuery.of(context).size.height * 0.1, 
-              pinned: true, 
+              backgroundColor: AppColors.primaryColor,
+              expandedHeight: MediaQuery.of(context).size.height * 0.1,
+              pinned: true,
               flexibleSpace: FlexibleSpaceBar(
                 titlePadding: const EdgeInsets.only(left: 16, bottom: 12),
                 title: AnimatedTextKit(
