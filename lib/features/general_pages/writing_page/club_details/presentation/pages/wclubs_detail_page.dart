@@ -60,47 +60,43 @@ class WClubsDetailPage
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back_ios_new),
           ),
-          actions: [
-            IconButton(
-              icon: Icon(
-                state.showCopyButtons ? Icons.copy_all : Icons.copy,
-              ),
-              onPressed: () => bloc.add(ToggleCopyButtons()),
-            ),
-          ],
         ),
         body: body,
-        bottomNavigationBar: SafeArea(
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            child: Row(
-              children: [
-                Expanded(
-                  child: AppButton(
-                    text: "Previous",
-                    color: AppColors.pastel,
-                    onPressed:
-                        state.currentPart > 1
-                            ? () => bloc.add(PreviousPart())
-                            : null,
+        bottomNavigationBar:
+            (state.error.isNotEmpty && state.topic == null)
+                ? null
+                : SafeArea(
+                  child: Container(
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: AppButton(
+                            text: "Previous",
+                            color: AppColors.pastel,
+                            onPressed:
+                                state.currentPart > 1
+                                    ? () => bloc.add(PreviousPart())
+                                    : null,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: AppButton(
+                            text: "Next",
+                            color: AppColors.green,
+                            onPressed:
+                                state.topic != null &&
+                                        state.currentPart <
+                                            state.topic!.parts.length
+                                    ? () => bloc.add(NextPart())
+                                    : null,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: AppButton(
-                    text: "Next",
-                    color: AppColors.green,
-                    onPressed:
-                        state.topic != null &&
-                                state.currentPart < state.topic!.parts.length
-                            ? () => bloc.add(NextPart())
-                            : null,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
       ),
     );
   }
@@ -117,6 +113,36 @@ class WClubsDetailPage
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Row(
+            children: [
+              Text(
+                "Part ${state.currentPart} of ${state.topic!.parts.length}",
+                style: AppTextStyle.xxLargeBlackBold.copyWith(
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+              const Spacer(),
+              IconButton(
+                icon: const Icon(Icons.lightbulb_outline),
+                visualDensity: VisualDensity.compact,
+                padding: EdgeInsets.zero,
+                onPressed: () {
+                  _showSuggestBottomSheet(context, state);
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  state.showCopyButtons
+                      ? Icons.remove_circle_outline_sharp
+                      : Icons.copyright,
+                ),
+                visualDensity: VisualDensity.compact,
+                padding: EdgeInsets.zero,
+                onPressed: () => bloc.add(ToggleCopyButtons()),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
           if (part.announcement != null) ...[
             Text(
               part.announcement!,
@@ -195,4 +221,74 @@ class WClubsDetailPage
       ),
     );
   }
+}
+
+void _showSuggestBottomSheet(BuildContext context, WClubsDetailState state) {
+  final part = state.topic!.parts["${state.currentPart}"]!;
+
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+    ),
+    backgroundColor: AppColors.white,
+    builder: (ctx) {
+      return FractionallySizedBox(
+        heightFactor: 0.8,
+
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Container(
+                  width: 40,
+                  height: 4,
+                  margin: const EdgeInsets.only(bottom: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[400],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              Text("Suggested answers", style: AppTextStyle.xxLargeBlackBold),
+              const SizedBox(height: 16),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: part.questions.length,
+                  itemBuilder: (context, index) {
+                    final q = part.questions[index];
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "${q.id}. ${q.text}",
+                            style: AppTextStyle.largeBlackBold,
+                          ),
+                          const SizedBox(height: 8),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 4),
+                            child: Text(
+                              q.suggestion.isNotEmpty
+                                  ? q.suggestion
+                                  : "No suggestion",
+                              style: AppTextStyle.largeBlack,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
 }

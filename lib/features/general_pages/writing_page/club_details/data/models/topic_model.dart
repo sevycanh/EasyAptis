@@ -55,10 +55,13 @@ class PartModel {
 class QuestionModel {
   final int id;
   final String text;
+  @JsonKey(name: 'suggest')
+  final String suggestion;
 
   QuestionModel({
     required this.id,
     required this.text,
+    required this.suggestion,
   });
 
   factory QuestionModel.fromJson(Map<String, dynamic> json) =>
@@ -69,5 +72,6 @@ class QuestionModel {
   QuestionEntity toEntity() => QuestionEntity(
         id: id,
         text: text,
+        suggestion: suggestion,
       );
 }

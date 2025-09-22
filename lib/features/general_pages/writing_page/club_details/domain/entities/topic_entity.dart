@@ -22,6 +22,7 @@ class PartEntity {
 class QuestionEntity {
   final int id;
   final String text;
+  final String suggestion;
 
-  QuestionEntity({required this.id, required this.text});
+  QuestionEntity({required this.id, required this.text, required this.suggestion});
 }

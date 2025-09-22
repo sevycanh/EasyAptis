@@ -8,23 +8,28 @@
                 "questions": [
                     {
                         "id": 1,
-                        "text": "What is your favorite technology tool for study?"
+                        "text": "What is your favorite technology tool for study?",
+                        "suggest": "1. Google Classroom 2. Zoom 3. Canvas"
                     },
                     {
                         "id": 2,
-                        "text": "How often do you use online learning platforms?"
+                        "text": "How often do you use online learning platforms?",
+                        "suggest": "1. Daily 2. Weekly 3. Monthly"
                     },
                     {
                         "id": 3,
-                        "text": "What are some challenges of online learning?"
+                        "text": "What are some challenges of online learning?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 4,
-                        "text": "What are some benefits of online learning?"
+                        "text": "What are some benefits of online learning?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 5,
-                        "text": "What are some drawbacks of online learning?"
+                        "text": "What are some drawbacks of online learning?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     }
                 ]
             },
@@ -32,7 +37,8 @@
                 "questions": [
                     {
                         "id": 1,
-                        "text": "Discuss the advantages and disadvantages of online learning."
+                        "text": "Discuss the advantages and disadvantages of online learning.",
+                        "suggest": "1. Accessibility\n2. Accessibility\n3. Accessibility"
                     }
                 ]
             },
@@ -40,15 +46,18 @@
                 "questions": [
                     {
                         "id": 1,
-                        "text": "Do you agree technology improves education quality? Why?"
+                        "text": "Do you agree technology improves education quality? Why?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 2,
-                        "text": "Do you agree technology improves learning outcomes? Why?"
+                        "text": "Do you agree technology improves learning outcomes? Why?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 3,
-                        "text": "Do you agree technology improves learning experience? Why?"
+                        "text": "Do you agree technology improves learning experience? Why?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     }
                 ]
             },
@@ -57,11 +66,13 @@
                 "questions": [
                     {
                         "id": 1,
-                        "text": "What would you say to invite students?"
+                        "text": "What would you say to invite students?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 2,
-                        "text": "What benefits will students get from joining?"
+                        "text": "What benefits will students get from joining?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     }
                 ]
             }
@@ -76,23 +87,28 @@
                 "questions": [
                     {
                         "id": 1,
-                        "text": "What is your favorite technology tool for study? 2"
+                        "text": "What is your favorite technology tool for study? 2",
+                        "suggest": "1. Google Classroom 2. Zoom 3. Canvas"
                     },
                     {
                         "id": 2,
-                        "text": "How often do you use online learning platforms?"
+                        "text": "How often do you use online learning platforms?",
+                        "suggest": "1. Daily 2. Weekly 3. Monthly"
                     },
                     {
                         "id": 3,
-                        "text": "What are some challenges of online learning?"
+                        "text": "What are some challenges of online learning?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 4,
-                        "text": "What are some benefits of online learning?"
+                        "text": "What are some benefits of online learning?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 5,
-                        "text": "What are some drawbacks of online learning?"
+                        "text": "What are some drawbacks of online learning?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     }
                 ]
             },
@@ -100,7 +116,8 @@
                 "questions": [
                     {
                         "id": 1,
-                        "text": "Discuss the advantages and disadvantages of online learning."
+                        "text": "Discuss the advantages and disadvantages of online learning.",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     }
                 ]
             },
@@ -108,15 +125,18 @@
                 "questions": [
                     {
                         "id": 1,
-                        "text": "Do you agree technology improves education quality? Why?"
+                        "text": "Do you agree technology improves education quality? Why?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 2,
-                        "text": "Do you agree technology improves learning outcomes? Why?"
+                        "text": "Do you agree technology improves learning outcomes? Why?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 3,
-                        "text": "Do you agree technology improves learning experience? Why?"
+                        "text": "Do you agree technology improves learning experience? Why?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     }
                 ]
             },
@@ -125,11 +145,13 @@
                 "questions": [
                     {
                         "id": 1,
-                        "text": "What would you say to invite students?"
+                        "text": "What would you say to invite students?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 2,
-                        "text": "What benefits will students get from joining?"
+                        "text": "What benefits will students get from joining?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     }
                 ]
             }
@@ -144,23 +166,28 @@
                 "questions": [
                     {
                         "id": 1,
-                        "text": "What is your favorite technology tool for study? 3"
+                        "text": "What is your favorite technology tool for study? 3",
+                        "suggest": "1. Google Classroom 2. Zoom 3. Canvas"
                     },
                     {
                         "id": 2,
-                        "text": "How often do you use online learning platforms?"
+                        "text": "How often do you use online learning platforms?",
+                        "suggest": "1. Daily 2. Weekly 3. Monthly"
                     },
                     {
                         "id": 3,
-                        "text": "What are some challenges of online learning?"
+                        "text": "What are some challenges of online learning?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 4,
-                        "text": "What are some benefits of online learning?"
+                        "text": "What are some benefits of online learning?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 5,
-                        "text": "What are some drawbacks of online learning?"
+                        "text": "What are some drawbacks of online learning?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     }
                 ]
             },
@@ -168,7 +195,8 @@
                 "questions": [
                     {
                         "id": 1,
-                        "text": "Discuss the advantages and disadvantages of online learning."
+                        "text": "Discuss the advantages and disadvantages of online learning.",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     }
                 ]
             },
@@ -176,15 +204,18 @@
                 "questions": [
                     {
                         "id": 1,
-                        "text": "Do you agree technology improves education quality? Why?"
+                        "text": "Do you agree technology improves education quality? Why?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 2,
-                        "text": "Do you agree technology improves learning outcomes? Why?"
+                        "text": "Do you agree technology improves learning outcomes? Why?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 3,
-                        "text": "Do you agree technology improves learning experience? Why?"
+                        "text": "Do you agree technology improves learning experience? Why?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     }
                 ]
             },
@@ -193,11 +224,13 @@
                 "questions": [
                     {
                         "id": 1,
-                        "text": "What would you say to invite students?"
+                        "text": "What would you say to invite students?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     },
                     {
                         "id": 2,
-                        "text": "What benefits will students get from joining?"
+                        "text": "What benefits will students get from joining?",
+                        "suggest": "1. Accessibility 2. Accessibility 3. Accessibility"
                     }
                 ]
             }

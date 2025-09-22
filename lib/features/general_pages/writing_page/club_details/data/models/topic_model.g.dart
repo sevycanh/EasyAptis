@@ -39,7 +39,12 @@ QuestionModel _$QuestionModelFromJson(Map<String, dynamic> json) =>
     QuestionModel(
       id: (json['id'] as num).toInt(),
       text: json['text'] as String,
+      suggestion: json['suggest'] as String,
     );
 
 Map<String, dynamic> _$QuestionModelToJson(QuestionModel instance) =>
-    <String, dynamic>{'id': instance.id, 'text': instance.text};
+    <String, dynamic>{
+      'id': instance.id,
+      'text': instance.text,
+      'suggest': instance.suggestion,
+    };
