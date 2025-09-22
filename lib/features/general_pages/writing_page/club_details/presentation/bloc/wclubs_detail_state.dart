@@ -7,7 +7,7 @@ class WClubsDetailState extends BaseBlocState {
   final TopicEntity? topic;
   final int currentPart;
   final Map<int, Map<int, String>> answers; 
-  // answers[partId][questionId] = answer text
+  final bool showCopyButtons;
 
   WClubsDetailState({
     this.isLoading = false,
@@ -15,6 +15,7 @@ class WClubsDetailState extends BaseBlocState {
     this.topic,
     this.currentPart = 1,
     Map<int, Map<int, String>>? answers,
+    this.showCopyButtons = false
   }) : answers = answers ?? {};
 
   @override
@@ -24,6 +25,7 @@ class WClubsDetailState extends BaseBlocState {
     TopicEntity? topic,
     int? currentPart,
     Map<int, Map<int, String>>? answers,
+    bool? showCopyButtons
   }) {
     return WClubsDetailState(
       isLoading: isLoading ?? this.isLoading,
@@ -31,9 +33,10 @@ class WClubsDetailState extends BaseBlocState {
       topic: topic ?? this.topic,
       currentPart: currentPart ?? this.currentPart,
       answers: answers ?? this.answers,
+      showCopyButtons: showCopyButtons ?? this.showCopyButtons
     );
   }
 
   @override
-  List<Object?> get props => [isLoading, error, topic, currentPart, answers];
+  List<Object?> get props => [isLoading, error, topic, currentPart, answers, showCopyButtons];
 }

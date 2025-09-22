@@ -19,3 +19,5 @@ class UpdateAnswer extends WClubsDetailEvent {
     required this.answer,
   });
 }
+
+class ToggleCopyButtons extends WClubsDetailEvent {}

@@ -72,7 +72,7 @@ class _QuestionAnswerFieldState extends State<QuestionAnswerField> {
               borderRadius: const BorderRadius.all(Radius.circular(16)),
               borderSide: BorderSide(color: AppColors.gray),
             ),
-            hintText: "Nhập câu trả lời...",
+            hintText: "Enter your answer...",
             focusedBorder: OutlineInputBorder(
               borderRadius: const BorderRadius.all(Radius.circular(16)),
               borderSide: BorderSide(color: AppColors.primaryColor, width: 2),

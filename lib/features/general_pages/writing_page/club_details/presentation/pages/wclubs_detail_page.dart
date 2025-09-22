@@ -60,6 +60,14 @@ class WClubsDetailPage
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back_ios_new),
           ),
+          actions: [
+            IconButton(
+              icon: Icon(
+                state.showCopyButtons ? Icons.copy_all : Icons.copy,
+              ),
+              onPressed: () => bloc.add(ToggleCopyButtons()),
+            ),
+          ],
         ),
         body: body,
         bottomNavigationBar: SafeArea(
@@ -132,13 +140,16 @@ class WClubsDetailPage
                         style: AppTextStyle.xLargeBlackBold,
                       ),
                     ),
-                    IconButton(
-                      icon: const Icon(Icons.copy, size: 20),
-                      onPressed: () {
-                        Clipboard.setData(ClipboardData(text: q.text));
-                        AppToast.showSuccess(context, message: "Đã sao chép");
-                      },
-                    ),
+                    if (state.showCopyButtons)
+                      IconButton(
+                        icon: const Icon(Icons.copy, size: 20),
+                        padding: EdgeInsets.zero,
+                        visualDensity: VisualDensity.compact,
+                        onPressed: () {
+                          Clipboard.setData(ClipboardData(text: q.text));
+                          AppToast.showSuccess(context, message: "Đã sao chép");
+                        },
+                      ),
                   ],
                 ),
                 const SizedBox(height: 8),
@@ -162,13 +173,18 @@ class WClubsDetailPage
                         },
                       ),
                     ),
-                    IconButton(
-                      icon: const Icon(Icons.copy, size: 20),
-                      onPressed: () {
-                        Clipboard.setData(ClipboardData(text: controller.text));
-                        AppToast.showSuccess(context, message: "Đã sao chép");
-                      },
-                    ),
+                    if (state.showCopyButtons)
+                      IconButton(
+                        icon: const Icon(Icons.copy, size: 20),
+                        padding: EdgeInsets.zero,
+                        visualDensity: VisualDensity.compact,
+                        onPressed: () {
+                          Clipboard.setData(
+                            ClipboardData(text: controller.text),
+                          );
+                          AppToast.showSuccess(context, message: "Đã sao chép");
+                        },
+                      ),
                   ],
                 ),
                 const SizedBox(height: 16),

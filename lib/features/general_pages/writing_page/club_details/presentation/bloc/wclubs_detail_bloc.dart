@@ -5,16 +5,18 @@ import 'package:easyaptis/features/general_pages/writing_page/club_details/prese
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easyaptis/core/utils/base/base_bloc.dart';
 
-class WClubsDetailBloc
-    extends BaseBloc<WClubsDetailEvent, WClubsDetailState> {
+class WClubsDetailBloc extends BaseBloc<WClubsDetailEvent, WClubsDetailState> {
   final GetWClubsDetail getWClubsDetail;
 
   WClubsDetailBloc({required this.getWClubsDetail})
-      : super(WClubsDetailState()) {
+    : super(WClubsDetailState()) {
     on<LoadClubDetails>(_onLoadClubDetails);
     on<NextPart>(_onNextPart);
     on<PreviousPart>(_onPreviousPart);
     on<UpdateAnswer>(_onUpdateAnswer);
+    on<ToggleCopyButtons>((event, emit) {
+      emit(state.copyWith(showCopyButtons: !state.showCopyButtons));
+    });
   }
 
   Future<void> _onLoadClubDetails(
