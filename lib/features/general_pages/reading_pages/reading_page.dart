@@ -12,6 +12,7 @@ class ReadingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Reading'),
+        backgroundColor: AppColors.primaryColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);

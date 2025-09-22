@@ -41,6 +41,7 @@ class ReadingP5Page
       return Scaffold(
       appBar: AppBar(
         title: const Text("Reading Part 5"),
+        backgroundColor: AppColors.primaryColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),
@@ -52,6 +53,7 @@ class ReadingP5Page
     return Scaffold(
       appBar: AppBar(
         title: const Text("Reading Part 5"),
+        backgroundColor: AppColors.primaryColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),

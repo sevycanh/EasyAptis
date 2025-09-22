@@ -12,6 +12,7 @@ class WritingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Writing'),
+        backgroundColor: AppColors.primaryColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);

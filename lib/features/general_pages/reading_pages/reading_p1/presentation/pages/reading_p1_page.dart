@@ -39,6 +39,7 @@ class ReadingP1Page
       return Scaffold(
         appBar: AppBar(
           title: const Text("Reading Part 1"),
+          backgroundColor: AppColors.primaryColor,
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back_ios_new),
@@ -60,6 +61,7 @@ class ReadingP1Page
     return Scaffold(
       appBar: AppBar(
         title: const Text("Reading Part 1"),
+        backgroundColor: AppColors.primaryColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),

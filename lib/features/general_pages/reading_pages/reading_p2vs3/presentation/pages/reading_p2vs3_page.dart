@@ -40,6 +40,7 @@ class ReadingP2vs3Page
       return Scaffold(
         appBar: AppBar(
           title: const Text("Reading Part 2 & 3"),
+          backgroundColor: AppColors.primaryColor,
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -54,6 +55,7 @@ class ReadingP2vs3Page
     return Scaffold(
       appBar: AppBar(
         title: const Text("Reading Part 2 & 3"),
+        backgroundColor: AppColors.primaryColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);

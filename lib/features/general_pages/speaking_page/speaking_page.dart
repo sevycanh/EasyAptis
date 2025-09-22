@@ -4,14 +4,14 @@ import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/utils/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
-class ListeningPage extends StatelessWidget {
-  const ListeningPage({super.key});
+class SpeakingPage extends StatelessWidget {
+  const SpeakingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Listening'),
+        title: const Text('Speaking'),
         backgroundColor: AppColors.primaryColor,
         leading: IconButton(
           onPressed: () {
@@ -26,7 +26,7 @@ class ListeningPage extends StatelessWidget {
           child: Column(
             children: [
               AppButton(
-                text: "Part 1 (Question 1 -> 13)",
+                text: "Part 1",
                 color: AppColors.blue,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,
@@ -41,7 +41,7 @@ class ListeningPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               AppButton(
-                text: "Part 2 (Question 14)",
+                text: "Part 2",
                 color: AppColors.orange,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,
@@ -56,7 +56,7 @@ class ListeningPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               AppButton(
-                text: "Part 3 (Question 15)",
+                text: "Part 3",
                 color: AppColors.purple,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,
@@ -68,7 +68,7 @@ class ListeningPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               AppButton(
-                text: "Part 4 (Question 16 -> 17)",
+                text: "Part 4",
                 color: AppColors.green,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,

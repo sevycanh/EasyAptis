@@ -56,6 +56,7 @@ class WClubsDetailPage
       child: Scaffold(
         appBar: AppBar(
           title: Text(state.topic?.name ?? ""),
+          backgroundColor: AppColors.primaryColor,
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back_ios_new),

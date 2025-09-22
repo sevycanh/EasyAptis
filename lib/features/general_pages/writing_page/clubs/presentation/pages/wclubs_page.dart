@@ -51,6 +51,7 @@ class WClubsPage extends BaseBlocWidget<WClubsEvent, WClubsState, WClubsBloc> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("List of clubs"),
+        backgroundColor: AppColors.primaryColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),

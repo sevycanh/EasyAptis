@@ -50,6 +50,7 @@ class ListeningP3Page
     return Scaffold(
       appBar: AppBar(
         title: const Text("Listening Part 3"),
+        backgroundColor: AppColors.primaryColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),
