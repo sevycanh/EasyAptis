@@ -3,7 +3,7 @@ import 'package:easyaptis/core/configs/assets/app_image.dart';
 import 'package:easyaptis/core/router/app_route_enum.dart';
 import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
-import 'package:easyaptis/core/utils/widgets/app_button.dart';
+import 'package:easyaptis/core/widgets/app_button.dart';
 import 'package:easyaptis/features/welcome/presentation/bloc/welcome_bloc.dart';
 import 'package:easyaptis/features/welcome/presentation/bloc/welcome_event.dart';
 import 'package:easyaptis/features/welcome/presentation/bloc/welcome_state.dart';
@@ -112,7 +112,7 @@ class WelcomePage
                     bloc.add(NextPageEvent());
                   },
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 16),
               ],
             ),
           ),

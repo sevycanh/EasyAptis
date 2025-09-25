@@ -2,7 +2,7 @@ import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/router/app_route_enum.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
-import 'package:easyaptis/core/utils/widgets/app_button.dart';
+import 'package:easyaptis/core/widgets/app_button.dart';
 import 'package:easyaptis/features/general_pages/writing_page/clubs/presentation/bloc/wclubs_bloc.dart';
 import 'package:easyaptis/features/general_pages/writing_page/clubs/presentation/bloc/wclubs_event.dart';
 import 'package:easyaptis/features/general_pages/writing_page/clubs/presentation/bloc/wclubs_state.dart';
@@ -45,7 +45,10 @@ class WClubsPage extends BaseBlocWidget<WClubsEvent, WClubsState, WClubsBloc> {
     } else if (state.clubs.isEmpty) {
       body = const Center(child: Text("Chưa có dữ liệu"));
     } else {
-      body = _buildBody(context, bloc, state);
+      body = Padding(
+        padding: const EdgeInsets.only(top: 8.0),
+        child: _buildBody(context, bloc, state),
+      );
     }
 
     return Scaffold(

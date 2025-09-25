@@ -45,5 +45,7 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Ứng dụng cần truy cập micro để bạn có thể ghi âm câu trả lời của bạn.</string>
 </dict>
 </plist>

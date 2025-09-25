@@ -1,25 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easyaptis/core/error/exceptions.dart';
-import 'package:easyaptis/features/general_pages/listening_page/listening_p1/data/models/listening_p1_model.dart';
+import 'package:easyaptis/features/general_pages/speaking_page/speaking_p1/data/models/speaking_p1_model.dart';
 
-abstract class ListeningP1RemoteDataSource {
-  Future<List<ListeningP1Model>> getL1Questions({int? page, int? limit});
+abstract class SpeakingP1RemoteDataSource {
+  Future<List<SpeakingP1Model>> getL1Questions({int? page, int? limit});
 }
 
-class ListeningP1RemoteDataSourceImpl implements ListeningP1RemoteDataSource {
+class SpeakingP1RemoteDataSourceImpl implements SpeakingP1RemoteDataSource {
   final FirebaseFirestore firestore;
 
-  ListeningP1RemoteDataSourceImpl({required this.firestore});
+  SpeakingP1RemoteDataSourceImpl({required this.firestore});
 
   @override
-  Future<List<ListeningP1Model>> getL1Questions({
+  Future<List<SpeakingP1Model>> getL1Questions({
     int? page,
     int? limit,
   }) async {
     try {
       CollectionReference collection = firestore
           .collection('skills')
-          .doc('listening')
+          .doc('speaking')
           .collection('parts')
           .doc('part_1')
           .collection('questions');
@@ -38,7 +38,7 @@ class ListeningP1RemoteDataSourceImpl implements ListeningP1RemoteDataSource {
       return snapshot.docs
           .map(
             (doc) =>
-                ListeningP1Model.fromJson(doc.data() as Map<String, dynamic>),
+                SpeakingP1Model.fromJson(doc.data() as Map<String, dynamic>),
           )
           .toList();
     } catch (e) {

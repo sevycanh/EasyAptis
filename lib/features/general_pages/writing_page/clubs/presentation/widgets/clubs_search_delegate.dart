@@ -13,8 +13,32 @@ class ClubsSearchDelegate extends SearchDelegate {
   ClubsSearchDelegate(this.bloc)
     : super(
         searchFieldLabel: "Search",
-        searchFieldStyle: const TextStyle(fontSize: 18),
+        searchFieldStyle: const TextStyle(fontSize: 18, color: Colors.black),
       );
+
+  @override
+  ThemeData appBarTheme(BuildContext context) {
+    final theme = Theme.of(context);
+    return theme.copyWith(
+      appBarTheme: AppBarTheme(
+        backgroundColor: AppColors.primaryColor, // nền AppBar
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
+      inputDecorationTheme: const InputDecorationTheme(
+        filled: true,
+        fillColor: Colors.white, // ✅ nền trắng cho ô search
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.all(Radius.circular(8)), // bo góc đẹp
+        ),
+        contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        hintStyle: TextStyle(color: Colors.grey),
+      ),
+      textTheme: const TextTheme(
+        titleLarge: TextStyle(color: Colors.black, fontSize: 18), // chữ gõ vào
+      ),
+    );
+  }
 
   @override
   List<Widget>? buildActions(BuildContext context) {

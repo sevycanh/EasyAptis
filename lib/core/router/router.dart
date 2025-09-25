@@ -9,6 +9,8 @@ import 'package:easyaptis/features/general_pages/reading_pages/reading_p2vs3/pre
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p4/presentation/pages/reading_p4_page.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p5/presentation/pages/reading_p5_page.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_page.dart';
+import 'package:easyaptis/features/general_pages/speaking_page/speaking_p1/presentation/pages/speaking_p1_page.dart';
+import 'package:easyaptis/features/general_pages/speaking_page/speaking_page.dart';
 import 'package:easyaptis/features/general_pages/writing_page/club_details/presentation/pages/wclubs_detail_page.dart';
 import 'package:easyaptis/features/general_pages/writing_page/clubs/presentation/pages/wclubs_page.dart';
 import 'package:easyaptis/features/general_pages/writing_page/writting_page.dart';
@@ -123,10 +125,20 @@ class AppRouter {
           settings: RouteSettings(name: settings.name),
           builder: (_) {
             final args = settings.getArgs(requiredKeys: ['clubId']);
-            return WClubsDetailPage(
-              clubId: args['clubId'],
-            );
+            return WClubsDetailPage(clubId: args['clubId']);
           },
+        );
+
+      case '/speaking_page':
+        return CupertinoPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) => SpeakingPage(),
+        );
+
+      case '/speaking_p1_page':
+        return CupertinoPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) => SpeakingP1Page(),
         );
 
       // Ny Times Article Details page

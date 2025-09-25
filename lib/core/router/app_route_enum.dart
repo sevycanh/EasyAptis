@@ -18,7 +18,11 @@ enum AppRouteEnum {
   listeningP3Page,
   listeningP4Page,
   writingClubsPage,
-  writingClubDetailsPage
+  writingClubDetailsPage,
+  speakingP1Page,
+  speakingP2Page,
+  speakingP3Page,
+  speakingP4Page
 }
 
 extension AppRouteExtension on AppRouteEnum {
@@ -83,6 +87,18 @@ extension AppRouteExtension on AppRouteEnum {
 
       case AppRouteEnum.writingClubDetailsPage:
         return "/writing_club_details_page";
+
+      case AppRouteEnum.speakingP1Page:
+        return "/speaking_p1_page";
+
+      case AppRouteEnum.speakingP2Page:
+        return "/speaking_p2_page";
+
+      case AppRouteEnum.speakingP3Page:
+        return "/speaking_p3_page";
+
+      case AppRouteEnum.speakingP4Page:
+        return "/speaking_p4_page";
     }
   }
 }

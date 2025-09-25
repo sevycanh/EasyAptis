@@ -1,7 +1,7 @@
 import 'package:easyaptis/core/router/app_route_enum.dart';
 import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
-import 'package:easyaptis/core/utils/widgets/app_button.dart';
+import 'package:easyaptis/core/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
 class SpeakingPage extends StatelessWidget {
@@ -26,7 +26,7 @@ class SpeakingPage extends StatelessWidget {
           child: Column(
             children: [
               AppButton(
-                text: "Part 1",
+                text: "Part 1 (3 questions)",
                 color: AppColors.blue,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,
@@ -35,13 +35,13 @@ class SpeakingPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    AppRouteEnum.listeningP1Page.name,
+                    AppRouteEnum.speakingP1Page.name,
                   );
                 },
               ),
               const SizedBox(height: 16),
               AppButton(
-                text: "Part 2",
+                text: "Part 2 (3 questions)",
                 color: AppColors.orange,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,
@@ -50,32 +50,38 @@ class SpeakingPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    AppRouteEnum.listeningP2Page.name,
+                    AppRouteEnum.speakingP2Page.name,
                   );
                 },
               ),
               const SizedBox(height: 16),
               AppButton(
-                text: "Part 3",
+                text: "Part 3 (3 questions)",
                 color: AppColors.purple,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1,
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, AppRouteEnum.listeningP3Page.name);
+                  Navigator.pushNamed(
+                    context,
+                    AppRouteEnum.speakingP3Page.name,
+                  );
                 },
               ),
               const SizedBox(height: 16),
               AppButton(
-                text: "Part 4",
+                text: "Part 4 (3 questions)",
                 color: AppColors.green,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1,
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, AppRouteEnum.listeningP4Page.name);
+                  Navigator.pushNamed(
+                    context,
+                    AppRouteEnum.speakingP4Page.name,
+                  );
                 },
               ),
               const SizedBox(height: 16),

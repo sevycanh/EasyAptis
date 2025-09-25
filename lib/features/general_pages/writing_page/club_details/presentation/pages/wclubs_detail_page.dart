@@ -1,13 +1,15 @@
 import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
-import 'package:easyaptis/core/utils/widgets/app_button.dart';
-import 'package:easyaptis/core/utils/widgets/app_toast.dart';
+import 'package:easyaptis/core/widgets/app_button.dart';
+import 'package:easyaptis/core/widgets/app_toast.dart';
 import 'package:easyaptis/features/general_pages/writing_page/club_details/presentation/bloc/wclubs_detail_bloc.dart';
 import 'package:easyaptis/features/general_pages/writing_page/club_details/presentation/bloc/wclubs_detail_event.dart';
 import 'package:easyaptis/features/general_pages/writing_page/club_details/presentation/bloc/wclubs_detail_state.dart';
 import 'package:easyaptis/features/general_pages/writing_page/club_details/presentation/widgets/question_answer_field.dart';
 import 'package:easyaptis/injection_container.dart';
+import 'package:easyaptis/shared/presentation/models/suggest_ui_model.dart';
+import 'package:easyaptis/shared/presentation/widgets/suggest_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -131,16 +133,16 @@ class WClubsDetailPage
                   _showSuggestBottomSheet(context, state);
                 },
               ),
-              IconButton(
-                icon: Icon(
-                  state.showCopyButtons
-                      ? Icons.remove_circle_outline_sharp
-                      : Icons.copyright,
-                ),
-                visualDensity: VisualDensity.compact,
-                padding: EdgeInsets.zero,
-                onPressed: () => bloc.add(ToggleCopyButtons()),
-              ),
+              // IconButton(
+              //   icon: Icon(
+              //     state.showCopyButtons
+              //         ? Icons.remove_circle_outline_sharp
+              //         : Icons.copyright,
+              //   ),
+              //   visualDensity: VisualDensity.compact,
+              //   padding: EdgeInsets.zero,
+              //   onPressed: () => bloc.add(ToggleCopyButtons()),
+              // ),
             ],
           ),
           const SizedBox(height: 16),
@@ -227,6 +229,15 @@ class WClubsDetailPage
 void _showSuggestBottomSheet(BuildContext context, WClubsDetailState state) {
   final part = state.topic!.parts["${state.currentPart}"]!;
 
+  final suggestions =
+      part.questions.map((q) {
+        return SuggestUiModel(
+          id: q.id.toString(),
+          title: q.text,
+          suggestion: q.suggestion,
+        );
+      }).toList();
+
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -234,62 +245,6 @@ void _showSuggestBottomSheet(BuildContext context, WClubsDetailState state) {
       borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
     ),
     backgroundColor: AppColors.white,
-    builder: (ctx) {
-      return FractionallySizedBox(
-        heightFactor: 0.8,
-
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Container(
-                  width: 40,
-                  height: 4,
-                  margin: const EdgeInsets.only(bottom: 12),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[400],
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                ),
-              ),
-              Text("Suggested answers", style: AppTextStyle.xxLargeBlackBold),
-              const SizedBox(height: 16),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: part.questions.length,
-                  itemBuilder: (context, index) {
-                    final q = part.questions[index];
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "${q.id}. ${q.text}",
-                            style: AppTextStyle.largeBlackBold,
-                          ),
-                          const SizedBox(height: 8),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 4),
-                            child: Text(
-                              q.suggestion.isNotEmpty
-                                  ? q.suggestion
-                                  : "No suggestion",
-                              style: AppTextStyle.largeBlack,
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    },
+    builder: (_) => SuggestBottomSheet(suggestions: suggestions),
   );
 }

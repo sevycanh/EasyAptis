@@ -1,7 +1,7 @@
 import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
-import 'package:easyaptis/core/utils/widgets/app_button.dart';
+import 'package:easyaptis/core/widgets/app_button.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p1/presentation/bloc/listening_p1_bloc.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p1/presentation/bloc/listening_p1_event.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p1/presentation/bloc/listening_p1_state.dart';

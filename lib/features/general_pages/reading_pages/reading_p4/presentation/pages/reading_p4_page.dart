@@ -2,7 +2,7 @@ import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
-import 'package:easyaptis/core/utils/widgets/app_button.dart';
+import 'package:easyaptis/core/widgets/app_button.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p4/presentation/bloc/reading_p4_bloc.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p4/presentation/bloc/reading_p4_event.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_p4/presentation/bloc/reading_p4_state.dart';
@@ -162,7 +162,7 @@ class ReadingP4Page
                               ),
                               const SizedBox(height: 8),
                               CustomDropdown<String>(
-                                hintText: "Chọn người phù hợp",
+                                hintText: "Select an option",
                                 items: items,
                                 initialItem: selectedLabel,
                                 excludeSelected: false,
