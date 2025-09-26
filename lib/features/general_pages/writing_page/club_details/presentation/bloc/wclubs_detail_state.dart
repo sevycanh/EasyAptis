@@ -1,10 +1,10 @@
 import 'package:easyaptis/core/utils/base/base_bloc_state.dart';
-import 'package:easyaptis/features/general_pages/writing_page/club_details/domain/entities/topic_entity.dart';
+import 'package:easyaptis/features/general_pages/writing_page/clubs/domain/entities/wclubs_entity.dart';
 
 class WClubsDetailState extends BaseBlocState {
   final bool isLoading;
   final String error;
-  final TopicEntity? topic;
+  final WClubsEntity? topic;
   final int currentPart;
   final Map<int, Map<int, String>> answers; 
   final bool showCopyButtons;
@@ -22,7 +22,7 @@ class WClubsDetailState extends BaseBlocState {
   WClubsDetailState copyWith({
     bool? isLoading,
     String? error,
-    TopicEntity? topic,
+    WClubsEntity? topic,
     int? currentPart,
     Map<int, Map<int, String>>? answers,
     bool? showCopyButtons

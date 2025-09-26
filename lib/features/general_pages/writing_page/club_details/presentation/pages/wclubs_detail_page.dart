@@ -7,6 +7,7 @@ import 'package:easyaptis/features/general_pages/writing_page/club_details/prese
 import 'package:easyaptis/features/general_pages/writing_page/club_details/presentation/bloc/wclubs_detail_event.dart';
 import 'package:easyaptis/features/general_pages/writing_page/club_details/presentation/bloc/wclubs_detail_state.dart';
 import 'package:easyaptis/features/general_pages/writing_page/club_details/presentation/widgets/question_answer_field.dart';
+import 'package:easyaptis/features/general_pages/writing_page/clubs/domain/entities/wclubs_entity.dart';
 import 'package:easyaptis/injection_container.dart';
 import 'package:easyaptis/shared/presentation/models/suggest_ui_model.dart';
 import 'package:easyaptis/shared/presentation/widgets/suggest_bottom_sheet.dart';
@@ -16,15 +17,16 @@ import 'package:flutter/services.dart';
 class WClubsDetailPage
     extends
         BaseBlocWidget<WClubsDetailEvent, WClubsDetailState, WClubsDetailBloc> {
-  WClubsDetailPage({super.key, required this.clubId})
+  WClubsDetailPage({super.key, required this.wClubsEntity})
     : super(sl<WClubsDetailBloc>());
 
-  final int clubId;
+  // final int clubId;
+  final WClubsEntity wClubsEntity;
 
   @override
   void onInit() {
     super.onInit();
-    bloc.add(LoadClubDetails(clubId: clubId));
+    bloc.add(LoadClubDetails(entity: wClubsEntity));
   }
 
   @override

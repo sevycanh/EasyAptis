@@ -6,8 +6,6 @@ import 'package:easyaptis/features/general_pages/speaking_page/speaking_p1/prese
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p1/presentation/bloc/speaking_p1_event.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p1/presentation/bloc/speaking_p1_state.dart';
 import 'package:easyaptis/injection_container.dart';
-import 'package:easyaptis/shared/presentation/models/suggest_ui_model.dart';
-import 'package:easyaptis/shared/presentation/widgets/suggest_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 class SpeakingP1Page
@@ -59,54 +57,54 @@ class SpeakingP1Page
     if (state.listQuestion.isEmpty) {
       return const Center(child: Text("Chưa có dữ liệu"));
     }
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
-          child: Row(
-            children: [
-              Text(
-                "30s/question",
-                style: AppTextStyle.xxLargeBlackBold.copyWith(
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-              const Spacer(),
-              IconButton(
-                icon: const Icon(Icons.lightbulb_outline),
-                visualDensity: VisualDensity.compact,
-                padding: EdgeInsets.zero,
-                onPressed: () {
-                  _showSuggestBottomSheet(context, state);
-                },
-              ),
-            ],
-          ),
-        ),
-        _buildQuestionList(state.listQuestion),
-      ],
-    );
+    return _buildQuestionList(state.listQuestion);
   }
 
   Widget _buildQuestionList(List<SpeakingP1Entity> questions) {
-    return ListView.builder(
-      padding: const EdgeInsets.all(16),
-      itemCount: questions.length,
-      shrinkWrap: true,
-      itemBuilder: (context, index) {
-        final question = questions[index];
-        return Card(
-          margin: const EdgeInsets.only(bottom: 16),
-          color: Colors.white,
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: SelectableText(
-              "${question.index}. ${question.question}",
-              style: AppTextStyle.xLargeBlack,
+    return Padding(
+      padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+      child: ListView.builder(
+        itemCount: questions.length,
+        itemBuilder: (context, index) {
+          final question = questions[index];
+          return Container(
+            margin: const EdgeInsets.symmetric(vertical: 8),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.grey.shade300, width: 1),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.gray,
+                  blurRadius: 5,
+                  offset: const Offset(0, 2),
+                ),
+              ],
             ),
-          ),
-        );
-      },
+            child: ExpansionTile(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              title: SelectableText(
+                "${question.index}. ${question.question}",
+                style: AppTextStyle.xLargeBlackBold,
+              ),
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: SelectableText(
+                      question.suggest,
+                      style: AppTextStyle.xLargeBlack,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -290,23 +288,23 @@ class SpeakingP1Page
   // }
 }
 
-void _showSuggestBottomSheet(BuildContext context, SpeakingP1State state) {
-  final suggestions =
-      state.listQuestion.map((q) {
-        return SuggestUiModel(
-          id: q.index.toString(),
-          title: q.question,
-          suggestion: q.suggest,
-        );
-      }).toList();
+// void _showSuggestBottomSheet(BuildContext context, SpeakingP1State state) {
+//   final suggestions =
+//       state.listQuestion.map((q) {
+//         return SuggestUiModel(
+//           id: q.index.toString(),
+//           title: q.question,
+//           suggestion: q.suggest,
+//         );
+//       }).toList();
 
-  showModalBottomSheet(
-    context: context,
-    isScrollControlled: true,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-    ),
-    backgroundColor: AppColors.white,
-    builder: (_) => SuggestBottomSheet(suggestions: suggestions),
-  );
-}
+//   showModalBottomSheet(
+//     context: context,
+//     isScrollControlled: true,
+//     shape: const RoundedRectangleBorder(
+//       borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+//     ),
+//     backgroundColor: AppColors.white,
+//     builder: (_) => SuggestBottomSheet(suggestions: suggestions),
+//   );
+// }

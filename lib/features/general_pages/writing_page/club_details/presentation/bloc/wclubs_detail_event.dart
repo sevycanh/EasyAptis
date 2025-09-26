@@ -1,8 +1,10 @@
+import 'package:easyaptis/features/general_pages/writing_page/clubs/domain/entities/wclubs_entity.dart';
+
 sealed class WClubsDetailEvent {}
 
 class LoadClubDetails extends WClubsDetailEvent {
-  final int clubId;
-  LoadClubDetails({required this.clubId});
+  final WClubsEntity entity;
+  LoadClubDetails({required this.entity});
 }
 
 class NextPart extends WClubsDetailEvent {}

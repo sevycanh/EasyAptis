@@ -23,16 +23,17 @@ class WClubsDetailBloc extends BaseBloc<WClubsDetailEvent, WClubsDetailState> {
     LoadClubDetails event,
     Emitter<WClubsDetailState> emit,
   ) async {
-    emit(state.copyWith(isLoading: true, error: ""));
-    final result = await getWClubsDetail(Params(clubId: event.clubId));
+    // emit(state.copyWith(isLoading: true, error: ""));
+    emit(state.copyWith(isLoading: false, topic: event.entity, currentPart: 1));
+    // final result = await getWClubsDetail(Params(clubId: event.clubId));
 
-    result.fold(
-      (failure) =>
-          emit(state.copyWith(isLoading: false, error: failure.errorMessage)),
-      (topic) {
-        emit(state.copyWith(isLoading: false, topic: topic, currentPart: 1));
-      },
-    );
+    // result.fold(
+    //   (failure) =>
+    //       emit(state.copyWith(isLoading: false, error: failure.errorMessage)),
+    //   (topic) {
+    //     emit(state.copyWith(isLoading: false, topic: topic, currentPart: 1));
+    //   },
+    // );
   }
 
   void _onNextPart(NextPart event, Emitter<WClubsDetailState> emit) {

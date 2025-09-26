@@ -27,7 +27,9 @@ initWritingInjections() {
 
   //! Features - Writing Club Details
   // Bloc
-  sl.registerFactory(() => WClubsDetailBloc(getWClubsDetail: sl()));
+  sl.registerFactory(
+    () => WClubsDetailBloc(getWClubsDetail: sl()),
+  );
   // UseCase
   sl.registerLazySingleton(() => GetWClubsDetail(sl()));
   // Repository

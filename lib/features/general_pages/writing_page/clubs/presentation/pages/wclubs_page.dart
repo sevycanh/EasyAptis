@@ -91,7 +91,7 @@ class WClubsPage extends BaseBlocWidget<WClubsEvent, WClubsState, WClubsBloc> {
               Navigator.pushNamed(
                 context,
                 AppRouteEnum.writingClubDetailsPage.name,
-                arguments: {"clubId": club.index},
+                arguments: {"entity": club},
               );
             },
           ),

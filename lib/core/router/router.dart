@@ -124,8 +124,8 @@ class AppRouter {
         return CupertinoPageRoute(
           settings: RouteSettings(name: settings.name),
           builder: (_) {
-            final args = settings.getArgs(requiredKeys: ['clubId']);
-            return WClubsDetailPage(clubId: args['clubId']);
+            final args = settings.getArgs(requiredKeys: ['entity']);
+            return WClubsDetailPage(wClubsEntity: args['entity']);
           },
         );
 
