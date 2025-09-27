@@ -2,17 +2,17 @@ import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
 import 'package:easyaptis/core/widgets/app_button.dart';
-import 'package:easyaptis/features/general_pages/speaking_page/speaking_p2/domain/entities/speaking_p2_entity.dart';
-import 'package:easyaptis/features/general_pages/speaking_page/speaking_p2/presentation/bloc/speaking_p2_bloc.dart';
-import 'package:easyaptis/features/general_pages/speaking_page/speaking_p2/presentation/bloc/speaking_p2_event.dart';
-import 'package:easyaptis/features/general_pages/speaking_page/speaking_p2/presentation/bloc/speaking_p2_state.dart';
+import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/domain/entities/speaking_p4_entity.dart';
+import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/presentation/bloc/speaking_p4_bloc.dart';
+import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/presentation/bloc/speaking_p4_event.dart';
+import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/presentation/bloc/speaking_p4_state.dart';
 import 'package:easyaptis/injection_container.dart';
 import 'package:flutter/material.dart';
 
-class SpeakingP2Page
-    extends BaseBlocWidget<SpeakingP2Event, SpeakingP2State, SpeakingP2Bloc> {
-  SpeakingP2Page({super.key, this.page, this.limit})
-    : super(sl<SpeakingP2Bloc>());
+class SpeakingP4Page
+    extends BaseBlocWidget<SpeakingP4Event, SpeakingP4State, SpeakingP4Bloc> {
+  SpeakingP4Page({super.key, this.page, this.limit})
+    : super(sl<SpeakingP4Bloc>());
 
   final int? page;
   final int? limit;
@@ -24,22 +24,22 @@ class SpeakingP2Page
   }
 
   @override
-  void onStateChanged(BuildContext context, SpeakingP2State state) {
+  void onStateChanged(BuildContext context, SpeakingP4State state) {
     if (state.error.isNotEmpty && state.listQuestion.isEmpty) {}
   }
 
   @override
   Widget buildWidget(
     BuildContext context,
-    SpeakingP2Bloc bloc,
-    SpeakingP2State state,
+    SpeakingP4Bloc bloc,
+    SpeakingP4State state,
   ) {
     if (state.isLoading) {
       return const Center(child: CircularProgressIndicator());
     }
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Speaking Part 2"),
+        title: const Text("Speaking Part 4"),
         backgroundColor: AppColors.primaryColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
@@ -51,7 +51,7 @@ class SpeakingP2Page
     );
   }
 
-  Widget _buildPageBody(BuildContext context, SpeakingP2State state) {
+  Widget _buildPageBody(BuildContext context, SpeakingP4State state) {
     if (state.error.isNotEmpty && state.listQuestion.isEmpty) {
       return Center(child: Text("Có lỗi xảy ra: ${state.error}"));
     }
@@ -62,7 +62,7 @@ class SpeakingP2Page
   }
 
   Widget _buildQuestionList(
-    List<SpeakingP2Entity> questions,
+    List<SpeakingP4Entity> questions,
     int currentIndex,
   ) {
     final item = questions[currentIndex];
@@ -77,29 +77,6 @@ class SpeakingP2Page
               "Page ${currentIndex + 1} of ${questions.length}",
               style: AppTextStyle.xLargeBlackBold,
             ),
-            const SizedBox(height: 8),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.network(
-                item.image,
-                width: double.infinity,
-                height: 200,
-                fit: BoxFit.cover,
-                loadingBuilder:
-                    (context, child, loadingProgress) =>
-                        loadingProgress == null
-                            ? child
-                            : const Center(
-                              child: CircularProgressIndicator(
-                                color: AppColors.primaryColor,
-                              ),
-                            ),
-                errorBuilder:
-                    (context, error, stackTrace) =>
-                        const Center(child: Icon(Icons.broken_image_outlined)),
-              ),
-            ),
-            const SizedBox(height: 16),
             ...item.questions.map(
               (q) => Container(
                 margin: const EdgeInsets.symmetric(vertical: 8),
@@ -146,8 +123,8 @@ class SpeakingP2Page
 
   Widget _buildBottomPlayer(
     BuildContext context,
-    SpeakingP2Bloc bloc,
-    SpeakingP2State state,
+    SpeakingP4Bloc bloc,
+    SpeakingP4State state,
   ) {
     return SafeArea(
       child: Container(
@@ -212,8 +189,8 @@ class SpeakingP2Page
 
   Widget _buildProgressSection(
     BuildContext context,
-    SpeakingP2Bloc bloc,
-    SpeakingP2State state,
+    SpeakingP4Bloc bloc,
+    SpeakingP4State state,
   ) {
     if (state.recordingStatus == RecordingStatus.recording) {
       return Padding(
@@ -276,8 +253,8 @@ class SpeakingP2Page
 
   Widget _buildControlsSection(
     BuildContext context,
-    SpeakingP2Bloc bloc,
-    SpeakingP2State state,
+    SpeakingP4Bloc bloc,
+    SpeakingP4State state,
   ) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -302,7 +279,7 @@ class SpeakingP2Page
     );
   }
 
-  Widget _buildMainControlButton(SpeakingP2Bloc bloc, SpeakingP2State state) {
+  Widget _buildMainControlButton(SpeakingP4Bloc bloc, SpeakingP4State state) {
     switch (state.recordingStatus) {
       case RecordingStatus.recording:
         return FloatingActionButton(

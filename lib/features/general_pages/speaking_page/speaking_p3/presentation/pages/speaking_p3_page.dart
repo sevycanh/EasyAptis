@@ -39,7 +39,7 @@ class SpeakingP3Page
     }
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Speaking Part 2"),
+        title: const Text("Speaking Part 3"),
         backgroundColor: AppColors.primaryColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
@@ -66,94 +66,102 @@ class SpeakingP3Page
     int currentIndex,
   ) {
     final item = questions[currentIndex];
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.network(
-              item.image[0],
-              width: double.infinity,
-              height: 200,
-              fit: BoxFit.cover,
-              loadingBuilder:
-                  (context, child, loadingProgress) =>
-                      loadingProgress == null
-                          ? child
-                          : const Center(
-                            child: CircularProgressIndicator(
-                              color: AppColors.primaryColor,
-                            ),
-                          ),
-              errorBuilder:
-                  (context, error, stackTrace) =>
-                      const Center(child: Icon(Icons.broken_image_outlined)),
+    return Scrollbar(
+      thumbVisibility: true,
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Page ${currentIndex + 1} of ${questions.length}",
+              style: AppTextStyle.xLargeBlackBold,
             ),
-          ),
-          const SizedBox(height: 8),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.network(
-              item.image[1],
-              width: double.infinity,
-              height: 200,
-              fit: BoxFit.cover,
-              loadingBuilder:
-                  (context, child, loadingProgress) =>
-                      loadingProgress == null
-                          ? child
-                          : const Center(
-                            child: CircularProgressIndicator(
-                              color: AppColors.primaryColor,
+            const SizedBox(height: 8),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.network(
+                item.image[0],
+                width: double.infinity,
+                height: 200,
+                fit: BoxFit.cover,
+                loadingBuilder:
+                    (context, child, loadingProgress) =>
+                        loadingProgress == null
+                            ? child
+                            : const Center(
+                              child: CircularProgressIndicator(
+                                color: AppColors.primaryColor,
+                              ),
                             ),
-                          ),
-              errorBuilder:
-                  (context, error, stackTrace) =>
-                      const Center(child: Icon(Icons.broken_image_outlined)),
-            ),
-          ),
-          const SizedBox(height: 16),
-          ...item.questions.map(
-            (q) => Container(
-              margin: const EdgeInsets.symmetric(vertical: 8),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.grey.shade300, width: 1),
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.gray,
-                    blurRadius: 5,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
+                errorBuilder:
+                    (context, error, stackTrace) =>
+                        const Center(child: Icon(Icons.broken_image_outlined)),
               ),
-              child: ExpansionTile(
-                shape: RoundedRectangleBorder(
+            ),
+            const SizedBox(height: 8),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.network(
+                item.image[1],
+                width: double.infinity,
+                height: 200,
+                fit: BoxFit.cover,
+                loadingBuilder:
+                    (context, child, loadingProgress) =>
+                        loadingProgress == null
+                            ? child
+                            : const Center(
+                              child: CircularProgressIndicator(
+                                color: AppColors.primaryColor,
+                              ),
+                            ),
+                errorBuilder:
+                    (context, error, stackTrace) =>
+                        const Center(child: Icon(Icons.broken_image_outlined)),
+              ),
+            ),
+            const SizedBox(height: 16),
+            ...item.questions.map(
+              (q) => Container(
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.grey.shade300, width: 1),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.gray,
+                      blurRadius: 5,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
                 ),
-                title: SelectableText(
-                  "${item.questions.indexOf(q) + 1}. ${q.question}",
-                  style: AppTextStyle.xLargeBlackBold,
-                ),
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: SelectableText(
-                        q.suggest,
-                        style: AppTextStyle.xLargeBlack,
+                child: ExpansionTile(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  title: SelectableText(
+                    "${item.questions.indexOf(q) + 1}. ${q.question}",
+                    style: AppTextStyle.xLargeBlackBold,
+                  ),
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SelectableText(
+                          q.suggest,
+                          style: AppTextStyle.xLargeBlack,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

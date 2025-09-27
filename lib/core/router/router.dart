@@ -12,6 +12,7 @@ import 'package:easyaptis/features/general_pages/reading_pages/reading_page.dart
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p1/presentation/pages/speaking_p1_page.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p2/presentation/pages/speaking_p2_page.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p3/presentation/pages/speaking_p3_page.dart';
+import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/presentation/pages/speaking_p4_page.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_page.dart';
 import 'package:easyaptis/features/general_pages/writing_page/club_details/presentation/pages/wclubs_detail_page.dart';
 import 'package:easyaptis/features/general_pages/writing_page/clubs/presentation/pages/wclubs_page.dart';
@@ -153,6 +154,12 @@ class AppRouter {
         return CupertinoPageRoute(
           settings: RouteSettings(name: settings.name),
           builder: (_) => SpeakingP3Page(),
+        );
+
+      case '/speaking_p4_page':
+        return CupertinoPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) => SpeakingP4Page(),
         );
 
       // Ny Times Article Details page

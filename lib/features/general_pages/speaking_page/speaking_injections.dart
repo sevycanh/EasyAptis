@@ -13,6 +13,11 @@ import 'package:easyaptis/features/general_pages/speaking_page/speaking_p3/data/
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p3/domain/repositories/speaking_p3_repository.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p3/domain/usecases/get_s3_questions.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p3/presentation/bloc/speaking_p3_bloc.dart';
+import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/data/datasources/speaking_p4_remote_datasource.dart';
+import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/data/repositories/speaking_p4_repository_impl.dart';
+import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/domain/repositories/speaking_p4_repository.dart';
+import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/domain/usecases/get_s4_questions.dart';
+import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/presentation/bloc/speaking_p4_bloc.dart';
 import 'package:easyaptis/injection_container.dart';
 
 initSpeakingInjections() {
@@ -56,5 +61,19 @@ initSpeakingInjections() {
   // DataSource
   sl.registerLazySingleton<SpeakingP3RemoteDataSource>(
     () => SpeakingP3RemoteDataSourceImpl(firestore: sl()),
+  );
+
+  //! Features - Speaking Part 4
+  // Bloc
+  sl.registerFactory(() => SpeakingP4Bloc(getQuestionSpeakingP4: sl()));
+  // UseCase
+  sl.registerLazySingleton(() => GetS4Questions(sl()));
+  // Repository
+  sl.registerLazySingleton<SpeakingP4Repository>(
+    () => SpeakingP4RepositoryImpl(remoteDataSource: sl()),
+  );
+  // DataSource
+  sl.registerLazySingleton<SpeakingP4RemoteDataSource>(
+    () => SpeakingP4RemoteDataSourceImpl(firestore: sl()),
   );
 }
