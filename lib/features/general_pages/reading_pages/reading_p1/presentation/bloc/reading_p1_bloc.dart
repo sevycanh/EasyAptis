@@ -10,10 +10,21 @@ class ReadingP1Bloc extends BaseBloc<ReadingP1Event, ReadingP1State> {
   final GetR1Questions getQuestionReadingP1UseCase;
 
   ReadingP1Bloc({required this.getQuestionReadingP1UseCase})
-      : super(ReadingP1State()) {
+    : super(ReadingP1State()) {
     on<GetReadingP1Event>(_getReadingP1);
     on<AnswerSelected>(_answerSelected);
     on<CheckAnswersEvent>(_checkAnswers);
+    on<LoadMoreQuestionsEvent>((event, emit) {
+      final newCount = state.visibleCount + 10;
+      emit(
+        state.copyWith(
+          visibleCount:
+              newCount > state.listQuestion.length
+                  ? state.listQuestion.length
+                  : newCount,
+        ),
+      );
+    });
   }
 
   Future<void> _getReadingP1(
@@ -24,22 +35,25 @@ class ReadingP1Bloc extends BaseBloc<ReadingP1Event, ReadingP1State> {
     final res = await getQuestionReadingP1UseCase(
       Params(page: event.page, limit: event.limit),
     );
+    await Future.delayed(const Duration(seconds: 3));
     res.fold(
-      (failure) => emit(
-        state.copyWith(isLoading: false, error: failure.errorMessage),
-      ),
+      (failure) =>
+          emit(state.copyWith(isLoading: false, error: failure.errorMessage)),
       (questions) {
         // Trộn đáp án cho mỗi câu hỏi
-        final shuffledQuestions = questions.map((q) {
-          final shuffledOptions = List<OptionR1Entity>.from(q.options)..shuffle();
-          return q.copyWith(options: shuffledOptions);
-        }).toList();
+        final shuffledQuestions =
+            questions.map((q) {
+              final shuffledOptions = List<OptionR1Entity>.from(q.options)
+                ..shuffle();
+              return q.copyWith(options: shuffledOptions);
+            }).toList();
 
         // Lưu index đáp án đúng cho từng câu
         final correctMap = <int, int?>{};
         for (int i = 0; i < shuffledQuestions.length; i++) {
-          final correctIndex =
-              shuffledQuestions[i].options.indexWhere((o) => o.isCorrect);
+          final correctIndex = shuffledQuestions[i].options.indexWhere(
+            (o) => o.isCorrect,
+          );
           correctMap[i] = correctIndex != -1 ? correctIndex : null;
         }
 

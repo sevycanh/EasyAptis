@@ -198,6 +198,8 @@ class SpeakingP4Bloc extends BaseBloc<SpeakingP4Event, SpeakingP4State> {
       Params(page: event.page, limit: event.limit),
     );
 
+    await Future.delayed(const Duration(seconds: 3));
+
     result.fold(
       (failure) =>
           emit(state.copyWith(isLoading: false, error: failure.errorMessage)),

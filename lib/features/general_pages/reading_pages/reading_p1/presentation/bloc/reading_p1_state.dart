@@ -9,6 +9,7 @@ class ReadingP1State extends BaseBlocState {
   final Map<int, int?> correctAnswers; 
   final bool submitted;
   final int correctCount;
+  final int visibleCount;
 
   ReadingP1State({
     this.isLoading = false,
@@ -18,6 +19,7 @@ class ReadingP1State extends BaseBlocState {
     this.correctAnswers = const {},
     this.submitted = false,
     this.correctCount = 0,
+    this.visibleCount = 10,
   });
 
   @override
@@ -29,6 +31,7 @@ class ReadingP1State extends BaseBlocState {
     Map<int, int?>? correctAnswers,
     bool? submitted,
     int? correctCount,
+    int? visibleCount
   }) {
     return ReadingP1State(
       isLoading: isLoading ?? this.isLoading,
@@ -38,6 +41,7 @@ class ReadingP1State extends BaseBlocState {
       correctAnswers: correctAnswers ?? this.correctAnswers,
       submitted: submitted ?? this.submitted,
       correctCount: correctCount ?? this.correctCount,
+      visibleCount: visibleCount ?? this.visibleCount
     );
   }
 
@@ -50,5 +54,6 @@ class ReadingP1State extends BaseBlocState {
         correctAnswers,
         submitted,
         correctCount,
+        visibleCount
       ];
 }

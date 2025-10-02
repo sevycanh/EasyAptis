@@ -2,6 +2,7 @@ import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
 import 'package:easyaptis/core/widgets/app_button.dart';
+import 'package:easyaptis/core/widgets/app_loading.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/domain/entities/speaking_p4_entity.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/presentation/bloc/speaking_p4_bloc.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/presentation/bloc/speaking_p4_event.dart';
@@ -35,7 +36,7 @@ class SpeakingP4Page
     SpeakingP4State state,
   ) {
     if (state.isLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return AppLoading();
     }
     return Scaffold(
       appBar: AppBar(

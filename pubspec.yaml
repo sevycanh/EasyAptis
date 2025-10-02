@@ -84,6 +84,7 @@ flutter:
     - assets/images/
     - assets/vectors/
     - assets/audio/
+    - assets/gif/
     - .env.dev
     - .env.prod
 

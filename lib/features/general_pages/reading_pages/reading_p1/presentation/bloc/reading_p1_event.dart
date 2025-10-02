@@ -14,3 +14,5 @@ class AnswerSelected extends ReadingP1Event {
 }
 
 class CheckAnswersEvent extends ReadingP1Event {}
+
+class LoadMoreQuestionsEvent extends ReadingP1Event {}
