@@ -1,4 +1,5 @@
 #!/bin/bash
+export PATH="$PATH:$HOME/.pub-cache/bin"
 # Script to generate Firebase configuration files for different environments/flavors
 # Feel free to reuse and adapt this script for your own projects
 
@@ -12,6 +13,8 @@ case $1 in
     flutterfire config \
       --project=easyaptis-dev \
       --out=lib/firebase_options_dev.dart \
+      --ios-bundle-id=com.example.easyaptis.dev \
+      --ios-out=ios/flavors/dev/GoogleService-Info.plist \
       --android-package-name=com.example.easyaptis.dev \
       --android-out=android/app/src/dev/google-services.json
     ;;
@@ -28,6 +31,8 @@ case $1 in
     flutterfire config \
       --project=easyaptis-prod \
       --out=lib/firebase_options_prod.dart \
+      --ios-bundle-id=com.example.easyaptis \
+      --ios-out=ios/flavors/prod/GoogleService-Info.plist \
       --android-package-name=com.example.easyaptis \
       --android-out=android/app/src/prod/google-services.json
     ;;
