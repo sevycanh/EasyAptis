@@ -26,7 +26,7 @@ class ReadingPage extends StatelessWidget {
           child: Column(
             children: [
               AppButton(
-                text: "Part 1 (Question 1)",
+                text: "Part 1",
                 color: AppColors.blue,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,
@@ -64,7 +64,7 @@ class ReadingPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               AppButton(
-                text: "Part 2 & 3 (Question 2 -> 3)",
+                text: "Part 2 & 3",
                 color: AppColors.orange,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,
@@ -79,7 +79,7 @@ class ReadingPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               AppButton(
-                text: "Part 4 (Question 4)",
+                text: "Part 4",
                 color: AppColors.purple,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,
@@ -91,7 +91,7 @@ class ReadingPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               AppButton(
-                text: "Part 5 (Question 5)",
+                text: "Part 5",
                 color: AppColors.green,
                 textStyle: AppTextStyle.largeWhite.copyWith(
                   fontWeight: FontWeight.bold,
@@ -102,16 +102,16 @@ class ReadingPage extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 16),
-              AppButton(
-                text: "Tips",
-                color: AppColors.gray,
-                textStyle: AppTextStyle.largeWhite.copyWith(
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1,
-                ),
-                onPressed: () {},
-              ),
-              const SizedBox(height: 16),
+              // AppButton(
+              //   text: "Tips",
+              //   color: AppColors.gray,
+              //   textStyle: AppTextStyle.largeWhite.copyWith(
+              //     fontWeight: FontWeight.bold,
+              //     letterSpacing: 1,
+              //   ),
+              //   onPressed: () {},
+              // ),
+              // const SizedBox(height: 16),
             ],
           ),
         ),

@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDjQ9eOj2HjeNQOrDXHznGKpP2As33dH3I',
-    appId: '1:15287683608:android:50903e1641b71f6234916d',
+    appId: '1:15287683608:android:d19b92764f61f7b234916d',
     messagingSenderId: '15287683608',
     projectId: 'easyaptis-prod',
     storageBucket: 'easyaptis-prod.firebasestorage.app',
@@ -59,11 +59,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyB_AkziO-clttU8dzWQiVoMOFV4lfV5D3c',
-    appId: '1:15287683608:ios:908e13bc8e84792934916d',
+    appId: '1:15287683608:ios:eeec8ed4e5bc734734916d',
     messagingSenderId: '15287683608',
     projectId: 'easyaptis-prod',
     storageBucket: 'easyaptis-prod.firebasestorage.app',
-    iosBundleId: 'com.example.easyaptis',
+    iosBundleId: 'com.sevycanh.easyaptis.app',
   );
 
 }

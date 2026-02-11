@@ -1,9 +1,10 @@
 import 'package:easyaptis/core/configs/assets/app_image.dart';
+import 'package:easyaptis/features/answers/answers_page.dart';
 import 'package:easyaptis/features/general_pages/general_page.dart';
 import 'package:flutter/material.dart';
 
 Widget buildPage(int index) {
-  List widgets = [GeneralPage(), Center(child: Text("Giải đáp"))];
+  List widgets = [GeneralPage(), AnswersPage()];
   return widgets[index];
 }
 

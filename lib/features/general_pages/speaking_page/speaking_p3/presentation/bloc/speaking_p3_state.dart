@@ -26,7 +26,7 @@ class SpeakingP3State extends BaseBlocState<SpeakingP3State> {
     this.recordingDuration = Duration.zero,
     this.totalDuration = Duration.zero,
     this.currentPosition = Duration.zero,
-    this.timeLimitInSeconds = 5,
+    this.timeLimitInSeconds = 45,
   });
 
   @override

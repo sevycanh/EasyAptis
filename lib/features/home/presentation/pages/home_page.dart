@@ -20,8 +20,8 @@ class HomePage extends BaseBlocWidget<HomeEvent, HomeState, HomeBloc> {
           boxShadow: [
             BoxShadow(
               color: AppColors.lightGray,
-              spreadRadius: 1, //kích thước của bóng trải rộng
-              blurRadius: 1, //độ mờ của bóng
+              spreadRadius: 1,
+              blurRadius: 1,
             ),
           ],
         ),
@@ -31,6 +31,7 @@ class HomePage extends BaseBlocWidget<HomeEvent, HomeState, HomeBloc> {
           onTap: (index) => bloc.add(ChangeTabEvent(index)),
           showSelectedLabels: false,
           showUnselectedLabels: false,
+          type: BottomNavigationBarType.fixed,
           items: bottomTabs,
         ),
       ),

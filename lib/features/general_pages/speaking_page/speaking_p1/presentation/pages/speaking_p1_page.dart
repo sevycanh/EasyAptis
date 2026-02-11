@@ -1,6 +1,8 @@
 import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
+import 'package:easyaptis/core/widgets/app_loading.dart';
+import 'package:easyaptis/core/widgets/app_toast.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p1/domain/entities/speaking_p1_entity.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p1/presentation/bloc/speaking_p1_bloc.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p1/presentation/bloc/speaking_p1_event.dart';
@@ -15,11 +17,26 @@ class SpeakingP1Page
 
   final int? page;
   final int? limit;
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void onInit() {
     super.onInit();
     bloc.add(LoadQuestions(page: page, limit: limit));
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels >=
+          _scrollController.position.maxScrollExtent - 100) {
+        if (bloc.state.visibleCount < bloc.state.listQuestion.length) {
+          bloc.add(LoadMoreQuestionsEvent());
+        }
+      }
+    });
+  }
+
+  @override
+  void onDispose() {
+    _scrollController.dispose();
+    super.onDispose();
   }
 
   @override
@@ -34,7 +51,7 @@ class SpeakingP1Page
     SpeakingP1State state,
   ) {
     if (state.isLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return AppLoading();
     }
     return Scaffold(
       appBar: AppBar(
@@ -57,16 +74,23 @@ class SpeakingP1Page
     if (state.listQuestion.isEmpty) {
       return const Center(child: Text("Chưa có dữ liệu"));
     }
-    return _buildQuestionList(state.listQuestion);
+    return _buildQuestionList(state.listQuestion, state);
   }
 
-  Widget _buildQuestionList(List<SpeakingP1Entity> questions) {
+  Widget _buildQuestionList(
+    List<SpeakingP1Entity> questions,
+    SpeakingP1State state,
+  ) {
     return Scrollbar(
       thumbVisibility: true,
+      controller: _scrollController,
       child: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
         child: ListView.builder(
-          itemCount: questions.length,
+          controller: _scrollController,
+          itemCount: state.listQuestion.length < state.visibleCount
+              ? state.listQuestion.length
+              : state.visibleCount,
           itemBuilder: (context, index) {
             final question = questions[index];
             return Container(
@@ -220,14 +244,24 @@ class SpeakingP1Page
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
-          child: IconButton(
-            icon: const Icon(Icons.refresh, color: Colors.grey),
-            iconSize: 32,
-            onPressed:
-                state.recordingPath != null &&
+          child: Row(
+            children: [
+              IconButton(
+                icon: Icon(Icons.question_mark_rounded, color: Colors.grey),
+                onPressed: () {
+                  AppToast.showSuccess(context, message: "30s/question");
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.refresh, color: Colors.grey),
+                iconSize: 32,
+                onPressed:
+                    state.recordingPath != null &&
                         state.recordingStatus != RecordingStatus.playing
                     ? () => bloc.add(ResetRecording())
                     : null,
+              ),
+            ],
           ),
         ),
 
@@ -260,10 +294,9 @@ class SpeakingP1Page
         );
       case RecordingStatus.initial:
         return FloatingActionButton(
-          onPressed:
-              () => bloc.add(
-                StartRecording(timeLimitInSeconds: state.timeLimitInSeconds),
-              ),
+          onPressed: () => bloc.add(
+            StartRecording(timeLimitInSeconds: state.timeLimitInSeconds),
+          ),
           backgroundColor: Colors.red,
           child: const Icon(Icons.mic, color: Colors.white),
         );

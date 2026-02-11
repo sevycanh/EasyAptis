@@ -3,6 +3,7 @@ import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/router/app_route_enum.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
 import 'package:easyaptis/core/widgets/app_button.dart';
+import 'package:easyaptis/core/widgets/app_loading.dart';
 import 'package:easyaptis/features/general_pages/writing_page/clubs/presentation/bloc/wclubs_bloc.dart';
 import 'package:easyaptis/features/general_pages/writing_page/clubs/presentation/bloc/wclubs_event.dart';
 import 'package:easyaptis/features/general_pages/writing_page/clubs/presentation/bloc/wclubs_state.dart';
@@ -36,7 +37,7 @@ class WClubsPage extends BaseBlocWidget<WClubsEvent, WClubsState, WClubsBloc> {
   @override
   Widget buildWidget(BuildContext context, WClubsBloc bloc, WClubsState state) {
     if (state.isLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return AppLoading();
     }
 
     Widget body;

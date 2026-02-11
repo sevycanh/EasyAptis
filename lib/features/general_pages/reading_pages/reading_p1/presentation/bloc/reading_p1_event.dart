@@ -3,7 +3,8 @@ sealed class ReadingP1Event {}
 class GetReadingP1Event extends ReadingP1Event {
   final int? page;
   final int? limit;
-  GetReadingP1Event({this.page, this.limit});
+  final bool? forceRefresh;
+  GetReadingP1Event({this.page, this.limit,this.forceRefresh});
 }
 
 class AnswerSelected extends ReadingP1Event {

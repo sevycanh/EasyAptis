@@ -21,21 +21,21 @@ class ClubsSearchDelegate extends SearchDelegate {
     final theme = Theme.of(context);
     return theme.copyWith(
       appBarTheme: AppBarTheme(
-        backgroundColor: AppColors.primaryColor, // nền AppBar
+        backgroundColor: AppColors.primaryColor, 
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       inputDecorationTheme: const InputDecorationTheme(
         filled: true,
-        fillColor: Colors.white, // ✅ nền trắng cho ô search
+        fillColor: Colors.white, 
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.all(Radius.circular(8)), // bo góc đẹp
+          borderRadius: BorderRadius.all(Radius.circular(8)), 
         ),
         contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         hintStyle: TextStyle(color: Colors.grey),
       ),
       textTheme: const TextTheme(
-        titleLarge: TextStyle(color: Colors.black, fontSize: 18), // chữ gõ vào
+        titleLarge: TextStyle(color: Colors.black, fontSize: 18), 
       ),
     );
   }
@@ -48,7 +48,7 @@ class ClubsSearchDelegate extends SearchDelegate {
           icon: const Icon(Icons.clear, color: AppColors.black),
           onPressed: () {
             query = "";
-            bloc.add(SearchClubs("")); // reset
+            bloc.add(SearchClubs(""));
           },
         ),
     ];
@@ -84,7 +84,7 @@ class ClubsSearchDelegate extends SearchDelegate {
           return const Center(child: CircularProgressIndicator());
         }
         if (state.clubs.isEmpty) {
-          return const Center(child: Text("Không tìm thấy kết quả"));
+          return const Center(child: Text("No results found!"));
         }
         return ListView.separated(
           itemCount: state.clubs.length,
@@ -98,7 +98,7 @@ class ClubsSearchDelegate extends SearchDelegate {
                 Navigator.pushNamed(
                   context,
                   AppRouteEnum.writingClubDetailsPage.name,
-                  arguments: {"clubId": club.index},
+                  arguments: {"entity": club},
                 );
               },
             );

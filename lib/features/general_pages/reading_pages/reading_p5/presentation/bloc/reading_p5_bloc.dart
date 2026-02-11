@@ -16,6 +16,7 @@ class ReadingP5Bloc extends BaseBloc<ReadingP5Event, ReadingP5State> {
     on<PreviousQuestion>(_onPreviousQuestion);
     on<AnswerSelected>(_onAnswerSelected);
     on<CheckAnswer>(_onCheckAnswer);
+    on<JumpToTopic>(_onJumpToTopic);
   }
 
   Future<void> _onLoadQuestions(
@@ -23,7 +24,7 @@ class ReadingP5Bloc extends BaseBloc<ReadingP5Event, ReadingP5State> {
     Emitter<ReadingP5State> emit,
   ) async {
     emit(state.copyWith(isLoading: true, error: ""));
-
+    await Future.delayed(const Duration(seconds: 3));
     final result = await getQuestionReadingP5(
       Params(page: event.page, limit: event.limit),
     );
@@ -38,17 +39,16 @@ class ReadingP5Bloc extends BaseBloc<ReadingP5Event, ReadingP5State> {
           initSelected[i] = {};
           initChecks[i] = {};
         }
-        
-        final shuffledQuestions =
-            questions.map((q) {
-              final shuffledHeaders = [...q.headers]..shuffle();
-              return ReadingP5Entity(
-                index: q.index,
-                topic: q.topic,
-                headers: shuffledHeaders,
-                paragraphs: q.paragraphs,
-              );
-            }).toList();
+
+        final shuffledQuestions = questions.map((q) {
+          final shuffledHeaders = [...q.headers]..shuffle();
+          return ReadingP5Entity(
+            index: q.index,
+            topic: q.topic,
+            headers: shuffledHeaders,
+            paragraphs: q.paragraphs,
+          );
+        }).toList();
 
         emit(
           state.copyWith(
@@ -100,12 +100,20 @@ class ReadingP5Bloc extends BaseBloc<ReadingP5Event, ReadingP5State> {
       final selectedHeader = currentSelected[paragraph.id];
       resultForTopic[paragraph.id] =
           (selectedHeader != null &&
-              selectedHeader == paragraph.correctHeaderId);
+          selectedHeader == paragraph.correctHeaderId);
     }
 
     final newChecks = Map<int, Map<int, bool>>.from(state.checkResults);
     newChecks[currentIndex] = resultForTopic;
 
     emit(state.copyWith(checkResults: newChecks));
+  }
+
+  void _onJumpToTopic(JumpToTopic event, Emitter<ReadingP5State> emit) {
+    final index = event.index;
+    if (index < 0 || index >= state.listQuestion.length) {
+      return;
+    }
+    emit(state.copyWith(currentIndex: index));
   }
 }

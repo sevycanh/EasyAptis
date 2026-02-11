@@ -34,6 +34,7 @@ class SpeakingP2Bloc extends BaseBloc<SpeakingP2Event, SpeakingP2State> {
 
     on<NextPart>(_onNextPart);
     on<PreviousPart>(_onPreviousPart);
+    on<JumpToTopic>(_onJumpToTopic);
 
     _initPlayers();
   }
@@ -84,16 +85,16 @@ class SpeakingP2Bloc extends BaseBloc<SpeakingP2Event, SpeakingP2State> {
 
     await Future.delayed(const Duration(milliseconds: 300));
 
-    final tempDir = await getTemporaryDirectory();
-    final path = '${tempDir.path}/speaking_record.m4a';
-    await _audioRecorder.start(const RecordConfig(), path: path);
-
     emit(
       state.copyWith(
         recordingStatus: RecordingStatus.recording,
         recordingDuration: Duration.zero,
       ),
     );
+
+    final tempDir = await getTemporaryDirectory();
+    final path = '${tempDir.path}/speaking_record.m4a';
+    await _audioRecorder.start(const RecordConfig(), path: path);
 
     _recordingTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       add(UpdateRecordingTimer(Duration(seconds: timer.tick)));
@@ -194,6 +195,7 @@ class SpeakingP2Bloc extends BaseBloc<SpeakingP2Event, SpeakingP2State> {
     Emitter<SpeakingP2State> emit,
   ) async {
     emit(state.copyWith(isLoading: true, error: ""));
+    await Future.delayed(const Duration(seconds: 3));
     final result = await getQuestionSpeakingP2(
       Params(page: event.page, limit: event.limit),
     );
@@ -216,5 +218,39 @@ class SpeakingP2Bloc extends BaseBloc<SpeakingP2Event, SpeakingP2State> {
     if (state.currentIndex > 0) {
       emit(state.copyWith(currentIndex: state.currentIndex - 1));
     }
+  }
+
+  void _onJumpToTopic(JumpToTopic event, Emitter<SpeakingP2State> emit) async {
+    final targetIndex = event.index;
+    if (targetIndex < 0 || targetIndex >= state.listQuestion.length) return;
+
+    if (await _audioRecorder.isRecording()) {
+      await _audioRecorder.stop();
+    }
+
+    if (_audioPlayer.playing) {
+      await _audioPlayer.stop();
+    }
+
+    if (state.recordingPath != null) {
+      final file = File(state.recordingPath!);
+      if (await file.exists()) {
+        await file.delete();
+      }
+    }
+
+    _recordingTimer?.cancel();
+    _recordingLimitTimer?.cancel();
+
+    emit(
+      state.copyWith(
+        currentIndex: targetIndex,
+        recordingStatus: RecordingStatus.initial,
+        recordingPath: null,
+        recordingDuration: Duration.zero,
+        totalDuration: Duration.zero,
+        error: "",
+      ),
+    );
   }
 }

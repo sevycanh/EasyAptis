@@ -8,11 +8,14 @@ import 'listening_p1_state.dart';
 
 class ListeningP1Bloc extends BaseBloc<ListeningP1Event, ListeningP1State> {
   final GetL1Questions getQuestionListeningP1;
+  // final GetCachedFile getCachedFile;
   final AudioPlayer _player = AudioPlayer();
   late final StreamSubscription<PlayerState> _playerSubscription;
 
-  ListeningP1Bloc({required this.getQuestionListeningP1})
-    : super(ListeningP1State()) {
+  ListeningP1Bloc({
+    required this.getQuestionListeningP1,
+    // required this.getCachedFile,
+  }) : super(ListeningP1State()) {
     on<LoadQuestions>(_onLoadQuestions);
     on<NextQuestion>(_onNextQuestion);
     on<PreviousQuestion>(_onPreviousQuestion);
@@ -21,6 +24,7 @@ class ListeningP1Bloc extends BaseBloc<ListeningP1Event, ListeningP1State> {
     on<ToggleTranscript>(_onToggleTranscript);
     on<ToggleAudio>(_onToggleAudio);
     on<AudioCompleted>(_onAudioCompleted);
+    on<JumpToTopic>(_onJumpToTopic);
 
     _playerSubscription = _player.playerStateStream.listen((playerState) {
       if (playerState.processingState == ProcessingState.completed) {
@@ -45,6 +49,20 @@ class ListeningP1Bloc extends BaseBloc<ListeningP1Event, ListeningP1State> {
       emit(state.copyWith(isPlaying: false));
     } else {
       await _player.stop();
+      // call usecase to get local file (or download)
+      // emit(state.copyWith(isPlaying: true));
+      // final res = await getCachedFile(url: event.url, type: 'audio');
+      // res.fold(
+      //   (failure) {
+      //     emit(
+      //       state.copyWith(isPlaying: false, error: failure.errorMessage),
+      //     );
+      //   },
+      //   (file) async {
+      //     await _player.setFilePath(file.path);
+      //     await _player.play();
+      //   },
+      // );
       await _player.setUrl(event.url);
       emit(state.copyWith(isPlaying: true));
       await _player.play();
@@ -60,7 +78,7 @@ class ListeningP1Bloc extends BaseBloc<ListeningP1Event, ListeningP1State> {
     Emitter<ListeningP1State> emit,
   ) async {
     emit(state.copyWith(isLoading: true, error: ""));
-
+    await Future.delayed(const Duration(seconds: 3));
     final result = await getQuestionListeningP1(
       Params(page: event.page, limit: event.limit),
     );
@@ -88,7 +106,7 @@ class ListeningP1Bloc extends BaseBloc<ListeningP1Event, ListeningP1State> {
     Emitter<ListeningP1State> emit,
   ) async {
     if (state.currentIndex < state.listQuestion.length - 1) {
-      await _player.stop(); // stop audio khi qua câu mới
+      await _player.stop();
       emit(
         state.copyWith(currentIndex: state.currentIndex + 1, isPlaying: false),
       );
@@ -100,7 +118,7 @@ class ListeningP1Bloc extends BaseBloc<ListeningP1Event, ListeningP1State> {
     Emitter<ListeningP1State> emit,
   ) async {
     if (state.currentIndex > 0) {
-      await _player.stop(); // stop audio khi về câu trước
+      await _player.stop();
       emit(
         state.copyWith(currentIndex: state.currentIndex - 1, isPlaying: false),
       );
@@ -108,18 +126,16 @@ class ListeningP1Bloc extends BaseBloc<ListeningP1Event, ListeningP1State> {
   }
 
   void _onCheckAnswer(CheckAnswer event, Emitter<ListeningP1State> emit) {
-  final current = state.currentIndex;
-  final entity = state.listQuestion[current];
+    final current = state.currentIndex;
+    final entity = state.listQuestion[current];
 
-  // Tìm đáp án đúng
-  final correctIndex = entity.options.indexWhere((opt) => opt.isCorrect);
+    final correctIndex = entity.options.indexWhere((opt) => opt.isCorrect);
 
-  final newCorrectAnswers = Map<int, int?>.from(state.correctAnswers);
-  newCorrectAnswers[current] = correctIndex;
+    final newCorrectAnswers = Map<int, int?>.from(state.correctAnswers);
+    newCorrectAnswers[current] = correctIndex;
 
-  emit(state.copyWith(correctAnswers: newCorrectAnswers));
-}
-
+    emit(state.copyWith(correctAnswers: newCorrectAnswers));
+  }
 
   void _onAnswerSelected(AnswerSelected event, Emitter<ListeningP1State> emit) {
     final newSelected = Map<int, int?>.from(state.selectedAnswers);
@@ -138,5 +154,12 @@ class ListeningP1Bloc extends BaseBloc<ListeningP1Event, ListeningP1State> {
       newSet.add(event.questionIndex);
     }
     emit(state.copyWith(transcriptVisible: newSet));
+  }
+
+  void _onJumpToTopic(JumpToTopic event, Emitter<ListeningP1State> emit) async {
+    final index = event.index;
+    if (index < 0 || index >= state.listQuestion.length) return;
+    await _player.stop();
+    emit(state.copyWith(currentIndex: index, isPlaying: false));
   }
 }

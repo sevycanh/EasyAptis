@@ -21,6 +21,7 @@ class ListeningP2Bloc extends BaseBloc<ListeningP2Event, ListeningP2State> {
     on<ToggleTranscript>(_onToggleTranscript);
     on<ToggleAudio>(_onToggleAudio);
     on<AudioCompleted>(_onAudioCompleted);
+    on<JumpToTopic>(_onJumpToTopic);
 
     _playerSubscription = _player.playerStateStream.listen((playerState) {
       if (playerState.processingState == ProcessingState.completed) {
@@ -60,7 +61,7 @@ class ListeningP2Bloc extends BaseBloc<ListeningP2Event, ListeningP2State> {
     Emitter<ListeningP2State> emit,
   ) async {
     emit(state.copyWith(isLoading: true, error: ""));
-
+    await Future.delayed(const Duration(seconds: 3));
     final result = await getQuestionListeningP2(
       Params(page: event.page, limit: event.limit),
     );
@@ -162,5 +163,12 @@ class ListeningP2Bloc extends BaseBloc<ListeningP2Event, ListeningP2State> {
       newSet.add(event.questionIndex);
     }
     emit(state.copyWith(transcriptVisible: newSet));
+  }
+
+  void _onJumpToTopic(JumpToTopic event, Emitter<ListeningP2State> emit) async {
+    final index = event.index;
+    if (index < 0 || index >= state.listQuestion.length) return;
+    await _player.stop();
+    emit(state.copyWith(currentIndex: index, isPlaying: false));
   }
 }

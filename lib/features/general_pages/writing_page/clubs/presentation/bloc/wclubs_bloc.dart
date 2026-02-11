@@ -18,6 +18,7 @@ class WClubsBloc extends BaseBloc<WClubsEvent, WClubsState> {
 
   Future<void> _onLoadClubs(LoadClubs event, Emitter<WClubsState> emit) async {
     emit(state.copyWith(isLoading: true, error: ""));
+    await Future.delayed(const Duration(seconds: 3));
     final result = await getClubsList(
       Params(page: event.page, limit: event.limit),
     );
@@ -38,8 +39,7 @@ class WClubsBloc extends BaseBloc<WClubsEvent, WClubsState> {
     } else {
       final filtered = _allClubs
           .where((club) =>
-              club.name.toLowerCase().contains(event.keyword.toLowerCase()) ||
-              club.description.toLowerCase().contains(event.keyword.toLowerCase()))
+              club.name.toLowerCase().contains(event.keyword.toLowerCase()))
           .toList();
       emit(state.copyWith(clubs: filtered));
     }

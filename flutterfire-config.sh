@@ -7,15 +7,18 @@ if [[ $# -eq 0 ]]; then
   echo "Error: No environment specified. Use 'dev', 'stg', or 'prod'."
   exit 1
 fi
+# them ios khi muon lam tren ios
+      # --ios-bundle-id=com.sevycanh.easyaptis.app.dev \
+      # --ios-out=ios/flavors/dev/GoogleService-Info.plist \
 
+      # --ios-bundle-id=com.sevycanh.easyaptis.app \
+      # --ios-out=ios/flavors/prod/GoogleService-Info.plist \
 case $1 in
   dev)
     flutterfire config \
       --project=easyaptis-dev \
       --out=lib/firebase_options_dev.dart \
-      --ios-bundle-id=com.example.easyaptis.dev \
-      --ios-out=ios/flavors/dev/GoogleService-Info.plist \
-      --android-package-name=com.example.easyaptis.dev \
+      --android-package-name=com.sevycanh.easyaptis.app.dev \
       --android-out=android/app/src/dev/google-services.json
     ;;
 #   stg)
@@ -31,9 +34,7 @@ case $1 in
     flutterfire config \
       --project=easyaptis-prod \
       --out=lib/firebase_options_prod.dart \
-      --ios-bundle-id=com.example.easyaptis \
-      --ios-out=ios/flavors/prod/GoogleService-Info.plist \
-      --android-package-name=com.example.easyaptis \
+      --android-package-name=com.sevycanh.easyaptis.app \
       --android-out=android/app/src/prod/google-services.json
     ;;
   *)
@@ -41,3 +42,5 @@ case $1 in
     exit 1
     ;;
 esac
+
+# ./flutterfire-config.sh dev|stg|prod

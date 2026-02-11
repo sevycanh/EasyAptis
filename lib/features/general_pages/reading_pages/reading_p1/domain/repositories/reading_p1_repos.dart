@@ -6,5 +6,6 @@ abstract class ReadingP1Repos {
   Future<Either<Failure, List<ReadingP1Entity>>> getQuestionReadingP1({
     int? page,
     int? limit,
+    bool forceRefresh = false,
   });
 }

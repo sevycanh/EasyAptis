@@ -14,10 +14,11 @@ class AppLoading extends StatelessWidget {
   ];
 
   final List<String> texts = [
-    "Bạn có thể xem cách làm bài và mẹo hay tại phần tips",
-    "Thường xuyên xem thông báo để không bỏ lỡ các cập nhật mới",
-    "Xem thêm cơ bản với EasyAptis",
-    "Hãy tự tạo cho mình một phiên bản riêng để luyện tập",
+    "Đề không đánh trượt bạn, bạn tự làm điều đó",
+    "Thường xuyên để ý thông báo để không bỏ lỡ các cập nhật mới",
+    "Tự tin lên, sai thì sửa, rớt thì... thi lại",
+    "Đang tải kiến thứ... vui lòng đừng hoảng",
+    "Muốn có động lực ôn thi? Hãy đăng ký thi"
   ];
 
   @override

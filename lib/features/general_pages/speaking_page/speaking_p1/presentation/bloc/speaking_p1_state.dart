@@ -14,6 +14,7 @@ class SpeakingP1State extends BaseBlocState<SpeakingP1State> {
   final Duration totalDuration; // Tổng thời gian của file ghi âm
   final Duration currentPosition; // Vị trí đang phát lại
   final int timeLimitInSeconds;
+  final int visibleCount;
 
   SpeakingP1State({
     this.isLoading = false,
@@ -24,7 +25,8 @@ class SpeakingP1State extends BaseBlocState<SpeakingP1State> {
     this.recordingDuration = Duration.zero,
     this.totalDuration = Duration.zero,
     this.currentPosition = Duration.zero,
-    this.timeLimitInSeconds = 5,
+    this.timeLimitInSeconds = 30,
+    this.visibleCount = 10,
   });
 
   @override
@@ -38,6 +40,7 @@ class SpeakingP1State extends BaseBlocState<SpeakingP1State> {
     Duration? totalDuration,
     Duration? currentPosition,
     int? timeLimitInSeconds,
+    int? visibleCount
   }) {
     return SpeakingP1State(
       isLoading: isLoading ?? this.isLoading,
@@ -49,6 +52,7 @@ class SpeakingP1State extends BaseBlocState<SpeakingP1State> {
       totalDuration: totalDuration ?? this.totalDuration,
       currentPosition: currentPosition ?? this.currentPosition,
       timeLimitInSeconds: timeLimitInSeconds ?? this.timeLimitInSeconds,
+      visibleCount: visibleCount ?? this.visibleCount
     );
   }
 
@@ -62,6 +66,7 @@ class SpeakingP1State extends BaseBlocState<SpeakingP1State> {
         recordingDuration,
         totalDuration,
         currentPosition,
-        timeLimitInSeconds
+        timeLimitInSeconds,
+        visibleCount
       ];
 }

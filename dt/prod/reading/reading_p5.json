@@ -1,0 +1,752 @@
+[
+    {
+        "index": 1,
+        "topic": "Mountain",
+        "paragraphs": [
+            {
+                "id": 1,
+                "content": "The term 'mountain' has evolved over time, reflecting not only physical characteristics but also cultural significance. In contemporary discussions, mountains may symbolize challenges to overcome or destinations for adventure, transcending their geographical attributes.",
+                "correctHeaderId": 1
+            },
+            {
+                "id": 2,
+                "content": "Climbing a mountain often leads to a profound sense of accomplishment. It represents not just reaching a physical summit but also conquering personal fears and pushing one's limits, creating memories that last a lifetime.",
+                "correctHeaderId": 7
+            },
+            {
+                "id": 3,
+                "content": "In today's digital age, sharing achievements has become prevalent. Climbing a mountain is frequently documented on social media, turning personal milestones into public spectacles that inspire others while also raising questions about authenticity.",
+                "correctHeaderId": 2
+            },
+            {
+                "id": 4,
+                "content": "The pursuit of climbing mountains can sometimes lead to misplaced priorities. While seeking adventure and recognition, individuals may neglect personal relationships or responsibilities, emphasizing the need for a balanced approach to life.",
+                "correctHeaderId": 5
+            },
+            {
+                "id": 5,
+                "content": "Engaging in extreme sports, such as mountain climbing, can forge strong bonds among participants. However, it may also create worrying connections where individuals prioritize adrenaline over safety, potentially leading to dangerous situations.",
+                "correctHeaderId": 3
+            },
+            {
+                "id": 6,
+                "content": "Shared experiences in challenging environments, like mountains, can deepen intimacy in relationships. Couples or friends who navigate the challenges of climbing together often find their bonds strengthened through mutual support and understanding.",
+                "correctHeaderId": 6
+            },
+            {
+                "id": 7,
+                "content": "While adventure is thrilling, there is a growing recognition of the importance of stability in life. Balancing the desire for adventure with the need for security is crucial, prompting individuals to reflect on their life choices and long-term goals.",
+                "correctHeaderId": 4
+            }
+        ],
+        "headers": [
+            {
+                "id": 1,
+                "text": "Changing the definition of mountain"
+            },
+            {
+                "id": 2,
+                "text": "Publicity of achievement"
+            },
+            {
+                "id": 3,
+                "text": "Worrying connections"
+            },
+            {
+                "id": 4,
+                "text": "Intimate relationships"
+            },
+            {
+                "id": 5,
+                "text": "The mistake of misplaced priorities"
+            },
+            {
+                "id": 6,
+                "text": "Focus on stability"
+            },
+            {
+                "id": 7,
+                "text": "The unique feeling of achievement"
+            },
+            {
+                "id": 8,
+                "text": "..."
+            }
+        ]
+    },
+    {
+        "index": 2,
+        "topic": "Four-Day Workweek",
+        "paragraphs": [
+            {
+                "id": 1,
+                "content": "For many years, a workweek of five or even six days was the standard. However, advancements in technology, evolving social values, and an increasing emphasis on work-life balance are making this traditional schedule less relevant. Both employees and employers are starting to question whether spending the majority of one’s week at work is truly necessary or productive.",
+                "correctHeaderId": 2
+            },
+            {
+                "id": 2,
+                "content": "Proponents of a four-day workweek highlight various benefits for workers. With an extra day off, employees gain more time to recharge, connect with family, or explore personal interests. Research shows that shorter workweeks can enhance focus and efficiency, leading to improved job performance and higher levels of job satisfaction.",
+                "correctHeaderId": 4
+            },
+            {
+                "id": 3,
+                "content": "While appealing, a reduced workweek could have financial downsides. Companies might incur higher expenses from the need to hire additional staff or adjust compensation models. For sectors that rely on hourly employees, it may be difficult to maintain profitability, potentially leading to service reductions or job cuts.",
+                "correctHeaderId": 1
+            },
+            {
+                "id": 4,
+                "content": "Adapting to a new work schedule can be difficult for some employees. The pressure to complete tasks within a shorter timeframe can lead to stress, and fast-paced industries may face challenges such as missed deadlines or conflicting schedules, complicating the transition to a shorter workweek.",
+                "correctHeaderId": 5
+            },
+            {
+                "id": 5,
+                "content": "For individuals accustomed to traditional work hours, the shift to a four-day workweek can be challenging. Breaking long-established routines is tough, and some may resist change even when it offers potential benefits. Adapting to a new work pattern often requires time and support.",
+                "correctHeaderId": 3
+            },
+            {
+                "id": 6,
+                "content": "While a four-day workweek may sound ideal to many, it isn’t necessarily fair to all. Essential workers, healthcare providers, and employees in the hospitality industry may not have the option to reduce their hours. This could create disparities among different worker groups and lead to tension within the workforce.",
+                "correctHeaderId": 7
+            },
+            {
+                "id": 7,
+                "content": "Rather than universally implementing a four-day workweek, experts suggest considering more flexible arrangements. Options such as allowing employees to choose their days off or offering shorter daily hours can provide similar advantages without disrupting industries that depend on a traditional work schedule.",
+                "correctHeaderId": 6
+            }
+        ],
+        "headers": [
+            {
+                "id": 1,
+                "text": "Undesirable finalcial consequences"
+            },
+            {
+                "id": 2,
+                "text": "A way of life now out date"
+            },
+            {
+                "id": 3,
+                "text": "Difficult to change old habits"
+            },
+            {
+                "id": 4,
+                "text": "Benefits for employees"
+            },
+            {
+                "id": 5,
+                "text": "Unforeseen challenges for employees"
+            },
+            {
+                "id": 6,
+                "text": "Alternative solutions worth considering"
+            },
+            {
+                "id": 7,
+                "text": "Unfair for some people"
+            },
+            {
+                "id": 8,
+                "text": "..."
+            }
+        ]
+    },
+    {
+        "index": 3,
+        "topic": "Digital transformation (Tech Forward)",
+        "paragraphs": [
+            {
+                "id": 1,
+                "content": "The interaction between people and technology is continuously evolving. Modern gadgets and software are designed to be more user-friendly, enabling communication through voice commands, gestures, or even facial recognition. This transformation makes technology more intuitive and accessible, enhancing both personal and professional experiences.",
+                "correctHeaderId": 3
+            },
+            {
+                "id": 2,
+                "content": "Smart automation tools are revolutionizing workplaces by handling repetitive and time-consuming tasks. These technologies, often powered by AI, enable employees to concentrate on more valuable work, boosting efficiency and fostering innovation across various sectors.",
+                "correctHeaderId": 4
+            },
+            {
+                "id": 3,
+                "content": "Educational institutions are increasingly incorporating technology into their curricula to prepare students for future careers. Programs focused on coding, robotics, and digital literacy provide learners with vital skills for the digital age, promoting creativity and enhancing problem-solving abilities.",
+                "correctHeaderId": 6
+            },
+            {
+                "id": 4,
+                "content": "Although digital devices offer numerous advantages, over-reliance on screens can lead to negative consequences. Individuals may experience reduced social interactions, trouble concentrating, and higher stress levels. It’s crucial to balance digital engagement with offline activities for maintaining mental and physical well-being.",
+                "correctHeaderId": 7
+            },
+            {
+                "id": 5,
+                "content": "Not everyone has equal access to technology, which can result in significant social and economic divides. Those without reliable internet or modern devices may miss out on educational and employment opportunities, making it essential to address these inequalities through policies and community-driven efforts.",
+                "correctHeaderId": 2
+            },
+            {
+                "id": 6,
+                "content": "Tech communities unite individuals passionate about technology to exchange ideas, support projects, and collaborate. These groups encourage innovation and creativity, offering mentorship and resources to help transform new ideas into reality.",
+                "correctHeaderId": 1
+            },
+            {
+                "id": 7,
+                "content": "As technology continues to evolve, there is a growing focus on sustainability. Companies are developing eco-friendly products and adopting green practices to reduce environmental impact, ensuring that digital advancements contribute to long-term ecological health.",
+                "correctHeaderId": 5
+            }
+        ],
+        "headers": [
+            {
+                "id": 1,
+                "text": "Building inclusive digital ecosystems"
+            },
+            {
+                "id": 2,
+                "text": "Concerns about cybersecurity risks"
+            },
+            {
+                "id": 3,
+                "text": "Redefining business models with technology"
+            },
+            {
+                "id": 4,
+                "text": "Enhancing productivity through automation"
+            },
+            {
+                "id": 5,
+                "text": "Focusing on ethical technology development"
+            },
+            {
+                "id": 6,
+                "text": "Promoting digital skills training"
+            },
+            {
+                "id": 7,
+                "text": "Over-reliance on automated systems"
+            },
+            {
+                "id": 8,
+                "text": "..."
+            }
+        ]
+    },
+    {
+        "index": 4,
+        "topic": "Wellness trend",
+        "paragraphs": [
+            {
+                "id": 1,
+                "content": "In recent years, the definition of health has broadened to encompass more than just physical well-being. Holistic approaches emphasize the interconnection of the body, mind, and environment, encouraging individuals to consider emotional balance, mental clarity, nutrition, and lifestyle habits collectively. This more comprehensive view helps people achieve deeper and more sustainable wellness by addressing various aspects of life rather than isolated symptoms.",
+                "correctHeaderId": 4
+            },
+            {
+                "id": 2,
+                "content": "Mental health has become a growing priority in public health discussions. Awareness campaigns aim to reduce the stigma surrounding mental health disorders and encourage open conversations about personal struggles. Educating people on recognizing early signs of anxiety, depression, and stress empowers them to seek help sooner. Many organizations also provide support networks and resources to build a more compassionate and understanding society.",
+                "correctHeaderId": 1
+            },
+            {
+                "id": 3,
+                "content": "Community-based fitness initiatives are becoming more popular as a way to make exercise enjoyable and accessible. By participating in group activities such as yoga, walking clubs, or sports leagues, individuals not only improve their physical health but also form meaningful social connections. These programs foster a sense of belonging and help individuals stay committed to their fitness goals over time, contributing to healthier and happier communities.",
+                "correctHeaderId": 2
+            },
+            {
+                "id": 4,
+                "content": "Although trendy diets often promise quick weight loss or improved health, relying too heavily on these fads can be problematic. Many popular diets lack scientific support and may eliminate essential nutrients, leading to unbalanced nutrition. Nutrition experts emphasize that sustainable eating should focus on balanced meals, moderation, and individual needs rather than quick fixes. Building a healthy relationship with food is more beneficial than chasing the latest diet trend.",
+                "correctHeaderId": 3
+            },
+            {
+                "id": 5,
+                "content": "The rise of social media and online platforms has led to widespread sharing of health information, but not all of it is accurate or safe. Misinformation about supplements, treatments, and health practices can cause confusion or even harm. It’s crucial for individuals to critically assess sources, consult healthcare professionals, and rely on evidence-based guidance when making decisions about their wellness routines.",
+                "correctHeaderId": 7
+            },
+            {
+                "id": 6,
+                "content": "Supportive wellness-focused communities play an essential role in helping people maintain healthy lifestyles. Whether online or through local meetups, these groups offer encouragement, share tips, and provide accountability. Members can exchange experiences, celebrate successes, and find motivation during challenges, creating an environment where individuals feel empowered to achieve their health goals.",
+                "correctHeaderId": 5
+            },
+            {
+                "id": 7,
+                "content": "Achieving long-term health requires more than temporary diets or exercise bursts. Sustainable wellness involves making gradual changes that can be maintained over time, such as improving sleep habits, managing stress, and incorporating regular physical activity. By setting realistic goals and making incremental adjustments, individuals are more likely to experience lasting benefits and enhance their overall quality of life.",
+                "correctHeaderId": 6
+            }
+        ],
+        "headers": [
+            {
+                "id": 1,
+                "text": "Promoting mental health awareness"
+            },
+            {
+                "id": 2,
+                "text": "Encouraging community fitness programs"
+            },
+            {
+                "id": 3,
+                "text": "Overemphasis on trendy diets"
+            },
+            {
+                "id": 4,
+                "text": "Redefining holistic health approaches"
+            },
+            {
+                "id": 5,
+                "text": "Building supportive health communities"
+            },
+            {
+                "id": 6,
+                "text": "Focusing on sustainable lifestyle changes"
+            },
+            {
+                "id": 7,
+                "text": "Concerns about wellness misinformation"
+            },
+            {
+                "id": 8,
+                "text": "..."
+            }
+        ]
+    },
+    {
+        "index": 5,
+        "topic": "Women mathematicians",
+        "paragraphs": [
+            {
+                "id": 1,
+                "content": "Long before modern scientific institutions emerged, certain individuals in ancient history established the foundations of mathematics as we know it. One such pioneer was Hypatia of Alexandria, a famous philosopher and mathematician in the 4th century.",
+                "correctHeaderId": 4
+            },
+            {
+                "id": 2,
+                "content": "The early 20th century saw remarkable advancements in computing, largely propelled by the innovative work of figures like Alan Turing. Turing’s concept of a universal machine, capable of performing any computable task, laid the foundation for modern computers.",
+                "correctHeaderId": 3
+            },
+            {
+                "id": 3,
+                "content": "Humanity’s quest to explore the cosmos has been defined by groundbreaking milestones. From the launch of Sputnik 1 to the Apollo moon landings, each mission has broadened our understanding of space and our place in the universe.",
+                "correctHeaderId": 2
+            },
+            {
+                "id": 4,
+                "content": "The study of geometry and motion was irrevocably altered by the works of Isaac Newton and later Albert Einstein. Newton’s laws provided the mathematical foundation for understanding motion on Earth and in space, while Einstein’s theory of general relativity revolutionized our understanding of gravity.",
+                "correctHeaderId": 6
+            },
+            {
+                "id": 5,
+                "content": "One of the most profound ideas in modern physics is the link between symmetry and the laws of nature. Emmy Noether, a brilliant German mathematician, proved a theorem that demonstrated how physical laws are intrinsically linked to symmetrical properties.",
+                "correctHeaderId": 1
+            },
+            {
+                "id": 6,
+                "content": "Despite advancements in science and technology, many groups remain underrepresented in STEM fields. In recent decades, educators and organizations have worked to foster more inclusive environments, offering scholarships, mentorship, and outreach programs.",
+                "correctHeaderId": 5
+            },
+            {
+                "id": 7,
+                "content": "In many parts of the world, individuals have had to fight for the right to education, particularly in scientific disciplines. A well-known example is the story of 19th-century women who were denied entry to universities.",
+                "correctHeaderId": 7
+            }
+        ],
+        "headers": [
+            {
+                "id": 1,
+                "text": "Connecting Symmetry to Physics"
+            },
+            {
+                "id": 2,
+                "text": "Driving Space Exploration Forward"
+            },
+            {
+                "id": 3,
+                "text": "Trailblazing Computer Science"
+            },
+            {
+                "id": 4,
+                "text": "Breaking New Ground in Ancient Mathematics"
+            },
+            {
+                "id": 5,
+                "text": "Encouraging Diversity in STEM"
+            },
+            {
+                "id": 6,
+                "text": "Transforming Geometry and Motion"
+            },
+            {
+                "id": 7,
+                "text": "Breaking Through Educational Barriers"
+            },
+            {
+                "id": 8,
+                "text": "..."
+            }
+        ]
+    },
+    {
+        "index": 6,
+        "topic": "Technology advances",
+        "paragraphs": [
+            {
+                "id": 1,
+                "content": "The way people use technology is changing quickly. Today, new devices and apps are easier to use. People can talk to machines, use hand gestures, or even use their face to control them. This helps make technology feel more natural and simple. It also improves how we use technology in our daily life and at work.",
+                "correctHeaderId": 4
+            },
+            {
+                "id": 2,
+                "content": "Smart machines and software are now doing boring and repeated tasks in many workplaces. These tools, often powered by artificial intelligence (AI), save time and help workers focus on more important and creative jobs. As a result, companies work better and grow faster in many fields.",
+                "correctHeaderId": 6
+            },
+            {
+                "id": 3,
+                "content": "More and more schools are using technology in their lessons. They teach students skills like computer coding, robotics, and how to use digital tools. These programs help students prepare for future jobs, and also build creativity and problem-solving skills, which are important in the digital world.",
+                "correctHeaderId": 2
+            },
+            {
+                "id": 4,
+                "content": "Using digital devices too much can cause problems. Spending too much time in front of screens can make people feel lonely, stressed, or tired. It can also make it harder to focus or talk with others. That’s why it's important to have a good balance between screen time and offline activities like exercise, talking with friends, or enjoying nature.",
+                "correctHeaderId": 7
+            },
+            {
+                "id": 5,
+                "content": "Not everyone has the same access to technology. Some people don’t have fast internet or modern devices, so they miss chances to learn or find jobs. This creates unfair gaps in society. To fix this, we need good plans and community programs to give more people access to the tools they need.",
+                "correctHeaderId": 3
+            },
+            {
+                "id": 6,
+                "content": "Technology communities are groups of people who love working with tech. They share ideas, help each other, and work together on new projects. These communities support learning and help turn smart ideas into real products or services that can help others.",
+                "correctHeaderId": 5
+            },
+            {
+                "id": 7,
+                "content": "As technology grows, people are also thinking about the environment. Many companies are now creating eco-friendly products and using green practices to reduce harm to nature. These actions help protect the Earth and make sure that digital progress is good for our planet in the long term.",
+                "correctHeaderId": 1
+            }
+        ],
+        "headers": [
+            {
+                "id": 1,
+                "text": "Focusing on Sustainable Digital Solutions"
+            },
+            {
+                "id": 2,
+                "text": "Promoting Technology-Based Education Programs"
+            },
+            {
+                "id": 3,
+                "text": "Concerns About Disparities in Access to Technology"
+            },
+            {
+                "id": 4,
+                "text": "Redefining Human-Technology Interaction"
+            },
+            {
+                "id": 5,
+                "text": "Building Innovative Tech Communities"
+            },
+            {
+                "id": 6,
+                "text": "Boosting Productivity Through Intelligent Automation"
+            },
+            {
+                "id": 7,
+                "text": "Overreliance on Digital Interfaces"
+            },
+            {
+                "id": 8,
+                "text": "..."
+            }
+        ]
+    },
+    {
+        "index": 7,
+        "topic": "Women mathematicians (2)",
+        "paragraphs": [
+            {
+                "id": 1,
+                "content": "Achievements often go unnoticed when gender biases come into play. Many groundbreaking contributions from women in science, technology, and other fields are overshadowed by societal expectations, leading to a lack of recognition for their hard work and dedication.",
+                "correctHeaderId": 5
+            },
+            {
+                "id": 2,
+                "content": "Recognizing the accomplishments of pioneering women is essential for breaking stereotypes and inspiring future generations. Women like Marie Curie, Ada Lovelace, and Katherine Johnson changed the world with their brilliance, yet their achievements were often marginalized due to their gender.",
+                "correctHeaderId": 2
+            },
+            {
+                "id": 3,
+                "content": "Men are unfairly given credit for work that was often a joint effort or even led by women. History has been shaped by this bias, where the achievements of women were either ignored or misattributed, despite their immense contributions to progress.",
+                "correctHeaderId": 3
+            },
+            {
+                "id": 4,
+                "content": "A long career is a testament to one's exceptional abilities. Take the story of a female engineer who spent decades improving infrastructure in underdeveloped regions. Despite her groundbreaking work, she was often overlooked simply because of her gender, but her work left an indelible mark on society.",
+                "correctHeaderId": 1
+            },
+            {
+                "id": 5,
+                "content": "Labels can change perceptions dramatically. The label of 'genius' or 'pioneer' is often reserved for men, but when a woman is labeled in the same way, it challenges stereotypes and forces society to recognize her contributions. This shift in perception is key to breaking down barriers and opening doors for others.",
+                "correctHeaderId": 7
+            },
+            {
+                "id": 6,
+                "content": "Striving to create gender balance in the workplace and society at large has become a movement. Companies and governments are starting to realize that diverse teams lead to better solutions, yet the struggle for equal representation continues. The push for gender balance is not just about fairness but also about enhancing productivity and creativity.",
+                "correctHeaderId": 4
+            },
+            {
+                "id": 7,
+                "content": "Uniformity can be a disadvantage in many settings. When everyone is expected to conform to the same mold, innovation and individuality suffer. The story of a diverse team at a tech startup shows how embracing different perspectives led to creative breakthroughs, proving that diversity is a powerful asset.",
+                "correctHeaderId": 6
+            }
+        ],
+        "headers": [
+            {
+                "id": 1,
+                "text": "A long career demonstrates exceptional ability"
+            },
+            {
+                "id": 2,
+                "text": "Recognizing the accomplishments of pioneering women"
+            },
+            {
+                "id": 3,
+                "text": "Men are unfairly given credit"
+            },
+            {
+                "id": 4,
+                "text": "Striving to create gender balance"
+            },
+            {
+                "id": 5,
+                "text": "Achievements obscured by gender"
+            },
+            {
+                "id": 6,
+                "text": "Uniformity can be a disadvantage"
+            },
+            {
+                "id": 7,
+                "text": "The labels can change perceptions"
+            },
+            {
+                "id": 8,
+                "text": "..."
+            }
+        ]
+    },
+    {
+        "index": 8,
+        "topic": "Cultural Exchange",
+        "paragraphs": [
+            {
+                "id": 1,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 3
+            },
+            {
+                "id": 2,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 2
+            },
+            {
+                "id": 3,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 7
+            },
+            {
+                "id": 4,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 5
+            },
+            {
+                "id": 5,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 6
+            },
+            {
+                "id": 6,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 1
+            },
+            {
+                "id": 7,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 4
+            }
+        ],
+        "headers": [
+            {
+                "id": 1,
+                "text": "Building Mutual Respect Among Communities"
+            },
+            {
+                "id": 2,
+                "text": "Encouraging Cross-Cultural Festivals"
+            },
+            {
+                "id": 3,
+                "text": "Redefining Global Cultural Understanding"
+            },
+            {
+                "id": 4,
+                "text": "Focusing on Authentic Cultural Experiences"
+            },
+            {
+                "id": 5,
+                "text": "Overemphasis on Commercial Tourism"
+            },
+            {
+                "id": 6,
+                "text": "Concerns About Cultural Preservation"
+            },
+            {
+                "id": 7,
+                "text": "Promoting Language Exchange Programs"
+            },
+            {
+                "id": 8,
+                "text": "..."
+            }
+        ]
+    },
+    {
+        "index": 9,
+        "topic": "Urban Development",
+        "paragraphs": [
+            {
+                "id": 1,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 4
+            },
+            {
+                "id": 2,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 3
+            },
+            {
+                "id": 3,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 6
+            },
+            {
+                "id": 4,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 1
+            },
+            {
+                "id": 5,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 5
+            },
+            {
+                "id": 6,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 7
+            },
+            {
+                "id": 7,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 2
+            }
+        ],
+        "headers": [
+            {
+                "id": 1,
+                "text": "Overreliance on High-Rise Buildings"
+            },
+            {
+                "id": 2,
+                "text": "Focusing on Renewable Energy Source"
+            },
+            {
+                "id": 3,
+                "text": "Encouraging Green Spaces in Urban Areas"
+            },
+            {
+                "id": 4,
+                "text": "Redefining Sustainable City Planning"
+            },
+            {
+                "id": 5,
+                "text": "Concerns About Traffic Congestion"
+            },
+            {
+                "id": 6,
+                "text": "Supporting Affordable Housing Projects"
+            },
+            {
+                "id": 7,
+                "text": "Strengthening Community Engagement"
+            },
+            {
+                "id": 8,
+                "text": "..."
+            }
+        ]
+    },
+    {
+        "index": 10,
+        "topic": "Digital innovation",
+        "paragraphs": [
+            {
+                "id": 1,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 3
+            },
+            {
+                "id": 2,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 2
+            },
+            {
+                "id": 3,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 5
+            },
+            {
+                "id": 4,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 6
+            },
+            {
+                "id": 5,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 1
+            },
+            {
+                "id": 6,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 7
+            },
+            {
+                "id": 7,
+                "content": "Chưa có nội dung...",
+                "correctHeaderId": 4
+            }
+        ],
+        "headers": [
+            {
+                "id": 1,
+                "text": "Concerns About Data Privacy"
+            },
+            {
+                "id": 2,
+                "text": "Enhancing Connectivity with Mobile Apps"
+            },
+            {
+                "id": 3,
+                "text": "Redefining Leisure in the Digital age"
+            },
+            {
+                "id": 4,
+                "text": "Prioritize human-friendly designs"
+            },
+            {
+                "id": 5,
+                "text": "Promoting Essential Digital Literacy"
+            },
+            {
+                "id": 6,
+                "text": "Risks of Excessive Screen-Based Entertainment"
+            },
+            {
+                "id": 7,
+                "text": "Building Inclusive and Respectful Online Communities"
+            },
+            {
+                "id": 8,
+                "text": "Health and society"
+            }
+        ]
+    }
+]

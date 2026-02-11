@@ -30,3 +30,8 @@ class ToggleAudio extends ListeningP2Event {
 }
 
 class AudioCompleted extends ListeningP2Event {}
+
+class JumpToTopic extends ListeningP2Event {
+  final int index;
+  JumpToTopic(this.index);
+}

@@ -29,3 +29,8 @@ class SeekPlayback extends SpeakingP3Event {
 
 class NextPart extends SpeakingP3Event {}
 class PreviousPart extends SpeakingP3Event {}
+
+class JumpToTopic extends SpeakingP3Event {
+  final int index;
+  JumpToTopic(this.index);
+}

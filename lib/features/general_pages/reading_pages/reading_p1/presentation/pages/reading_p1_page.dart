@@ -92,117 +92,113 @@ class ReadingP1Page
         //   ),
         // ],
       ),
-      body:
-          state.listQuestion.isEmpty
-              ? const Center(child: Text("Chưa có dữ liệu"))
-              : Scrollbar(
-                thumbVisibility: true,
-                controller: _scrollController,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: ListView.builder(
-                    controller: _scrollController,
-                    itemCount: state.visibleCount,
-                    itemBuilder: (context, qIndex) {
-                      final question = state.listQuestion[qIndex];
-                      return Card(
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 8,
+      body: state.listQuestion.isEmpty
+          ? const Center(child: Text("Chưa có dữ liệu"))
+          : Scrollbar(
+              thumbVisibility: true,
+              controller: _scrollController,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: ListView.builder(
+                  controller: _scrollController,
+                  itemCount: state.listQuestion.length < state.visibleCount
+                      ? state.listQuestion.length
+                      : state.visibleCount,
+                  itemBuilder: (context, qIndex) {
+                    final question = state.listQuestion[qIndex];
+                    return Card(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 8,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        side: const BorderSide(
+                          color: AppColors.lightGray,
+                          width: 2,
                         ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          side: const BorderSide(
-                            color: AppColors.lightGray,
-                            width: 2,
-                          ),
-                        ),
-                        elevation: 5,
-                        color: AppColors.white,
-                        child: Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "${qIndex + 1}. ${question.questionText}",
-                                style: AppTextStyle.largeBlackBold,
-                              ),
-                              const SizedBox(height: 8),
-                              Column(
-                                children: List.generate(
-                                  question.options.length,
-                                  (i) {
-                                    final option = question.options[i];
-                                    Widget iconWidget = const SizedBox(
+                      ),
+                      elevation: 5,
+                      color: AppColors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SelectableText(
+                              "${qIndex + 1}. ${question.questionText}",
+                              style: AppTextStyle.largeBlackBold,
+                            ),
+                            const SizedBox(height: 8),
+                            Column(
+                              children: List.generate(question.options.length, (
+                                i,
+                              ) {
+                                final option = question.options[i];
+                                Widget iconWidget = const SizedBox(
+                                  width: 24,
+                                  height: 24,
+                                );
+                                final selectedIdx =
+                                    state.selectedAnswers[qIndex];
+                                final correctIdx = state.correctAnswers[qIndex];
+                                if (state.submitted && correctIdx != null) {
+                                  if (i == correctIdx) {
+                                    if (selectedIdx == null) {
+                                      iconWidget = const Icon(
+                                        Icons.check_circle,
+                                        color: AppColors.gray,
+                                      );
+                                    } else if (selectedIdx == correctIdx) {
+                                      iconWidget = const Icon(
+                                        Icons.check_circle,
+                                        color: AppColors.green,
+                                      );
+                                    } else {
+                                      iconWidget = const Icon(
+                                        Icons.check_circle,
+                                        color: AppColors.gray,
+                                      );
+                                    }
+                                  } else if (i == selectedIdx &&
+                                      selectedIdx != correctIdx) {
+                                    iconWidget = const Icon(
+                                      Icons.cancel,
+                                      color: AppColors.red,
+                                    );
+                                  }
+                                }
+                                return Padding(
+                                  padding: const EdgeInsets.only(left: 4.0),
+                                  child: RadioListTile<int>(
+                                    value: i,
+                                    groupValue: selectedIdx,
+                                    onChanged: (val) {
+                                      if (val != null) {
+                                        bloc.add(AnswerSelected(qIndex, val));
+                                      }
+                                    },
+                                    title: SelectableText(option.text),
+                                    activeColor: AppColors.secondaryColor,
+                                    contentPadding: EdgeInsets.zero,
+                                    visualDensity: VisualDensity.compact,
+                                    secondary: SizedBox(
                                       width: 24,
                                       height: 24,
-                                    );
-                                    final selectedIdx =
-                                        state.selectedAnswers[qIndex];
-                                    final correctIdx =
-                                        state.correctAnswers[qIndex];
-
-                                    if (state.submitted && correctIdx != null) {
-                                      if (i == correctIdx) {
-                                        if (selectedIdx == null) {
-                                          iconWidget = const Icon(
-                                            Icons.check_circle,
-                                            color: AppColors.gray,
-                                          );
-                                        } else if (selectedIdx == correctIdx) {
-                                          iconWidget = const Icon(
-                                            Icons.check_circle,
-                                            color: AppColors.green,
-                                          );
-                                        } else {
-                                          iconWidget = const Icon(
-                                            Icons.check_circle,
-                                            color: AppColors.gray,
-                                          );
-                                        }
-                                      } else if (i == selectedIdx &&
-                                          selectedIdx != correctIdx) {
-                                        iconWidget = const Icon(
-                                          Icons.cancel,
-                                          color: AppColors.red,
-                                        );
-                                      }
-                                    }
-                                    return Padding(
-                                      padding: const EdgeInsets.only(left: 4.0),
-                                      child: RadioListTile<int>(
-                                        value: i,
-                                        groupValue: selectedIdx,
-                                        onChanged: (val) {
-                                          if (val != null) {
-                                            bloc.add(
-                                              AnswerSelected(qIndex, val),
-                                            );
-                                          }
-                                        },
-                                        title: Text(option.text),
-                                        activeColor: AppColors.secondaryColor,
-                                        contentPadding: EdgeInsets.zero,
-                                        visualDensity: VisualDensity.compact,
-                                        secondary: SizedBox(
-                                          width: 24,
-                                          height: 24,
-                                          child: Center(child: iconWidget),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                            ],
-                          ),
+                                      child: Center(child: iconWidget),
+                                    ),
+                                  ),
+                                );
+                              }),
+                            ),
+                          ],
                         ),
-                      );
-                    },
-                  ),
+                      ),
+                    );
+                  },
                 ),
               ),
+            ),
       bottomNavigationBar: SafeArea(
         child: Container(
           padding: const EdgeInsets.all(16),

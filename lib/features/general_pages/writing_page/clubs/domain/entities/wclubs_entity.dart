@@ -4,16 +4,16 @@ import 'package:equatable/equatable.dart';
 class WClubsEntity extends Equatable {
   final int index;
   final String name;
-  final String description;
+  // final String description;
   final Map<String, PartEntity> parts;
 
   const WClubsEntity({
     required this.index,
     required this.name,
-    required this.description,
+    // required this.description,
     required this.parts,
   });
 
   @override
-  List<Object?> get props => [index, name, description, parts];
+  List<Object?> get props => [index, name, parts];
 }

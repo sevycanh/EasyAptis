@@ -17,3 +17,8 @@ class AnswerSelected extends ReadingP5Event {
   final int? selectedHeaderId;
   AnswerSelected(this.paragraphId, this.selectedHeaderId);
 }
+
+class JumpToTopic extends ReadingP5Event {
+  final int index;
+  JumpToTopic(this.index);
+}

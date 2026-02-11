@@ -26,3 +26,5 @@ class SeekPlayback extends SpeakingP1Event {
   final Duration position;
   SeekPlayback(this.position);
 }
+
+class LoadMoreQuestionsEvent extends SpeakingP1Event {}

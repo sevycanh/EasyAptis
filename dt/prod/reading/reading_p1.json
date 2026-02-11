@@ -1,0 +1,992 @@
+[
+    {
+        "index": 1,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "station"
+            },
+            {
+                "isCorrect": false,
+                "text": "school"
+            },
+            {
+                "isCorrect": false,
+                "text": "market"
+            }
+        ],
+        "questionText": "Where is the train ___ in this town?"
+    },
+    {
+        "index": 2,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "runs"
+            },
+            {
+                "isCorrect": true,
+                "text": "stops"
+            },
+            {
+                "isCorrect": false,
+                "text": "flies"
+            }
+        ],
+        "questionText": "The bus ___ here every morning."
+    },
+    {
+        "index": 3,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "red"
+            },
+            {
+                "isCorrect": false,
+                "text": "blue"
+            },
+            {
+                "isCorrect": true,
+                "text": "green"
+            }
+        ],
+        "questionText": "The traffic light is ___ so you can go now."
+    },
+    {
+        "index": 4,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "breakfast"
+            },
+            {
+                "isCorrect": false,
+                "text": "lunch"
+            },
+            {
+                "isCorrect": true,
+                "text": "dinner"
+            }
+        ],
+        "questionText": "We usually have ___ at 7 p.m."
+    },
+    {
+        "index": 5,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "books"
+            },
+            {
+                "isCorrect": true,
+                "text": "movies"
+            },
+            {
+                "isCorrect": false,
+                "text": "games"
+            }
+        ],
+        "questionText": "Do you like watching ___ on weekends?"
+    },
+    {
+        "index": 6,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "morning"
+            },
+            {
+                "isCorrect": false,
+                "text": "evening"
+            },
+            {
+                "isCorrect": false,
+                "text": "night"
+            }
+        ],
+        "questionText": "I always study in the ___ before school."
+    },
+    {
+        "index": 7,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "friends"
+            },
+            {
+                "isCorrect": false,
+                "text": "parents"
+            },
+            {
+                "isCorrect": false,
+                "text": "teachers"
+            }
+        ],
+        "questionText": "My ___ and I play football after class."
+    },
+    {
+        "index": 8,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "leave"
+            },
+            {
+                "isCorrect": false,
+                "text": "drive"
+            },
+            {
+                "isCorrect": false,
+                "text": "take"
+            }
+        ],
+        "questionText": "I always ___ my bag on the chair."
+    },
+    {
+        "index": 9,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "bad"
+            },
+            {
+                "isCorrect": false,
+                "text": "boring"
+            },
+            {
+                "isCorrect": true,
+                "text": "good"
+            }
+        ],
+        "questionText": "Apples are very ___ for your health."
+    },
+    {
+        "index": 10,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "food"
+            },
+            {
+                "isCorrect": false,
+                "text": "books"
+            },
+            {
+                "isCorrect": false,
+                "text": "games"
+            }
+        ],
+        "questionText": "We eat rice and ___ every day."
+    },
+    {
+        "index": 11,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "office"
+            },
+            {
+                "isCorrect": true,
+                "text": "home"
+            },
+            {
+                "isCorrect": false,
+                "text": "park"
+            }
+        ],
+        "questionText": "Where is your ___ ?"
+    },
+    {
+        "index": 12,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "customers"
+            },
+            {
+                "isCorrect": false,
+                "text": "friends"
+            },
+            {
+                "isCorrect": false,
+                "text": "colleagues"
+            }
+        ],
+        "questionText": "Do you talk to ___ at work?"
+    },
+    {
+        "index": 13,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "hard"
+            },
+            {
+                "isCorrect": true,
+                "text": "easy"
+            },
+            {
+                "isCorrect": false,
+                "text": "boring"
+            }
+        ],
+        "questionText": "Is the task ___for you?"
+    },
+    {
+        "index": 14,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "eat"
+            },
+            {
+                "isCorrect": false,
+                "text": "drink"
+            },
+            {
+                "isCorrect": true,
+                "text": "prepare"
+            }
+        ],
+        "questionText": "What do you ___ in the morning?"
+    },
+    {
+        "index": 15,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "read"
+            },
+            {
+                "isCorrect": false,
+                "text": "listen"
+            },
+            {
+                "isCorrect": true,
+                "text": "watch"
+            }
+        ],
+        "questionText": "What do you like to ___ on TV?"
+    },
+    {
+        "index": 16,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "school"
+            },
+            {
+                "isCorrect": true,
+                "text": "park"
+            },
+            {
+                "isCorrect": false,
+                "text": "street"
+            }
+        ],
+        "questionText": "Do you jog in the ___ in the morning?"
+    },
+    {
+        "index": 17,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "classes"
+            },
+            {
+                "isCorrect": false,
+                "text": "games"
+            },
+            {
+                "isCorrect": false,
+                "text": "shops"
+            }
+        ],
+        "questionText": "Does the gym offer ___ for yoga?"
+    },
+    {
+        "index": 18,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "difficult"
+            },
+            {
+                "isCorrect": false,
+                "text": "boring"
+            },
+            {
+                "isCorrect": true,
+                "text": "easy"
+            }
+        ],
+        "questionText": "Is English ___ for you?"
+    },
+    {
+        "index": 19,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "lunch"
+            },
+            {
+                "isCorrect": true,
+                "text": "breakfast"
+            },
+            {
+                "isCorrect": false,
+                "text": "dinner"
+            }
+        ],
+        "questionText": "What do you eat for ___ every day?"
+    },
+    {
+        "index": 20,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "football"
+            },
+            {
+                "isCorrect": true,
+                "text": "meditation"
+            },
+            {
+                "isCorrect": false,
+                "text": "painting"
+            }
+        ],
+        "questionText": "Do you practice ___ to relax?"
+    },
+    {
+        "index": 21,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "friendly"
+            },
+            {
+                "isCorrect": false,
+                "text": "noisy"
+            },
+            {
+                "isCorrect": false,
+                "text": "quiet"
+            }
+        ],
+        "questionText": "Is your neighborhood ___?"
+    },
+    {
+        "index": 22,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "run"
+            },
+            {
+                "isCorrect": true,
+                "text": "walk"
+            },
+            {
+                "isCorrect": false,
+                "text": "cycle"
+            }
+        ],
+        "questionText": "How do you usually ___ to work?"
+    },
+    {
+        "index": 23,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "first"
+            },
+            {
+                "isCorrect": false,
+                "text": "last"
+            },
+            {
+                "isCorrect": false,
+                "text": "next"
+            }
+        ],
+        "questionText": "When did you meet your friend ___?"
+    },
+    {
+        "index": 24,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "speak"
+            },
+            {
+                "isCorrect": false,
+                "text": "read"
+            },
+            {
+                "isCorrect": false,
+                "text": "write"
+            }
+        ],
+        "questionText": "Can you ___ French?"
+    },
+    {
+        "index": 25,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "alone"
+            },
+            {
+                "isCorrect": true,
+                "text": "together"
+            },
+            {
+                "isCorrect": false,
+                "text": "separately"
+            }
+        ],
+        "questionText": "Do you like going out ___ with your friends?"
+    },
+    {
+        "index": 26,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "board"
+            },
+            {
+                "isCorrect": false,
+                "text": "plane"
+            },
+            {
+                "isCorrect": true,
+                "text": "bicycle"
+            }
+        ],
+        "questionText": "I go to school by ___."
+    },
+    {
+        "index": 27,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "hate"
+            },
+            {
+                "isCorrect": true,
+                "text": "tall"
+            },
+            {
+                "isCorrect": false,
+                "text": "busy"
+            }
+        ],
+        "questionText": "The buildings in my city are very ___."
+    },
+    {
+        "index": 28,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "land"
+            },
+            {
+                "isCorrect": false,
+                "text": "sea"
+            },
+            {
+                "isCorrect": true,
+                "text": "trees"
+            }
+        ],
+        "questionText": "There are many green ___ near my home."
+    },
+    {
+        "index": 29,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "breakfast"
+            },
+            {
+                "isCorrect": false,
+                "text": "lunch"
+            },
+            {
+                "isCorrect": false,
+                "text": "dinner"
+            }
+        ],
+        "questionText": "I eat ___ with my family every morning."
+    },
+    {
+        "index": 30,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "make"
+            },
+            {
+                "isCorrect": true,
+                "text": "meditation"
+            },
+            {
+                "isCorrect": false,
+                "text": "exercise"
+            }
+        ],
+        "questionText": "I do ___ to feel relaxed."
+    },
+    {
+        "index": 31,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "visit"
+            },
+            {
+                "isCorrect": false,
+                "text": "clean"
+            },
+            {
+                "isCorrect": false,
+                "text": "paint"
+            }
+        ],
+        "questionText": "I want to ___ my grandparents this weekend."
+    },
+    {
+        "index": 32,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "room"
+            },
+            {
+                "isCorrect": false,
+                "text": "garden"
+            },
+            {
+                "isCorrect": false,
+                "text": "kitchen"
+            }
+        ],
+        "questionText": "My ___ is very clean and bright."
+    },
+    {
+        "index": 33,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "cold"
+            },
+            {
+                "isCorrect": true,
+                "text": "hot"
+            },
+            {
+                "isCorrect": false,
+                "text": "rainy"
+            }
+        ],
+        "questionText": "The weather is ___ today."
+    },
+    {
+        "index": 34,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "bus"
+            },
+            {
+                "isCorrect": false,
+                "text": "car"
+            },
+            {
+                "isCorrect": true,
+                "text": "train"
+            }
+        ],
+        "questionText": "We went to the city by ___."
+    },
+    {
+        "index": 35,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "read"
+            },
+            {
+                "isCorrect": true,
+                "text": "speak"
+            },
+            {
+                "isCorrect": false,
+                "text": "write"
+            }
+        ],
+        "questionText": "I can ___ English very well."
+    },
+    {
+        "index": 36,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "farm"
+            },
+            {
+                "isCorrect": false,
+                "text": "factory"
+            },
+            {
+                "isCorrect": false,
+                "text": "office"
+            }
+        ],
+        "questionText": "My uncle works on a ___."
+    },
+    {
+        "index": 37,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "bored"
+            },
+            {
+                "isCorrect": true,
+                "text": "excited"
+            },
+            {
+                "isCorrect": false,
+                "text": "tired"
+            }
+        ],
+        "questionText": "The children were very ___ about the trip."
+    },
+    {
+        "index": 38,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "left"
+            },
+            {
+                "isCorrect": false,
+                "text": "right"
+            },
+            {
+                "isCorrect": false,
+                "text": "back"
+            }
+        ],
+        "questionText": "Turn ___ at the next corner."
+    },
+    {
+        "index": 39,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "river"
+            },
+            {
+                "isCorrect": false,
+                "text": "mountain"
+            },
+            {
+                "isCorrect": true,
+                "text": "street"
+            }
+        ],
+        "questionText": "We walked along the ___ to the park."
+    },
+    {
+        "index": 40,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "eat"
+            },
+            {
+                "isCorrect": false,
+                "text": "cook"
+            },
+            {
+                "isCorrect": true,
+                "text": "drink"
+            }
+        ],
+        "questionText": "I usually ___ milk in the morning."
+    },
+    {
+        "index": 41,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "home"
+            },
+            {
+                "isCorrect": false,
+                "text": "school"
+            },
+            {
+                "isCorrect": false,
+                "text": "work"
+            }
+        ],
+        "questionText": "I usually stay at ___ on Sundays."
+    },
+    {
+        "index": 42,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "swim"
+            },
+            {
+                "isCorrect": true,
+                "text": "drive"
+            },
+            {
+                "isCorrect": false,
+                "text": "cook"
+            }
+        ],
+        "questionText": "My father can ___ very well."
+    },
+    {
+        "index": 43,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "pets"
+            },
+            {
+                "isCorrect": false,
+                "text": "teachers"
+            },
+            {
+                "isCorrect": true,
+                "text": "friends"
+            }
+        ],
+        "questionText": "I like spending time with my ___ after school."
+    },
+    {
+        "index": 44,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "run"
+            },
+            {
+                "isCorrect": true,
+                "text": "walk"
+            },
+            {
+                "isCorrect": false,
+                "text": "ride"
+            }
+        ],
+        "questionText": "Let's go for a ___ in the park."
+    },
+    {
+        "index": 45,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "pretty"
+            },
+            {
+                "isCorrect": false,
+                "text": "angry"
+            },
+            {
+                "isCorrect": false,
+                "text": "sad"
+            }
+        ],
+        "questionText": "Your sister looks very ___ today."
+    },
+    {
+        "index": 46,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "country"
+            },
+            {
+                "isCorrect": false,
+                "text": "sky"
+            },
+            {
+                "isCorrect": false,
+                "text": "train"
+            }
+        ],
+        "questionText": "I want to travel to the ___ this summer."
+    },
+    {
+        "index": 47,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "dirty"
+            },
+            {
+                "isCorrect": false,
+                "text": "messy"
+            },
+            {
+                "isCorrect": true,
+                "text": "clean"
+            }
+        ],
+        "questionText": "Please keep your room ___."
+    },
+    {
+        "index": 48,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "class"
+            },
+            {
+                "isCorrect": false,
+                "text": "lunch"
+            },
+            {
+                "isCorrect": false,
+                "text": "game"
+            }
+        ],
+        "questionText": "We have English ___ on Monday."
+    },
+    {
+        "index": 49,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "myself"
+            },
+            {
+                "isCorrect": false,
+                "text": "alone"
+            },
+            {
+                "isCorrect": true,
+                "text": "other"
+            }
+        ],
+        "questionText": "I like helping ___ people."
+    },
+    {
+        "index": 50,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "numbers"
+            },
+            {
+                "isCorrect": false,
+                "text": "pictures"
+            },
+            {
+                "isCorrect": true,
+                "text": "words"
+            }
+        ],
+        "questionText": "Can you spell these ___ for me?"
+    },
+    {
+        "index": 51,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "big"
+            },
+            {
+                "isCorrect": true,
+                "text": "small"
+            },
+            {
+                "isCorrect": false,
+                "text": "wide"
+            }
+        ],
+        "questionText": "My bedroom is very ___."
+    },
+    {
+        "index": 52,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "stay"
+            },
+            {
+                "isCorrect": false,
+                "text": "move"
+            },
+            {
+                "isCorrect": false,
+                "text": "travel"
+            }
+        ],
+        "questionText": "We usually ___ at a hotel on vacation."
+    },
+    {
+        "index": 53,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "kitchen"
+            },
+            {
+                "isCorrect": true,
+                "text": "garden"
+            },
+            {
+                "isCorrect": false,
+                "text": "garage"
+            }
+        ],
+        "questionText": "There are many flowers in the ___."
+    },
+    {
+        "index": 54,
+        "options": [
+            {
+                "isCorrect": false,
+                "text": "houses"
+            },
+            {
+                "isCorrect": true,
+                "text": "trees"
+            },
+            {
+                "isCorrect": false,
+                "text": "cars"
+            }
+        ],
+        "questionText": "Some ___ near my home are very tall."
+    },
+    {
+        "index": 55,
+        "options": [
+            {
+                "isCorrect": true,
+                "text": "old"
+            },
+            {
+                "isCorrect": false,
+                "text": "young"
+            },
+            {
+                "isCorrect": false,
+                "text": "busy"
+            }
+        ],
+        "questionText": "My grandfather is very ___ but still strong."
+    }
+]

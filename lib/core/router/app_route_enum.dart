@@ -6,7 +6,8 @@ enum AppRouteEnum {
   listeningPage,
   speakingPage,
   writingPage,
-  grammarAndVocabularyPage,
+  grammarPage,
+  vocabularyPage,
   tipPage,
   infoPage,
   readingP1Page,
@@ -22,7 +23,7 @@ enum AppRouteEnum {
   speakingP1Page,
   speakingP2Page,
   speakingP3Page,
-  speakingP4Page
+  speakingP4Page,
 }
 
 extension AppRouteExtension on AppRouteEnum {
@@ -49,8 +50,11 @@ extension AppRouteExtension on AppRouteEnum {
       case AppRouteEnum.writingPage:
         return "/writing_page";
 
-      case AppRouteEnum.grammarAndVocabularyPage:
-        return "/grammar_and_vocabulary_page";
+      case AppRouteEnum.grammarPage:
+        return "/grammar_page";
+
+      case AppRouteEnum.vocabularyPage:
+        return "/vocabulary_page";
 
       case AppRouteEnum.tipPage:
         return "/tip_page";

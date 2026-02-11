@@ -17,3 +17,8 @@ class CheckAnswer extends ReadingP2vs3Event {}
 class NextQuestion extends ReadingP2vs3Event {}
 
 class PreviousQuestion extends ReadingP2vs3Event {}
+
+class JumpToQuestion extends ReadingP2vs3Event {
+  final int index;
+  JumpToQuestion(this.index);
+}

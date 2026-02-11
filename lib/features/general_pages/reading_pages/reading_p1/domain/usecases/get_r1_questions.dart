@@ -15,6 +15,7 @@ class GetR1Questions implements UseCase<List<ReadingP1Entity>, Params> {
     return await repository.getQuestionReadingP1(
       page: params.page,
       limit: params.limit,
+      forceRefresh: params.forceRefresh ?? false,
     );
   }
 }
@@ -22,9 +23,10 @@ class GetR1Questions implements UseCase<List<ReadingP1Entity>, Params> {
 class Params extends Equatable {
   final int? page;
   final int? limit;
+  final bool? forceRefresh;
 
-  const Params({this.page, this.limit});
+  const Params({this.page, this.limit, this.forceRefresh});
 
   @override
-  List<Object?> get props => [page, limit];
+  List<Object?> get props => [page, limit, forceRefresh];
 }

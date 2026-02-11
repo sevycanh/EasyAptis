@@ -6,5 +6,6 @@ abstract class ReadingP2vs3Repository {
   Future<Either<Failure, List<ReadingP2vs3Entity>>> getQuestionReadingP2vs3({
     int? page,
     int? limit,
+    bool forceRefresh = false,
   });
 }

@@ -74,21 +74,23 @@ class WritingPage extends StatelessWidget {
               //     fontWeight: FontWeight.bold,
               //     letterSpacing: 1,
               //   ),
-              //   onPressed: () {
+              //   onPressed:
+              //
+              // () {
               //     Navigator.pushNamed(context, AppRouteEnum.listeningP4Page.name);
               //   },
               // ),
               // const SizedBox(height: 16),
-              AppButton(
-                text: "Tips",
-                color: AppColors.gray,
-                textStyle: AppTextStyle.largeWhite.copyWith(
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1,
-                ),
-                onPressed: () {},
-              ),
-              const SizedBox(height: 16),
+              // AppButton(
+              //   text: "Tips",
+              //   color: AppColors.gray,
+              //   textStyle: AppTextStyle.largeWhite.copyWith(
+              //     fontWeight: FontWeight.bold,
+              //     letterSpacing: 1,
+              //   ),
+              //   onPressed: () {},
+              // ),
+              // const SizedBox(height: 16),
             ],
           ),
         ),

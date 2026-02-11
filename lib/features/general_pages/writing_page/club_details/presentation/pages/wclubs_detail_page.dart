@@ -9,8 +9,8 @@ import 'package:easyaptis/features/general_pages/writing_page/club_details/prese
 import 'package:easyaptis/features/general_pages/writing_page/club_details/presentation/widgets/question_answer_field.dart';
 import 'package:easyaptis/features/general_pages/writing_page/clubs/domain/entities/wclubs_entity.dart';
 import 'package:easyaptis/injection_container.dart';
-import 'package:easyaptis/shared/presentation/models/suggest_ui_model.dart';
-import 'package:easyaptis/shared/presentation/widgets/suggest_bottom_sheet.dart';
+import 'package:easyaptis/shared/suggest_bottom_sheet/models/suggest_ui_model.dart';
+import 'package:easyaptis/shared/suggest_bottom_sheet/widgets/suggest_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -67,41 +67,54 @@ class WClubsDetailPage
           ),
         ),
         body: body,
-        bottomNavigationBar:
-            (state.error.isNotEmpty && state.topic == null)
-                ? null
-                : SafeArea(
-                  child: Container(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: AppButton(
-                            text: "Previous",
-                            color: AppColors.pastel,
-                            onPressed:
-                                state.currentPart > 1
-                                    ? () => bloc.add(PreviousPart())
-                                    : null,
-                          ),
+        bottomNavigationBar: (state.error.isNotEmpty && state.topic == null)
+            ? null
+            : SafeArea(
+                child: Container(
+                  padding: const EdgeInsets.all(16),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: AppButton(
+                          text: "Back",
+                          textStyle: state.currentPart > 1
+                              ? null
+                              : AppTextStyle.largeBlack.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.darkGray,
+                                  letterSpacing: 1,
+                                ),
+                          color: AppColors.pastel,
+                          onPressed: state.currentPart > 1
+                              ? () => bloc.add(PreviousPart())
+                              : null,
                         ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: AppButton(
-                            text: "Next",
-                            color: AppColors.green,
-                            onPressed:
-                                state.topic != null &&
-                                        state.currentPart <
-                                            state.topic!.parts.length
-                                    ? () => bloc.add(NextPart())
-                                    : null,
-                          ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: AppButton(
+                          text: "Next",
+                          textStyle:
+                              state.topic != null &&
+                                  state.currentPart < state.topic!.parts.length
+                              ? null
+                              : AppTextStyle.largeBlack.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.darkGray,
+                                  letterSpacing: 1,
+                                ),
+                          color: AppColors.green,
+                          onPressed:
+                              state.topic != null &&
+                                  state.currentPart < state.topic!.parts.length
+                              ? () => bloc.add(NextPart())
+                              : null,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
+              ),
       ),
     );
   }
@@ -120,18 +133,24 @@ class WClubsDetailPage
         children: [
           Row(
             children: [
-              Text(
-                "Part ${state.currentPart} of ${state.topic!.parts.length}",
-                style: AppTextStyle.xxLargeBlackBold.copyWith(
-                  fontStyle: FontStyle.italic,
+              Expanded(
+                child: Text(
+                  "Part ${state.currentPart} of ${state.topic!.parts.length}\n(${state.currentPart == 1
+                      ? '1-5'
+                      : state.currentPart == 2
+                      ? '20-30'
+                      : state.currentPart == 3
+                      ? '30-40'
+                      : '50 & 120-150'} words)",
+                  style: AppTextStyle.xLargeBlackBold,
                 ),
               ),
-              const Spacer(),
               IconButton(
                 icon: const Icon(Icons.lightbulb_outline),
                 visualDensity: VisualDensity.compact,
                 padding: EdgeInsets.zero,
                 onPressed: () {
+                  FocusScope.of(context).unfocus();
                   _showSuggestBottomSheet(context, state);
                 },
               ),
@@ -166,7 +185,7 @@ class WClubsDetailPage
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: Text(
+                      child: SelectableText(
                         "${q.id}. ${q.text}",
                         style: AppTextStyle.xLargeBlackBold,
                       ),
@@ -231,14 +250,13 @@ class WClubsDetailPage
 void _showSuggestBottomSheet(BuildContext context, WClubsDetailState state) {
   final part = state.topic!.parts["${state.currentPart}"]!;
 
-  final suggestions =
-      part.questions.map((q) {
-        return SuggestUiModel(
-          id: q.id.toString(),
-          title: q.text,
-          suggestion: q.suggestion,
-        );
-      }).toList();
+  final suggestions = part.questions.map((q) {
+    return SuggestUiModel(
+      id: q.id.toString(),
+      title: q.text,
+      suggestion: q.suggestion,
+    );
+  }).toList();
 
   showModalBottomSheet(
     context: context,

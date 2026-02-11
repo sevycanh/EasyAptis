@@ -16,6 +16,7 @@ class ReadingP4Bloc extends BaseBloc<ReadingP4Event, ReadingP4State> {
     on<NextQuestion>(_onNextQuestion);
     on<PreviousQuestion>(_onPreviousQuestion);
     on<AnswerSelected>(_onAnswerSelected);
+    on<JumpToTopic>(_onJumpToTopic);
   }
 
   Future<void> _onLoadQuestions(
@@ -23,7 +24,7 @@ class ReadingP4Bloc extends BaseBloc<ReadingP4Event, ReadingP4State> {
     Emitter<ReadingP4State> emit,
   ) async {
     emit(state.copyWith(isLoading: true, error: ""));
-
+    await Future.delayed(const Duration(seconds: 3));
     final result = await getQuestionReadingP4(
       Params(page: event.page, limit: event.limit),
     );
@@ -98,5 +99,13 @@ class ReadingP4Bloc extends BaseBloc<ReadingP4Event, ReadingP4State> {
     newChecks[currentIndex] = resultForTopic;
 
     emit(state.copyWith(checkResults: newChecks));
+  }
+
+  void _onJumpToTopic(JumpToTopic event, Emitter<ReadingP4State> emit) {
+    final index = event.index;
+    if (index < 0 || index >= state.listQuestion.length) {
+      return;
+    }
+    emit(state.copyWith(currentIndex: index));
   }
 }

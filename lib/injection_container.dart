@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:easyaptis/core/configs/network/network_info.dart';
+import 'package:easyaptis/core/services/notification_service.dart';
+import 'package:easyaptis/core/storage/hive_manager.dart';
+import 'package:easyaptis/features/general_pages/render_pdf/render_pdf_injecttion.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_injections.dart';
 import 'package:easyaptis/features/general_pages/reading_pages/reading_injections.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_injections.dart';
@@ -16,6 +18,8 @@ import 'package:easyaptis/features/welcome/domain/repositories/welcome_repositor
 import 'package:easyaptis/features/welcome/domain/usecases/set_not_first_lauch.dart';
 import 'package:easyaptis/features/splash/presentation/bloc/splash_bloc.dart';
 import 'package:easyaptis/features/welcome/presentation/bloc/welcome_bloc.dart';
+import 'package:easyaptis/shared/notification/notification_injection.dart';
+import 'package:easyaptis/shared/pdf/pdf_injection.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -28,19 +32,27 @@ Future<void> init() async {
   sl.registerLazySingleton(() => sharedPreferences);
   sl.registerLazySingleton(() => FirebaseFirestore.instance);
 
+  await HiveManager.init();
+
   // Core
-  sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
+  // sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
 
   // Modules
   await initReadingInjections();
   await initListeningInjections();
   await initWritingInjections();
   await initSpeakingInjections();
+  await initPDFInjections();
+  await initRenderPDFInjections();
+  await initNotificationInjections();
+
+  // Services
+  sl.registerLazySingleton(() => NotificationService());
 
   //! Features - Splash
   // Bloc
   sl.registerFactory(
-    () => SplashBloc(networkInfo: sl(), checkFirstLaunchUseCase: sl()),
+    () => SplashBloc(checkFirstLaunchUseCase: sl()),
   );
   // UseCase
   sl.registerLazySingleton(() => CheckFirstLaunch(sl()));

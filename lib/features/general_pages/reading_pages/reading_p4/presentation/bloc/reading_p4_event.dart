@@ -17,3 +17,8 @@ class AnswerSelected extends ReadingP4Event {
   final String? selectedSpeaker;
   AnswerSelected(this.questionIndex, this.selectedSpeaker);
 }
+
+class JumpToTopic extends ReadingP4Event {
+  final int index;
+  JumpToTopic(this.index);
+}

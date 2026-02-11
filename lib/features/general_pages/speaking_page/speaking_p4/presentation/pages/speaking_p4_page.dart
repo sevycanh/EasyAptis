@@ -3,6 +3,8 @@ import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
 import 'package:easyaptis/core/widgets/app_button.dart';
 import 'package:easyaptis/core/widgets/app_loading.dart';
+import 'package:easyaptis/core/widgets/app_select_bottom_sheet.dart';
+import 'package:easyaptis/core/widgets/app_toast.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/domain/entities/speaking_p4_entity.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/presentation/bloc/speaking_p4_bloc.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p4/presentation/bloc/speaking_p4_event.dart';
@@ -46,6 +48,35 @@ class SpeakingP4Page
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.list_alt_rounded),
+            tooltip: "Chọn Topic",
+            onPressed: () async => await showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              backgroundColor: AppColors.white,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+              ),
+              builder: (context) {
+                return AppSelectorBottomSheet(
+                  title: "All Pages",
+                  items: List.generate(
+                    state.listQuestion.length,
+                    (index) => AppSelectorItem(
+                      title: "Page ${state.listQuestion[index].index}",
+                      isSelected: index == state.currentIndex,
+                    ),
+                  ),
+                  onItemSelected: (index) {
+                    bloc.add(JumpToTopic(index));
+                  },
+                );
+              },
+            ),
+          ),
+        ],
       ),
       body: _buildPageBody(context, state),
       bottomNavigationBar: _buildBottomPlayer(context, bloc, state),
@@ -161,23 +192,37 @@ class SpeakingP4Page
               children: [
                 Expanded(
                   child: AppButton(
-                    text: "Previous",
+                    text: "Back",
+                    textStyle: state.currentIndex == 0
+                        ? AppTextStyle.largeBlack.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.darkGray,
+                            letterSpacing: 1,
+                          )
+                        : null,
                     color: AppColors.pastel,
-                    onPressed:
-                        state.currentIndex > 0
-                            ? () => bloc.add(PreviousPart())
-                            : null,
+                    onPressed: state.currentIndex > 0
+                        ? () => bloc.add(PreviousPart())
+                        : null,
                   ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: AppButton(
                     text: "Next",
+                    textStyle:
+                        state.currentIndex < state.listQuestion.length - 1
+                        ? null
+                        : AppTextStyle.largeBlack.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.darkGray,
+                            letterSpacing: 1,
+                          ),
                     color: AppColors.green,
                     onPressed:
                         state.currentIndex < state.listQuestion.length - 1
-                            ? () => bloc.add(NextPart())
-                            : null,
+                        ? () => bloc.add(NextPart())
+                        : null,
                   ),
                 ),
               ],
@@ -262,14 +307,27 @@ class SpeakingP4Page
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
-          child: IconButton(
-            icon: const Icon(Icons.refresh, color: Colors.grey),
-            iconSize: 32,
-            onPressed:
-                state.recordingPath != null &&
+          child: Row(
+            children: [
+              IconButton(
+                icon: Icon(Icons.question_mark_rounded, color: Colors.grey),
+                onPressed: () {
+                  AppToast.showSuccess(
+                    context,
+                    message: "60s preparation + 120s for all questions",
+                  );
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.refresh, color: Colors.grey),
+                iconSize: 32,
+                onPressed:
+                    state.recordingPath != null &&
                         state.recordingStatus != RecordingStatus.playing
                     ? () => bloc.add(ResetRecording())
                     : null,
+              ),
+            ],
           ),
         ),
 
@@ -305,10 +363,9 @@ class SpeakingP4Page
         );
       case RecordingStatus.initial:
         return FloatingActionButton(
-          onPressed:
-              () => bloc.add(
-                StartRecording(timeLimitInSeconds: state.timeLimitInSeconds),
-              ),
+          onPressed: () => bloc.add(
+            StartRecording(timeLimitInSeconds: state.timeLimitInSeconds),
+          ),
           backgroundColor: Colors.red,
           elevation: 0,
           child: const Icon(Icons.mic, color: Colors.white),

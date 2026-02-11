@@ -1,0 +1,602 @@
+[
+    {
+        "index": 1,
+        "options": [
+            {
+                "index": 0,
+                "text": "Use solar panels for electricity"
+            },
+            {
+                "index": 1,
+                "text": "Does not use commercial cleaning products"
+            },
+            {
+                "index": 2,
+                "text": "Buy environmentally friendly products"
+            },
+            {
+                "index": 3,
+                "text": "Plant trees in the backyard"
+            },
+            {
+                "index": 4,
+                "text": "Give away used items"
+            },
+            {
+                "index": 5,
+                "text": "Reuse containers for storing food"
+            }
+        ],
+        "speakers": [
+            {
+                "speaker": 1,
+                "correct_option": 1
+            },
+            {
+                "speaker": 2,
+                "correct_option": 4
+            },
+            {
+                "speaker": 3,
+                "correct_option": 2
+            },
+            {
+                "speaker": 4,
+                "correct_option": 5
+            }
+        ],
+        "topic": "Protect the environment",
+        "audio_url": "",
+        "transcript": "Person A: I find the act of giving away old or secondhand items a bit hypocritical. Why do people give away their old things, only to go out and buy the same item but brand new? Not only does this fail to protect the environment, but it also causes double the harm. Personally, I have a way of protecting the environment by not releasing harmful chemicals into it. I do this by not purchasing chemical cleaning solutions. Instead, I make use of natural products like lemons to create my own floor-cleaning solutions.\nPerson B: I often don't have time to think about how to reuse my belongings or clothes, but I don't want to throw them away because that would be wasteful. So, I think a better way is to donate them to charity organizations or give them to others. Many people are in need of these things, and giving away my old items also makes me feel happier because I'm helping others.\nPerson C: A good way to protect the environment is by not using plastic bags or by bringing reusable bags when going to the market, which helps reduce the disposal of plastic bags, a material that is difficult to decompose. However, I'm a very busy person and rarely have time to prepare my own bags when going shopping, and I usually drive to buy groceries quickly instead of walking. I guess I can't protect the environment by not driving. But I have a principle of only buying eco-friendly products, so I think I’m still contributing in a small way to protecting the Earth.\nPerson D: I see that too many people are wasting food containers, as they often throw them away after use, such as glass jars or plastic bottles. I can reuse them to store food and neatly organize them in my refrigerator. Reusing these containers is a very easy way to protect the environment that anyone can do."
+    },
+    {
+        "index": 2,
+        "options": [
+            {
+                "index": 0,
+                "text": "Shopping online"
+            },
+            {
+                "index": 1,
+                "text": "Not driving to work"
+            },
+            {
+                "index": 2,
+                "text": "Buying imported goods"
+            },
+            {
+                "index": 3,
+                "text": "Wasting more energy"
+            },
+            {
+                "index": 4,
+                "text": "Using less water"
+            },
+            {
+                "index": 5,
+                "text": "Using less electricity"
+            }
+        ],
+        "speakers": [
+            {
+                "speaker": 1,
+                "correct_option": 0
+            },
+            {
+                "speaker": 2,
+                "correct_option": 1
+            },
+            {
+                "speaker": 3,
+                "correct_option": 5
+            },
+            {
+                "speaker": 4,
+                "correct_option": 4
+            }
+        ],
+        "topic": "Protect the environment",
+        "audio_url": "",
+        "transcript": "A: I usually shop online to reduce the need to drive to the supermarket, which produces harmful emissions for the environment. Additionally, I can avoid using plastic bags for groceries when shopping in person. By simply sitting at home and clicking a few buttons, I can buy everything I want without emitting harmful gases from a car.\nB: I used to drive to work for a long period, but then I realized that the excessive use of personal cars contributes significantly to environmental pollution. Therefore, I chose to ride a bicycle to work, which benefits both the environment and my health.\nC: I'm not that into environmental protection and usually just do what’s convenient for me. But my electric bill last month shocked me because it was so expensive, and I realized that I needed to save money. So from now on, I’ll have to manage my electricity use more efficiently.\nD: I think a lot of people overemphasize protecting the environment by cutting down on personal vehicles, avoiding plastic bags, planting a lot of trees, and so on. But I personally believe we should focus on protecting the environment through small daily actions we often overlook. For example, turning off the water while brushing our teeth or washing our hands. If everyone saves a little water like that, it would add up to a huge amount saved globally."
+    },
+    {
+        "index": 3,
+        "options": [
+            {
+                "index": 0,
+                "text": "There are more choices"
+            },
+            {
+                "index": 1,
+                "text": "It provides better customer service"
+            },
+            {
+                "index": 2,
+                "text": "It is cheaper"
+            },
+            {
+                "index": 3,
+                "text": "The products are delivered"
+            },
+            {
+                "index": 4,
+                "text": "It increases efficiency"
+            },
+            {
+                "index": 5,
+                "text": "It saves time"
+            }
+        ],
+        "speakers": [
+            {
+                "speaker": 1,
+                "correct_option": 3
+            },
+            {
+                "speaker": 2,
+                "correct_option": 2
+            },
+            {
+                "speaker": 3,
+                "correct_option": 5
+            },
+            {
+                "speaker": 4,
+                "correct_option": 0
+            }
+        ],
+        "topic": "Online shopping",
+        "audio_url": "",
+        "transcript": "A: I used to be the person who didn’t like shopping online, but ever since I experienced home delivery, I no longer shop in stores. When I shop online, the delivery person brings the package right to my door, even up to my floor, and knocks on my apartment door, so I don’t even need to step outside. I really enjoy this convenience.\nB: Shopping online has helped me save quite a bit of money. After a few months of online shopping, I was able to save enough to buy a new bicycle. But don't get me wrong, I haven't been eating any less or cutting back on the groceries I buy. It's just that online shopping allows me to compare prices and choose the store with the best deal.\nC: I’m a pretty busy person, and I often don’t have enough time because of my hectic work schedule. That’s why I always shop online to save time. This way, I don’t need to go to the store in person, and someone will deliver the items directly to me. Additionally, online shopping is very convenient because, with just a few clicks, I can buy everything I want without having to go from one store to another.\nD: I don't shop online because it's cheaper or because of the fast shipping. I shop online because, when browsing online stores, I have a wide range of choices. For the same item, there are many different types and brands for me to choose from and compare, which allows me to pick the one I like the most."
+    },
+    {
+        "index": 4,
+        "options": [
+            {
+                "index": 0,
+                "text": "While singing"
+            },
+            {
+                "index": 1,
+                "text": "To discuss ideas"
+            },
+            {
+                "index": 2,
+                "text": "To complain"
+            },
+            {
+                "index": 3,
+                "text": "While studying"
+            },
+            {
+                "index": 4,
+                "text": "After waking up"
+            },
+            {
+                "index": 5,
+                "text": "To relax"
+            }
+        ],
+        "speakers": [
+            {
+                "speaker": 1,
+                "correct_option": 5
+            },
+            {
+                "speaker": 2,
+                "correct_option": 4
+            },
+            {
+                "speaker": 3,
+                "correct_option": 0
+            },
+            {
+                "speaker": 4,
+                "correct_option": 3
+            }
+        ],
+        "topic": "Listening to music",
+        "audio_url": "",
+        "transcript": "A: I see a lot of people listen to music right when they wake up to help them feel alert. But if I listen to music as soon as I wake up, it gives me a headache all day and makes it hard for me to focus on anything. So, I just listen to music to relax when I’m feeling comfortable, not for any other reason.\nB: I usually listen to a pop or rock song as soon as I get out of bed in the morning because it helps me wake up instantly. If I don't listen to music at that moment, I don't know when I'll be able to get up and go to work.\nC: My brothers and friends often say that I have a beautiful voice, so I often sing when I meet them. I usually play music on the TV and hold the remote control, pretending it's a microphone so I can sing.\nD: I have a habit of listening to music while studying; it helps me stay motivated and alert while doing my assignments. If I don't play music, I could fall asleep at any moment, and I'll study in a discouraged mood."
+    },
+    {
+        "index": 5,
+        "options": [
+            {
+                "index": 0,
+                "text": "Going for a run"
+            },
+            {
+                "index": 1,
+                "text": "Horse riding"
+            },
+            {
+                "index": 2,
+                "text": "To discuss ideas"
+            },
+            {
+                "index": 3,
+                "text": "Mountain biking"
+            },
+            {
+                "index": 4,
+                "text": "To complain"
+            },
+            {
+                "index": 5,
+                "text": "Climbing"
+            }
+        ],
+        "speakers": [
+            {
+                "speaker": 1,
+                "correct_option": 1
+            },
+            {
+                "speaker": 2,
+                "correct_option": 0
+            },
+            {
+                "speaker": 3,
+                "correct_option": 5
+            },
+            {
+                "speaker": 4,
+                "correct_option": 3
+            }
+        ],
+        "topic": "Outdoor activities",
+        "audio_url": "",
+        "transcript": "A: My hometown is in the countryside, and we have a very large and beautiful farm. I’ve been learning to ride horses since I was a child, and it’s still my hobby to this day. Whenever I want to relax or enjoy the scenery, I ride my horse along the farm and across the meadows.\nB: My husband and I often wake up early and go to a nearby forest for exercise. We usually go jogging in the early morning to stay healthy, and we really enjoy the fresh air and natural scenery in the forest.\nC: I used to love mountain biking, enjoying the thrill of riding down steep slopes. It was really an amazing and adventurous feeling. However, after an injury from a fall, I became haunted by the fear of crashing and now I'm scared of this sport. But I still love the mountains, so I’ve decided to just go hiking every weekend instead.\nD: My father often encourages me to ride horses because it’s a sport he enjoys. But I’m very afraid of this animal and never want to learn how to ride, even though there’s a riding school near my house. Instead, I prefer mountain biking with my friends to conquer high peaks."
+    },
+    {
+        "index": 6,
+        "options": [
+            {
+                "index": 0,
+                "text": "In the fitness centre"
+            },
+            {
+                "index": 1,
+                "text": "At the seaside"
+            },
+            {
+                "index": 2,
+                "text": "At the supermarket"
+            },
+            {
+                "index": 3,
+                "text": "On the running track"
+            },
+            {
+                "index": 4,
+                "text": "In the library"
+            },
+            {
+                "index": 5,
+                "text": "In the street"
+            }
+        ],
+        "speakers": [
+            {
+                "speaker": 1,
+                "correct_option": 0
+            },
+            {
+                "speaker": 2,
+                "correct_option": 1
+            },
+            {
+                "speaker": 3,
+                "correct_option": 5
+            },
+            {
+                "speaker": 4,
+                "correct_option": 3
+            }
+        ],
+        "topic": "The place to run",
+        "audio_url": "",
+        "transcript": "A: My friends often invite me to go jogging on the street, but I find it too dangerous. There’s a lot of traffic, which can be dangerous for people jogging on the street. So, I bought a one-year gym membership and go there to exercise every day.\nB: I see many people wake up early to go jogging and exercise to stay healthy. As for me, I usually walk along the beach simply to relax because there’s a beautiful beach near my house. Every morning, I spend time walking on the white sand; it really helps a lot with my mental well-being.\nC: I usually wake up early in the morning to exercise, and I choose to jog on the street because of its convenience. I just need to step out of the house, and I can start exercising. However, I have to go jogging early to avoid cyclists. My friends go to the gym to exercise a lot, but I find something artificial about the whole thing.\nD: Near my house, there’s a stadium where many people go to exercise. I often run on the track there, and it makes me feel like I’m running more professionally. My personality is quite competitive, so I also time myself and race with my friends there."
+    },
+    {
+        "index": 7,
+        "options": [
+            {
+                "index": 0,
+                "text": "At the supermarket"
+            },
+            {
+                "index": 1,
+                "text": "Help improve work performance"
+            },
+            {
+                "index": 2,
+                "text": "Hate exercising"
+            },
+            {
+                "index": 3,
+                "text": "Find exercise tiring"
+            },
+            {
+                "index": 4,
+                "text": "Has fun when exercising with friends"
+            },
+            {
+                "index": 5,
+                "text": "In the library"
+            }
+        ],
+        "speakers": [
+            {
+                "speaker": 1,
+                "correct_option": 2
+            },
+            {
+                "speaker": 2,
+                "correct_option": 1
+            },
+            {
+                "speaker": 3,
+                "correct_option": 3
+            },
+            {
+                "speaker": 4,
+                "correct_option": 4
+            }
+        ],
+        "topic": "Do exercise",
+        "audio_url": "",
+        "transcript": "A: My friends often advise me to exercise to maintain a good physique and health. However, I am very busy with a tight work schedule. Even if I weren’t busy, I still wouldn’t like to exercise. I feel uncomfortable as soon as I put on workout clothes. I don’t think exercise is something that suits me.\nB: I know that working out every day is good for my health and helps me get in shape. But what I've found is that exercising actually boosts my productivity a lot and really helps me focus better. So, I always try to squeeze in some exercise before heading to work—it definitely makes me more productive.\nC: We’ve all heard about the many benefits of exercising, and I know about them too. My friends often invite me to work out, but after I exercise, I end up feeling extremely exhausted and spend the rest of the day just lying around to recover.\nD: I often go to the gym to work out, but what really motivates me to workout is catching up with my friends there, not just for improving my health. Plus, it’s a great way to meet and make new friends. For me, exercising is just another chance to socialize."
+    },
+    {
+        "index": 8,
+        "options": [
+            {
+                "index": 0,
+                "text": "Communicate with friends"
+            },
+            {
+                "index": 1,
+                "text": "Buy groceries online"
+            },
+            {
+                "index": 2,
+                "text": "Watch films"
+            },
+            {
+                "index": 3,
+                "text": "Find transport information"
+            },
+            {
+                "index": 4,
+                "text": "Complete assignments"
+            },
+            {
+                "index": 5,
+                "text": "Listen to the radio"
+            }
+        ],
+        "speakers": [
+            {
+                "speaker": 1,
+                "correct_option": 2
+            },
+            {
+                "speaker": 2,
+                "correct_option": 0
+            },
+            {
+                "speaker": 3,
+                "correct_option": 4
+            },
+            {
+                "speaker": 4,
+                "correct_option": 3
+            }
+        ],
+        "topic": "The internet",
+        "audio_url": "",
+        "transcript": "A: I am a big fan of newly released movies, but the cost of going to the cinema is too high. I'm just a student, so I can't afford to go to the cinema regularly to indulge in my hobby. Therefore, I think the internet is great because it allows me to watch movies for free at home. I save both the time of going to the cinema and a considerable amount of money.\nB: In today's digital age, the internet helps us access social media to stay constantly connected with friends. Especially since I have relatives mainly living abroad or in distant cities, the internet has been a great help for my family to stay in touch. We often video call each other to share daily stories.\nC: The internet is a great resource for research, finding materials, and useful information for studying. My friends and I often go to each other's houses to do homework together. Instead of spending hours trying to figure out how to do our homework, we quickly go online and find the answers.\nD: I see that people often use the internet to watch movies, read newspapers, quickly update the news, and so on. But I usually use the internet to find directions and public transport to my friends' and relatives' houses. I'm a forgetful person, and I often forget the way, even if I've been there a hundred times. So the internet helps me a lot in not getting lost and easily find nearby public transport."
+    },
+    {
+        "index": 9,
+        "options": [
+            {
+                "index": 0,
+                "text": "With children"
+            },
+            {
+                "index": 1,
+                "text": "Alone"
+            },
+            {
+                "index": 2,
+                "text": "Together"
+            },
+            {
+                "index": 3,
+                "text": "Social activity"
+            },
+            {
+                "index": 4,
+                "text": "As part of their job"
+            },
+            {
+                "index": 5,
+                "text": "Stay at home"
+            }
+        ],
+        "speakers": [
+            {
+                "speaker": 1,
+                "correct_option": 3
+            },
+            {
+                "speaker": 2,
+                "correct_option": 0
+            },
+            {
+                "speaker": 3,
+                "correct_option": 4
+            },
+            {
+                "speaker": 4,
+                "correct_option": 1
+            }
+        ],
+        "topic": "The Art",
+        "audio_url": "",
+        "transcript": "A: I personally don't like and don't have a talent for fine arts, especially painting. But I see it as a great way to engage in social charity activities. I'm passionate about teaching children how to draw because I love kids. I'm also part of a volunteer organization that specializes in teaching art to poor children, which makes me very happy.\nB: I think drawing with my children is a great way to understand them better. No matter how busy my work is, I always make time to sit and draw with my kids. This helps us bond more and gives me the chance to talk with them more.\nC: I've loved literature, art, and drawing since I was a child. Now, I'm a writer and a comic book creator. In my stories, I occasionally include some illustrations to make the book more vivid and lively.\nD: I'm currently taking a drawing course and I really want to be serious about it. When practicing drawing, I prefer not to draw with friends, even though they often invite me to join them. I want to focus entirely on my work."
+    },
+    {
+        "index": 10,
+        "options": [
+            {
+                "index": 0,
+                "text": "Travel by car"
+            },
+            {
+                "index": 1,
+                "text": "Travel by bus"
+            },
+            {
+                "index": 2,
+                "text": "Walk with a friend"
+            },
+            {
+                "index": 3,
+                "text": "Take a taxi"
+            },
+            {
+                "index": 4,
+                "text": "Ride a bicycle"
+            },
+            {
+                "index": 5,
+                "text": "Walk alone"
+            }
+        ],
+        "speakers": [
+            {
+                "speaker": 1,
+                "correct_option": 1
+            },
+            {
+                "speaker": 2,
+                "correct_option": 0
+            },
+            {
+                "speaker": 3,
+                "correct_option": 5
+            },
+            {
+                "speaker": 4,
+                "correct_option": 2
+            }
+        ],
+        "topic": "Travel to work",
+        "audio_url": "",
+        "transcript": "A: I'm concerned about the Earth and the environment, so I always look for ways to use public transportation, like buses or trains, to reduce harmful emissions. I can't walk to work because it's too far from my home, but I always walk to the local market when I need to buy groceries.\nB: I had to take driving lessons to be able to drive to work. My mother works along the same route, so we often drive to work together. Occasionally, she takes over the driving, and I'm happy because driving together gives us more time to chat.\nC: I used to use my car a lot to get to work. But since I moved closer to the company, I always go there on foot. I have a friend who cycles for 20 minutes every day to work—can you imagine? She must be super fit!\nD: I often choose to walk to work to save on gas money and to keep in shape. I usually walk to the company with a close friend. Sometimes we feel really tired but still push ourselves to walk all the way. There are times when we see a bus stop and have to resist the urge to hop on the bus."
+    },
+    {
+        "index": 11,
+        "options": [
+            {
+                "index": 0,
+                "text": "With music"
+            },
+            {
+                "index": 1,
+                "text": "In various places"
+            },
+            {
+                "index": 2,
+                "text": "With background noise"
+            },
+            {
+                "index": 3,
+                "text": "In a quiet place"
+            },
+            {
+                "index": 4,
+                "text": "Late at night"
+            },
+            {
+                "index": 5,
+                "text": "Early in the morning"
+            }
+        ],
+        "speakers": [
+            {
+                "speaker": 1,
+                "correct_option": 1
+            },
+            {
+                "speaker": 2,
+                "correct_option": 3
+            },
+            {
+                "speaker": 3,
+                "correct_option": 0
+            },
+            {
+                "speaker": 4,
+                "correct_option": 4
+            }
+        ],
+        "topic": "Studying",
+        "audio_url": "",
+        "transcript": "A: I can study in different places, like coffee shops, libraries, or parks. For me, the location isn't that important because I have good concentration skills.\nB: I can't study in very noisy places because I can't focus on my homework. If I study in a café, I end up not getting anything done. So, I usually study in places such as my room in my house or in my office.\nC: I prefer listening to music while studying. I usually play motivational songs to help keep me alert, especially when studying in the morning. Music is like a cup of coffee, keeping me awake and motivated in my studies.\nD: I often can't focus on studying during the day; I feel tired and sleepy when I have to wake up early and study. So, I usually study at night when everyone in the house is asleep. The quiet atmosphere at night allows me to focus the best and be the most productive."
+    },
+    {
+        "index": 12,
+        "options": [
+            {
+                "index": 0,
+                "text": "In the park"
+            },
+            {
+                "index": 1,
+                "text": "At home"
+            },
+            {
+                "index": 2,
+                "text": "While traveling abroad"
+            },
+            {
+                "index": 3,
+                "text": "In a shared workspace"
+            },
+            {
+                "index": 4,
+                "text": "In the coffee shop"
+            },
+            {
+                "index": 5,
+                "text": "On public transport"
+            }
+        ],
+        "speakers": [
+            {
+                "speaker": 1,
+                "correct_option": 4
+            },
+            {
+                "speaker": 2,
+                "correct_option": 0
+            },
+            {
+                "speaker": 3,
+                "correct_option": 5
+            },
+            {
+                "speaker": 4,
+                "correct_option": 1
+            }
+        ],
+        "topic": "Studying (2)",
+        "audio_url": "",
+        "transcript": "A: I don't like studying in very quiet places such as at home or in the library because I get sleepy easily and might even fall asleep while studying. There's a coffee shop near my house, and I often go there to study because the presence of other people makes me feel more motivated. I find that I achieve higher productivity and efficiency in my studies when I'm there.\nB: I notice that most people prefer doing their homework in the classroom, but for me, those chairs are way too hard and leave me sore all day. I prefer sitting under the trees in the park to study—it's cool, and the air is fresh. There's a famous coffee shop across from where I sit, and they serve really good coffee.\nC: The distance from my house to school is 20 km, and it usually takes me an hour to get there. So, when I'm on the train, I use the time to do homework and review the lessons for the day. Some people say that studying like this can be distracting, but I find it very effective for me.\nD: I don't like studying in very crowded places because I can't focus well. I usually sit on the sofa in the living room to study. My parents often travel for work, so my house is very quiet."
+    }
+]

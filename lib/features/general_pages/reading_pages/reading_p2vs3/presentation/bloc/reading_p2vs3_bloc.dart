@@ -14,12 +14,14 @@ class ReadingP2vs3Bloc extends BaseBloc<ReadingP2vs3Event, ReadingP2vs3State> {
     on<CheckAnswer>(_onCheckAnswer);
     on<NextQuestion>(_onNextQuestion);
     on<PreviousQuestion>(_onPreviousQuestion);
+    on<JumpToQuestion>(_onJumpToQuestion);
   }
   Future<void> _onLoadQuestions(
     LoadQuestions event,
     Emitter<ReadingP2vs3State> emit,
   ) async {
     emit(state.copyWith(isLoading: true));
+    await Future.delayed(const Duration(seconds: 3));
     final result = await getQuestionReadingP23UseCase(
       Params(page: event.page, limit: event.limit),
     );
@@ -131,5 +133,29 @@ class ReadingP2vs3Bloc extends BaseBloc<ReadingP2vs3Event, ReadingP2vs3State> {
         ),
       );
     }
+  }
+
+  void _onJumpToQuestion(
+    JumpToQuestion event,
+    Emitter<ReadingP2vs3State> emit,
+  ) {
+    if (event.index < 0 || event.index >= state.listQuestion.length) return;
+
+    final updatedOrdersMap = Map<int, List<OptionR2vs3Entity>>.from(
+      state.ordersMap,
+    );
+    final targetQ = state.listQuestion[event.index];
+
+    final targetOrder =
+        updatedOrdersMap[event.index] ??
+        (updatedOrdersMap[event.index] = List.from(targetQ.options)..shuffle());
+
+    emit(
+      state.copyWith(
+        currentIndex: event.index,
+        currentOrder: List.from(targetOrder),
+        ordersMap: updatedOrdersMap,
+      ),
+    );
   }
 }

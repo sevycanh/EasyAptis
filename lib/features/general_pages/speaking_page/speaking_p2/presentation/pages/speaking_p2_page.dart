@@ -2,6 +2,9 @@ import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
 import 'package:easyaptis/core/widgets/app_button.dart';
+import 'package:easyaptis/core/widgets/app_loading.dart';
+import 'package:easyaptis/core/widgets/app_select_bottom_sheet.dart';
+import 'package:easyaptis/core/widgets/app_toast.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p2/domain/entities/speaking_p2_entity.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p2/presentation/bloc/speaking_p2_bloc.dart';
 import 'package:easyaptis/features/general_pages/speaking_page/speaking_p2/presentation/bloc/speaking_p2_event.dart';
@@ -35,7 +38,7 @@ class SpeakingP2Page
     SpeakingP2State state,
   ) {
     if (state.isLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return AppLoading();
     }
     return Scaffold(
       appBar: AppBar(
@@ -45,6 +48,35 @@ class SpeakingP2Page
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.list_alt_rounded),
+            tooltip: "Chọn Topic",
+            onPressed: () async => await showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              backgroundColor: AppColors.white,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+              ),
+              builder: (context) {
+                return AppSelectorBottomSheet(
+                  title: "All Pages",
+                  items: List.generate(
+                    state.listQuestion.length,
+                    (index) => AppSelectorItem(
+                      title: "Page ${state.listQuestion[index].index}",
+                      isSelected: index == state.currentIndex,
+                    ),
+                  ),
+                  onItemSelected: (index) {
+                    bloc.add(JumpToTopic(index));
+                  },
+                );
+              },
+            ),
+          ),
+        ],
       ),
       body: _buildPageBody(context, state),
       bottomNavigationBar: _buildBottomPlayer(context, bloc, state),
@@ -85,18 +117,16 @@ class SpeakingP2Page
                 width: double.infinity,
                 height: 200,
                 fit: BoxFit.cover,
-                loadingBuilder:
-                    (context, child, loadingProgress) =>
-                        loadingProgress == null
-                            ? child
-                            : const Center(
-                              child: CircularProgressIndicator(
-                                color: AppColors.primaryColor,
-                              ),
-                            ),
-                errorBuilder:
-                    (context, error, stackTrace) =>
-                        const Center(child: Icon(Icons.broken_image_outlined)),
+                loadingBuilder: (context, child, loadingProgress) =>
+                    loadingProgress == null
+                    ? child
+                    : const Center(
+                        child: CircularProgressIndicator(
+                          color: AppColors.primaryColor,
+                        ),
+                      ),
+                errorBuilder: (context, error, stackTrace) =>
+                    const Center(child: Icon(Icons.broken_image_outlined)),
               ),
             ),
             const SizedBox(height: 16),
@@ -183,23 +213,37 @@ class SpeakingP2Page
               children: [
                 Expanded(
                   child: AppButton(
-                    text: "Previous",
+                    text: "Back",
+                    textStyle: state.currentIndex == 0
+                        ? AppTextStyle.largeBlack.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.darkGray,
+                            letterSpacing: 1,
+                          )
+                        : null,
                     color: AppColors.pastel,
-                    onPressed:
-                        state.currentIndex > 0
-                            ? () => bloc.add(PreviousPart())
-                            : null,
+                    onPressed: state.currentIndex > 0
+                        ? () => bloc.add(PreviousPart())
+                        : null,
                   ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: AppButton(
                     text: "Next",
+                    textStyle:
+                        state.currentIndex == state.listQuestion.length - 1
+                        ? AppTextStyle.largeBlack.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.darkGray,
+                            letterSpacing: 1,
+                          )
+                        : null,
                     color: AppColors.green,
                     onPressed:
                         state.currentIndex < state.listQuestion.length - 1
-                            ? () => bloc.add(NextPart())
-                            : null,
+                        ? () => bloc.add(NextPart())
+                        : null,
                   ),
                 ),
               ],
@@ -284,14 +328,24 @@ class SpeakingP2Page
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
-          child: IconButton(
-            icon: const Icon(Icons.refresh, color: Colors.grey),
-            iconSize: 32,
-            onPressed:
-                state.recordingPath != null &&
+          child: Row(
+            children: [
+              IconButton(
+                icon: Icon(Icons.question_mark_rounded, color: Colors.grey),
+                onPressed: () {
+                  AppToast.showSuccess(context, message: "45s/question");
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.refresh, color: Colors.grey),
+                iconSize: 32,
+                onPressed:
+                    state.recordingPath != null &&
                         state.recordingStatus != RecordingStatus.playing
                     ? () => bloc.add(ResetRecording())
                     : null,
+              ),
+            ],
           ),
         ),
 
@@ -327,10 +381,9 @@ class SpeakingP2Page
         );
       case RecordingStatus.initial:
         return FloatingActionButton(
-          onPressed:
-              () => bloc.add(
-                StartRecording(timeLimitInSeconds: state.timeLimitInSeconds),
-              ),
+          onPressed: () => bloc.add(
+            StartRecording(timeLimitInSeconds: state.timeLimitInSeconds),
+          ),
           backgroundColor: Colors.red,
           elevation: 0,
           child: const Icon(Icons.mic, color: Colors.white),

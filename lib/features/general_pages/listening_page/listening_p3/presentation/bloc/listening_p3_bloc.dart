@@ -12,7 +12,7 @@ class ListeningP3Bloc extends BaseBloc<ListeningP3Event, ListeningP3State> {
   late final StreamSubscription<PlayerState> _playerSubscription;
 
   ListeningP3Bloc({required this.getQuestionListeningP3})
-      : super(ListeningP3State()) {
+    : super(ListeningP3State()) {
     on<LoadQuestions>(_onLoadQuestions);
     on<NextQuestion>(_onNextQuestion);
     on<PreviousQuestion>(_onPreviousQuestion);
@@ -21,6 +21,7 @@ class ListeningP3Bloc extends BaseBloc<ListeningP3Event, ListeningP3State> {
     on<ToggleTranscript>(_onToggleTranscript);
     on<ToggleAudio>(_onToggleAudio);
     on<AudioCompleted>(_onAudioCompleted);
+    on<JumpToTopic>(_onJumpToTopic);
 
     _playerSubscription = _player.playerStateStream.listen((playerState) {
       if (playerState.processingState == ProcessingState.completed) {
@@ -60,7 +61,7 @@ class ListeningP3Bloc extends BaseBloc<ListeningP3Event, ListeningP3State> {
     Emitter<ListeningP3State> emit,
   ) async {
     emit(state.copyWith(isLoading: true, error: ""));
-
+    await Future.delayed(const Duration(seconds: 3));
     final result = await getQuestionListeningP3(
       Params(page: event.page, limit: event.limit),
     );
@@ -163,5 +164,12 @@ class ListeningP3Bloc extends BaseBloc<ListeningP3Event, ListeningP3State> {
       newSet.add(event.questionIndex);
     }
     emit(state.copyWith(transcriptVisible: newSet));
+  }
+
+  void _onJumpToTopic(JumpToTopic event, Emitter<ListeningP3State> emit) async {
+    final index = event.index;
+    if (index < 0 || index >= state.listQuestion.length) return;
+    await _player.stop();
+    emit(state.copyWith(currentIndex: index, isPlaying: false));
   }
 }

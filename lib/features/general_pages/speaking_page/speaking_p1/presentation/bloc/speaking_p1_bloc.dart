@@ -31,6 +31,17 @@ class SpeakingP1Bloc extends BaseBloc<SpeakingP1Event, SpeakingP1State> {
     on<ResetRecording>(_onResetRecording);
     on<UpdateRecordingTimer>(_onUpdateRecordingTimer);
     on<SeekPlayback>(_onSeekPlayback);
+    on<LoadMoreQuestionsEvent>((event, emit) {
+      final newCount = state.visibleCount + 10;
+      emit(
+        state.copyWith(
+          visibleCount:
+              newCount > state.listQuestion.length
+                  ? state.listQuestion.length
+                  : newCount,
+        ),
+      );
+    });
 
     _initPlayers();
   }
@@ -66,32 +77,23 @@ class SpeakingP1Bloc extends BaseBloc<SpeakingP1Event, SpeakingP1State> {
     StartRecording event,
     Emitter<SpeakingP1State> emit,
   ) async {
-    // Yêu cầu quyền micro
     final granted = await Permission.microphone.request().isGranted;
     if (!granted) {
       emit(state.copyWith(error: "Vui lòng cấp quyền truy cập micro."));
       return;
     }
 
-    // Reset state & xóa bản ghi cũ
     add(ResetRecording());
 
-    // Phát beep
     await _beepPlayer.seek(Duration.zero);
     await _beepPlayer.play();
 
-    // Chờ beep xong
     await _beepPlayer.playerStateStream.firstWhere(
       (s) => s.processingState == ProcessingState.completed,
     );
 
     // Delay nhỏ để chắc chắn không dính tiếng beep
     await Future.delayed(const Duration(milliseconds: 300));
-
-    // Bắt đầu ghi âm
-    final tempDir = await getTemporaryDirectory();
-    final path = '${tempDir.path}/speaking_p1_record.m4a';
-    await _audioRecorder.start(const RecordConfig(), path: path);
 
     emit(
       state.copyWith(
@@ -100,12 +102,15 @@ class SpeakingP1Bloc extends BaseBloc<SpeakingP1Event, SpeakingP1State> {
       ),
     );
 
-    // Timer cập nhật UI
+    // Bắt đầu ghi âm
+    final tempDir = await getTemporaryDirectory();
+    final path = '${tempDir.path}/speaking_p1_record.m4a';
+    await _audioRecorder.start(const RecordConfig(), path: path);
+
     _recordingTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       add(UpdateRecordingTimer(Duration(seconds: timer.tick)));
     });
 
-    // Giới hạn thời gian ghi
     _recordingLimitTimer = Timer(
       Duration(seconds: event.timeLimitInSeconds),
       () {
@@ -201,6 +206,7 @@ class SpeakingP1Bloc extends BaseBloc<SpeakingP1Event, SpeakingP1State> {
     Emitter<SpeakingP1State> emit,
   ) async {
     emit(state.copyWith(isLoading: true, error: ""));
+    await Future.delayed(const Duration(seconds: 3));
     final result = await getQuestionSpeakingP1(
       Params(page: event.page, limit: event.limit),
     );

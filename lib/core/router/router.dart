@@ -1,4 +1,5 @@
 import 'package:easyaptis/features/general_pages/general_page.dart';
+import 'package:easyaptis/features/general_pages/render_pdf/presentation/pages/render_pdf_page.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p1/presentation/pages/listening_p1_page.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p2/presentation/pages/listening_p2_page.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p3/presentation/pages/listening_p3_page.dart';
@@ -52,33 +53,32 @@ class AppRouter {
         final args = settings.arguments as Map<String, dynamic>?;
         return CupertinoPageRoute(
           settings: RouteSettings(name: settings.name),
-          builder:
-              (_) => ReadingP1Page(page: args?['page'], limit: args?['limit']),
+          builder: (_) =>
+              ReadingP1Page(page: args?['page'], limit: args?['limit']),
         );
 
       case '/reading_p2vs3_page':
         final args = settings.arguments as Map<String, dynamic>?;
         return CupertinoPageRoute(
           settings: RouteSettings(name: settings.name),
-          builder:
-              (_) =>
-                  ReadingP2vs3Page(page: args?['page'], limit: args?['limit']),
+          builder: (_) =>
+              ReadingP2vs3Page(page: args?['page'], limit: args?['limit']),
         );
 
       case '/reading_p4_page':
         final args = settings.arguments as Map<String, dynamic>?;
         return CupertinoPageRoute(
           settings: RouteSettings(name: settings.name),
-          builder:
-              (_) => ReadingP4Page(page: args?['page'], limit: args?['limit']),
+          builder: (_) =>
+              ReadingP4Page(page: args?['page'], limit: args?['limit']),
         );
 
       case '/reading_p5_page':
         final args = settings.arguments as Map<String, dynamic>?;
         return CupertinoPageRoute(
           settings: RouteSettings(name: settings.name),
-          builder:
-              (_) => ReadingP5Page(page: args?['page'], limit: args?['limit']),
+          builder: (_) =>
+              ReadingP5Page(page: args?['page'], limit: args?['limit']),
         );
 
       case '/listening_page':
@@ -162,6 +162,61 @@ class AppRouter {
           builder: (_) => SpeakingP4Page(),
         );
 
+      case '/grammar_page':
+        return CupertinoPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) {
+            final args = settings.getArgs(
+              requiredKeys: ['title', 'startPage', 'endPage'],
+            );
+            return RenderPDFPage(
+              title: args['title'],
+              startPage: args['startPage'],
+              endPage: args['endPage'],
+            );
+          },
+        );
+
+      case '/vocabulary_page':
+        return CupertinoPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) {
+            final args = settings.getArgs(
+              requiredKeys: ['title', 'startPage', 'endPage'],
+            );
+            return RenderPDFPage(
+              title: args['title'],
+              startPage: args['startPage'],
+              endPage: args['endPage'],
+            );
+          },
+        );
+
+      case '/tip_page':
+        return CupertinoPageRoute(
+          settings: RouteSettings(name: settings.name),
+          builder: (_) {
+            final args = settings.getArgs(
+              requiredKeys: ['title', 'startPage', 'endPage'],
+            );
+            return RenderPDFPage(
+              title: args['title'],
+              startPage: args['startPage'],
+              endPage: args['endPage'],
+            );
+          },
+        );
+
+      // case '/info_page':
+      //   return CupertinoPageRoute(
+      //     settings: RouteSettings(name: settings.name),
+      //     builder: (_) {
+      //       // final args = settings.getArgs(
+      //       //   requiredKeys: ['title', 'startPage', 'endPage'],
+      //       // );
+      //       return InformationPage();
+      //     },
+      //   );
       // Ny Times Article Details page
       // case '/article_details_page':
       //   return CupertinoPageRoute(
@@ -202,12 +257,9 @@ class AppRouter {
       default:
         return CupertinoPageRoute(
           settings: RouteSettings(name: settings.name),
-          builder:
-              (_) => Scaffold(
-                body: Center(
-                  child: Text('No route defined for ${settings.name}'),
-                ),
-              ),
+          builder: (_) => Scaffold(
+            body: Center(child: Text('No route defined for ${settings.name}')),
+          ),
         );
     }
   }

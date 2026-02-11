@@ -32,15 +32,14 @@ class ReadingP1Bloc extends BaseBloc<ReadingP1Event, ReadingP1State> {
     Emitter<ReadingP1State> emit,
   ) async {
     emit(state.copyWith(isLoading: true));
-    final res = await getQuestionReadingP1UseCase(
-      Params(page: event.page, limit: event.limit),
-    );
     await Future.delayed(const Duration(seconds: 3));
+    final res = await getQuestionReadingP1UseCase(
+      Params(page: event.page, limit: event.limit, forceRefresh: event.forceRefresh),
+    );
     res.fold(
       (failure) =>
           emit(state.copyWith(isLoading: false, error: failure.errorMessage)),
       (questions) {
-        // Trộn đáp án cho mỗi câu hỏi
         final shuffledQuestions =
             questions.map((q) {
               final shuffledOptions = List<OptionR1Entity>.from(q.options)
@@ -48,7 +47,6 @@ class ReadingP1Bloc extends BaseBloc<ReadingP1Event, ReadingP1State> {
               return q.copyWith(options: shuffledOptions);
             }).toList();
 
-        // Lưu index đáp án đúng cho từng câu
         final correctMap = <int, int?>{};
         for (int i = 0; i < shuffledQuestions.length; i++) {
           final correctIndex = shuffledQuestions[i].options.indexWhere(

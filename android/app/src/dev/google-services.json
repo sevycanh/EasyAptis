@@ -7,9 +7,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:428984885177:android:6de1379146c7c69557a068",
+        "mobilesdk_app_id": "1:428984885177:android:15f9864accda0b2457a068",
         "android_client_info": {
-          "package_name": "com.example.easyaptis.dev"
+          "package_name": "com.sevycanh.easyaptis.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIo1QOSfQ_XmMvBfC0O8jgO1F6xLHgtd8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428984885177:android:b55c7495b10e163057a068",
+        "android_client_info": {
+          "package_name": "com.sevycanh.easyaptis.app.dev"
         }
       },
       "oauth_client": [],

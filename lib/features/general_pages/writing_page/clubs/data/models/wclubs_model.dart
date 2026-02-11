@@ -9,13 +9,13 @@ class WClubsModel {
   @JsonKey(name: 'id')
   final int index;
   final String name;
-  final String description;
+  // final String description;
   final Map<String, PartModel> parts;
 
   const WClubsModel({
     required this.index,
     required this.name,
-    required this.description,
+    // required this.description,
     required this.parts,
   });
 
@@ -28,7 +28,7 @@ class WClubsModel {
     return WClubsEntity(
       index: index,
       name: name,
-      description: description,
+      // description: description,
       parts: parts.map((k, v) => MapEntry(k, v.toEntity())),
     );
   }

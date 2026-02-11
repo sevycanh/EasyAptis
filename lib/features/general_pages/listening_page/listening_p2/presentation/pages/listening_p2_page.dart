@@ -3,6 +3,8 @@ import 'package:easyaptis/core/configs/styles/app_colors.dart';
 import 'package:easyaptis/core/configs/styles/app_text_style.dart';
 import 'package:easyaptis/core/utils/base/base_bloc_widget.dart';
 import 'package:easyaptis/core/widgets/app_button.dart';
+import 'package:easyaptis/core/widgets/app_loading.dart';
+import 'package:easyaptis/core/widgets/app_select_bottom_sheet.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p2/domain/entities/listening_p2_entity.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p2/presentation/bloc/listening_p2_bloc.dart';
 import 'package:easyaptis/features/general_pages/listening_page/listening_p2/presentation/bloc/listening_p2_event.dart';
@@ -35,7 +37,7 @@ class ListeningP2Page
     ListeningP2State state,
   ) {
     if (state.isLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return AppLoading();
     }
 
     Widget body;
@@ -55,6 +57,36 @@ class ListeningP2Page
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.list_alt_rounded),
+            tooltip: "Chọn Topic",
+            onPressed: () async => await showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              backgroundColor: AppColors.white,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+              ),
+              builder: (context) {
+                return AppSelectorBottomSheet(
+                  title: "All Topics",
+                  items: List.generate(
+                    state.listQuestion.length,
+                    (index) => AppSelectorItem(
+                      title:
+                          "Topic ${index + 1}: ${state.listQuestion[index].topic}",
+                      isSelected: index == state.currentIndex,
+                    ),
+                  ),
+                  onItemSelected: (index) {
+                    bloc.add(JumpToTopic(index));
+                  },
+                );
+              },
+            ),
+          ),
+        ],
       ),
       body: body,
       bottomNavigationBar: SafeArea(
@@ -72,33 +104,49 @@ class ListeningP2Page
           ),
           child: Row(
             children: [
-              AppButton(
-                text: "Previous",
-                color: AppColors.pastel,
-                fixWidth: true,
-                onPressed:
-                    state.currentIndex == 0
-                        ? null
-                        : () => bloc.add(PreviousQuestion()),
+              Expanded(
+                child: AppButton(
+                  text: "Back",
+                  textStyle: state.currentIndex == 0
+                      ? AppTextStyle.largeBlack.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.darkGray,
+                          letterSpacing: 1,
+                        )
+                      : null,
+                  color: AppColors.pastel,
+                  fixWidth: true,
+                  onPressed: state.currentIndex == 0
+                      ? null
+                      : () => bloc.add(PreviousQuestion()),
+                ),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: AppButton(
-                  text: "Check result",
+                  text: "Check",
                   color: AppColors.primaryColor,
                   fixWidth: true,
                   onPressed: () => bloc.add(CheckAnswer()),
                 ),
               ),
               const SizedBox(width: 12),
-              AppButton(
-                text: "Next",
-                fixWidth: true,
-                color: AppColors.green,
-                onPressed:
-                    state.currentIndex == state.listQuestion.length - 1
-                        ? null
-                        : () => bloc.add(NextQuestion()),
+              Expanded(
+                child: AppButton(
+                  text: "Next",
+                  textStyle: state.currentIndex == state.listQuestion.length - 1
+                      ? AppTextStyle.largeBlack.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.darkGray,
+                          letterSpacing: 1,
+                        )
+                      : null,
+                  fixWidth: true,
+                  color: AppColors.green,
+                  onPressed: state.currentIndex == state.listQuestion.length - 1
+                      ? null
+                      : () => bloc.add(NextQuestion()),
+                ),
               ),
             ],
           ),
@@ -123,6 +171,37 @@ Widget _buildBody(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Row(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: AppColors.lightGray,
+                  shape: BoxShape.circle,
+                ),
+                child: IconButton(
+                  icon: Icon(
+                    state.isPlaying ? Icons.stop : Icons.play_arrow,
+                    size: 32,
+                  ),
+                  onPressed: () {
+                    bloc.add(ToggleAudio(question.audioUrl));
+                  },
+                ),
+              ),
+              const Spacer(),
+              IconButton(
+                icon: Icon(
+                  showTranscript ? Icons.visibility : Icons.visibility_off,
+                ),
+                visualDensity: VisualDensity.compact,
+                padding: EdgeInsets.zero,
+                onPressed: () {
+                  bloc.add(ToggleTranscript(state.currentIndex));
+                },
+              ),
+            ],
+          ),
+          SizedBox(height: 16),
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
@@ -131,31 +210,9 @@ Widget _buildBody(
             ),
             child: Column(
               children: [
-                Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.lightGray,
-                        shape: BoxShape.circle,
-                      ),
-                      child: IconButton(
-                        icon: Icon(
-                          state.isPlaying ? Icons.stop : Icons.play_arrow,
-                          size: 32,
-                        ),
-                        onPressed: () {
-                          bloc.add(ToggleAudio(question.audioUrl));
-                        },
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Text(
-                        "Topic ${state.currentIndex + 1}: ${question.topic}",
-                        style: AppTextStyle.xLargeBlackBold,
-                      ),
-                    ),
-                  ],
+                SelectableText(
+                  "Topic ${state.currentIndex + 1}: ${question.topic}",
+                  style: AppTextStyle.xLargeBlackBold,
                 ),
                 for (final speaker in question.speakers) ...[
                   const SizedBox(height: 16),
@@ -172,19 +229,6 @@ Widget _buildBody(
               ],
             ),
           ),
-          const SizedBox(height: 16),
-          AppButton(
-            fixWidth: true,
-            onPressed: () {
-              bloc.add(ToggleTranscript(state.currentIndex));
-            },
-            text: showTranscript ? "Close Transcript" : "Show Transcript",
-            color: AppColors.linkColor,
-            textStyle: AppTextStyle.largeWhite.copyWith(
-              fontWeight: FontWeight.bold,
-              letterSpacing: 2,
-            ),
-          ),
           if (showTranscript) ...[
             const SizedBox(height: 12),
             Container(
@@ -193,7 +237,20 @@ Widget _buildBody(
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(color: AppColors.lightGray, width: 2),
               ),
-              child: Text(question.transcript, style: AppTextStyle.largeBlack),
+              child: Column(
+                children: [
+                  Center(
+                    child: Text(
+                      "Transcript",
+                      style: AppTextStyle.largeBlackBold.copyWith(
+                        color: AppColors.blue,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(question.transcript, style: AppTextStyle.largeBlack),
+                ],
+              ),
             ),
           ],
         ],
@@ -217,10 +274,9 @@ Widget _buildSpeakerDropdown(
 
   final items = options.map((opt) => opt.text).toList();
 
-  final String? selectedLabel =
-      selected == null
-          ? null
-          : options.firstWhere((o) => o.index == selected).text;
+  final String? selectedLabel = selected == null
+      ? null
+      : options.firstWhere((o) => o.index == selected).text;
 
   Color borderColor = AppColors.gray;
   if (isChecked) {
@@ -244,7 +300,7 @@ Widget _buildSpeakerDropdown(
   }
 
   return CustomDropdown<String>(
-    hintText: "Person $speaker - Chọn đáp án",
+    hintText: "Person $speaker - Select an option",
     items: items,
     initialItem: selectedLabel,
     excludeSelected: false,
